@@ -148,6 +148,18 @@
             box-shadow: 0 16px 40px rgba(168, 85, 247, 0.35);
         }
 
+        /* TARJETA FIJADA / DESTACADA */
+        .card-pinned {
+            background: linear-gradient(145deg, rgba(50, 20, 80, 0.9), rgba(25, 10, 45, 0.95));
+            border: 2px solid #e879f9;
+            box-shadow: 0 0 35px rgba(232, 121, 249, 0.45);
+        }
+
+        .card-pinned::before {
+            background: linear-gradient(180deg, #f472b6, #e879f9, #3b82f6);
+            width: 6px;
+        }
+
         .card-special {
             background: linear-gradient(145deg, rgba(45, 18, 70, 0.85), rgba(22, 10, 40, 0.9));
             border: 1.5px solid rgba(232, 121, 249, 0.6);
@@ -159,12 +171,6 @@
             width: 5px;
         }
 
-        .card-special:hover {
-            transform: translateY(-5px) scale(1.01);
-            border-color: #f472b6;
-            box-shadow: 0 0 45px rgba(232, 121, 249, 0.55);
-        }
-
         .card-danger {
             background: linear-gradient(145deg, rgba(45, 10, 25, 0.85), rgba(20, 5, 12, 0.9));
             border: 1.5px solid rgba(244, 63, 94, 0.5);
@@ -174,11 +180,6 @@
         .card-danger::before {
             background: linear-gradient(180deg, #ff4d4d, #f43f5e, #9f1239);
             width: 5px;
-        }
-
-        .card-danger:hover {
-            border-color: #ff4d4d;
-            box-shadow: 0 0 35px rgba(244, 63, 94, 0.45);
         }
 
         .card-header {
@@ -195,14 +196,47 @@
             letter-spacing: 0.5px;
         }
 
-        .card-danger .card-date {
-            color: #fca5a5;
-        }
-
         .tag-group {
             display: flex;
             gap: 6px;
             align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .tag-pinned {
+            background: linear-gradient(135deg, #f472b6, #e879f9);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 3px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(244, 114, 182, 0.8);
+            letter-spacing: 0.5px;
+        }
+
+        .tag-tested {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 3px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+            letter-spacing: 0.5px;
+        }
+
+        .tag-full {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 3px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+            letter-spacing: 0.5px;
         }
 
         .tag-special {
@@ -268,17 +302,8 @@
             border: 1px solid rgba(192, 132, 252, 0.25);
         }
 
-        .card-danger .instructions {
-            background: rgba(244, 63, 94, 0.1);
-            border-color: rgba(244, 63, 94, 0.3);
-        }
-
         .instructions b {
             color: #f0abfc;
-        }
-
-        .card-danger .instructions b {
-            color: #fca5a5;
         }
 
         .key-container {
@@ -291,11 +316,6 @@
             border-radius: 14px;
             margin-top: 10px;
             gap: 8px;
-        }
-
-        .card-danger .key-container {
-            background: rgba(50, 15, 25, 0.75);
-            border-color: rgba(244, 63, 94, 0.5);
         }
 
         .key-text {
@@ -320,18 +340,9 @@
             white-space: nowrap;
         }
 
-        .card-danger .copy-btn {
-            background: linear-gradient(135deg, #f43f5e, #be123c);
-            box-shadow: 0 3px 10px rgba(244, 63, 94, 0.4);
-        }
-
         .copy-btn:hover {
             transform: scale(1.05);
             filter: brightness(1.1);
-        }
-
-        .copy-btn:active {
-            transform: scale(0.95);
         }
 
         .btn {
@@ -355,10 +366,6 @@
         .btn:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
-        }
-
-        .btn:active {
-            transform: scale(0.98);
         }
 
         .btn-main {
@@ -403,11 +410,6 @@
             background: rgba(168, 85, 247, 0.12);
             color: #f0abfc;
             border: 1px solid rgba(192, 132, 252, 0.4);
-        }
-
-        .btn-key:hover {
-            background: rgba(168, 85, 247, 0.3);
-            color: #ffffff;
         }
 
         .btn-youtube {
@@ -458,31 +460,20 @@
             🔑 CANAL DE TUTOS & KEYS EN WHATSAPP
         </a>
 
-        <!-- 🆕 PRIMERA TARJETA (MÁS RECIENTE): PROXY TNT V14 -->
-        <div class="card">
+        <!-- 📌 TARJETA FIJADA PRIMERA: FOX ONE V8 / V9 FULL -->
+        <div class="card card-pinned">
             <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 18/09/2026</span>
-                <span class="tag-new">NUEVO</span>
+                <span class="card-date">📅 ACTUALIZADO HOY</span>
+                <div class="tag-group">
+                    <span class="tag-pinned">📌 FIJADO</span>
+                    <span class="tag-full">FULL</span>
+                    <span class="tag-tested">✅ TESTEADO CADA DÍA</span>
+                </div>
             </div>
-            <h3>💣 PROXY TNT V14 🤯⚡</h3>
+            <h3>🦊 FOX ONE V9 / V8 (FULL) 🤯👇</h3>
             <p>
-                • ⚡ <b>Versión:</b> Proxy TNT V14 + Tutorial.<br>
-                • 🎮 <b>Compatibilidad:</b> Exclusivo FULL para Free Fire MAX.
-            </p>
-
-            <a href="https://www.mediafire.com/file/xqaut5his12q600/PROXY_TNT_V14_%2B_TUTORIAL.zip/file" target="_blank" class="btn btn-mediafire">
-                📥 Descargar Proxy TNT V14 + Tutorial (.zip)
-            </a>
-        </div>
-
-        <!-- TARJETA: FOX ONE V8 / V9 -->
-        <div class="card">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 17/09/2026</span>
-            </div>
-            <h3>🦊 FOX ONE V8 🤯👇</h3>
-            <p>
-                • ⚡ <b>Versión:</b> Fox One V9 / V8.
+                • ⚡ <b>Versión:</b> Fox One V9 / V8.<br>
+                • 🔥 <b>Estado:</b> FULL - Testeado y funcional cada día.
             </p>
 
             <div class="instructions">
@@ -503,7 +494,24 @@
             </a>
         </div>
 
-        <!-- TARJETA: NETCHEAT PROXY V8 -->
+        <!-- PROXY TNT V14 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-date">📅 SUBIDO: 18/09/2026</span>
+                <span class="tag-new">NUEVO</span>
+            </div>
+            <h3>💣 PROXY TNT V14 🤯⚡</h3>
+            <p>
+                • ⚡ <b>Versión:</b> Proxy TNT V14 + Tutorial.<br>
+                • 🎮 <b>Compatibilidad:</b> Exclusivo FULL para Free Fire MAX.
+            </p>
+
+            <a href="https://www.mediafire.com/file/xqaut5his12q600/PROXY_TNT_V14_%2B_TUTORIAL.zip/file" target="_blank" class="btn btn-mediafire">
+                📥 Descargar Proxy TNT V14 + Tutorial (.zip)
+            </a>
+        </div>
+
+        <!-- NETCHEAT PROXY V8 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 17/09/2026</span>
@@ -527,7 +535,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: VELQERIX PROXY V1.0 -->
+        <!-- VELQERIX PROXY V1.0 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 17/09/2026</span>
@@ -551,7 +559,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: 02 MODS NON ROOT -->
+        <!-- 02 MODS NON ROOT -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 17/09/2026</span>
@@ -580,7 +588,7 @@
             </div>
         </div>
 
-        <!-- TARJETA: NETWORK XLEO -->
+        <!-- NETWORK XLEO -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 16/09/2026</span>
@@ -600,7 +608,7 @@
             </div>
         </div>
 
-        <!-- TARJETA: NETWORK GAME V16.4 -->
+        <!-- NETWORK GAME V16.4 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 15/09/2026</span>
@@ -626,7 +634,7 @@
             </div>
         </div>
 
-        <!-- TARJETA: POWER TEAM V 33 -->
+        <!-- POWER TEAM V 33 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 15/09/2026</span>
@@ -660,7 +668,7 @@
             </div>
         </div>
 
-        <!-- TARJETA: MTH TEAM V25 FULL SAFE -->
+        <!-- MTH TEAM V25 FULL SAFE -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 14/09/2026</span>
@@ -680,7 +688,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: PATO TEAM MODZ -->
+        <!-- PATO TEAM MODZ -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 13/09/2026</span>
@@ -700,7 +708,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: PROXY GRINGO XP -->
+        <!-- PROXY GRINGO XP -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 13/09/2026</span>
@@ -724,7 +732,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: SILENT CHEATS ATT MOD MENU VII (PARCHADO) -->
+        <!-- SILENT CHEATS ATT MOD MENU VII (PARCHADO) -->
         <div class="card card-danger">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 13/09/2026</span>
@@ -747,7 +755,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: DAYO PING V40 -->
+        <!-- DAYO PING V40 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 12/09/2026</span>
@@ -770,7 +778,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: FAKE MODS WIRE V3 -->
+        <!-- FAKE MODS WIRE V3 -->
         <div class="card card-special">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 11/09/2026</span>
@@ -795,7 +803,7 @@
             </div>
         </div>
 
-        <!-- TARJETA: PROXY MOD MENU YOONSO -->
+        <!-- PROXY MOD MENU YOONSO -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 11/09/2026</span>
@@ -820,7 +828,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: VELQERIX V1.1 -->
+        <!-- VELQERIX V1.1 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 11/09/2026</span>
@@ -845,7 +853,7 @@
             </p>
         </div>
 
-        <!-- TARJETA: TM MOCO LOCATION [CRACK] -->
+        <!-- TM MOCO LOCATION [CRACK] -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 11/09/2026</span>
@@ -862,7 +870,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: THE KING CHEATS V284 -->
+        <!-- THE KING CHEATS V284 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 10/09/2026</span>
@@ -879,7 +887,7 @@
             </a>
         </div>
 
-        <!-- TARJETA: APELOX MODS V66 -->
+        <!-- APELOX MODS V66 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 10/09/2026</span>
@@ -901,7 +909,7 @@
             </div>
         </div>
 
-        <!-- TARJETA: FAKE HACK (PARCHADO CON COLOR ROJO ALERTA) -->
+        <!-- FAKE HACK (PARCHADO CON COLOR ROJO ALERTA) -->
         <div class="card card-danger">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 09/09/2026</span>
@@ -932,7 +940,7 @@
             </div>
         </div>
 
-        <!-- TARJETA: PROXY P1 -->
+        <!-- PROXY P1 -->
         <div class="card">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 08/09/2026</span>
