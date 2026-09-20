@@ -210,6 +210,32 @@
             font-weight: 600;
         }
 
+        /* FILTROS RÁPIDOS Y BUSCADOR */
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: rgba(30, 15, 50, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            color: #d8b4fe;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-glow);
+            color: #ffffff;
+            border-color: var(--secondary-glow);
+        }
+
         .search-box {
             width: 100%;
             padding: 12px 18px;
@@ -288,21 +314,6 @@
 
         .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; }
         .card p { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
-
-        .instructions {
-            font-size: 13.5px;
-            color: #e2e8f0;
-            line-height: 1.4;
-            margin-top: 10px;
-            margin-bottom: 14px;
-            background: rgba(168, 85, 247, 0.12);
-            padding: 12px 14px;
-            border-radius: 14px;
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            font-weight: 600;
-        }
-
-        .instructions b { color: #f0abfc; }
 
         .key-container {
             display: flex; align-items: center; justify-content: space-between;
@@ -530,16 +541,23 @@
         
         <p class="desc">🔥 DESCARGA LO MÁS NUEVO Y RECIENTE AQUÍ 🔥<br>Lo último en optimizaciones y herramientas subidas al instante.</p>
         
+        <!-- FILTROS RÁPIDOS -->
+        <div class="filter-group">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">TODOS</button>
+            <button class="filter-btn" onclick="filterCategory('proxy', this)">🔥 PROXIES</button>
+            <button class="filter-btn" onclick="filterCategory('patched', this)">🚫 PARCHADOS</button>
+        </div>
+
         <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar archivo, proxy o mod..." onkeyup="filterCards()">
 
         <span class="counter-badge" id="card-counter">📌 MOSTRANDO ARCHIVOS MÁS RECIENTES</span>
 
         <div class="maint-screen" id="maintScreen">
-            <h2 style="color: #f43f5e;">⚠️ MODO MANTENIMIENTO ⚠️</h2>
-            <p style="color: #cbd5e1; font-weight: 700; font-size: 15px;">Estamos actualizando los servidores y archivos de Fake Mods.<br>Regresamos en unos minutos. 🚀</p>
+            <h2 style="color: #f43f5e;" id="maintTitle">⚠️ MODO MANTENIMIENTO ⚠️</h2>
+            <p style="color: #cbd5e1; font-weight: 700; font-size: 15px;" id="maintText">Estamos actualizando los servidores y archivos de Fake Mods.<br>Regresamos en unos minutos. 🚀</p>
         </div>
 
-        <!-- CONTENIDO PRINCIPAL -->
+        <!-- CONTENIDO PRINCIPAL (ÚNICAMENTE LAS 3 TARJETAS DEL NUEVO CICLO) -->
         <div id="mainWebList">
             <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn btn-main">
                 🚀 UNIRSE AL CANAL PRINCIPAL DE WHATSAPP
@@ -550,7 +568,7 @@
             </a>
 
             <!-- 1. BRASI PROXY V4 (NUEVO) -->
-            <div class="card" data-id="1. Brasi Proxy V4">
+            <div class="card" data-id="1. Brasi Proxy V4" data-type="proxy">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 20/09/2026</span>
                     <div class="tag-group">
@@ -567,7 +585,7 @@
             </div>
 
             <!-- 2. PROXY STIRLAX -->
-            <div class="card" data-id="2. Proxy Stirlax">
+            <div class="card" data-id="2. Proxy Stirlax" data-type="proxy">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 20/09/2026</span>
                     <div class="tag-group">
@@ -586,7 +604,7 @@
             </div>
 
             <!-- 3. FOX ONE V10 (PARCHADO) -->
-            <div class="card card-danger" data-id="3. Fox One V10">
+            <div class="card card-danger" data-id="3. Fox One V10" data-type="patched">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 19/09/2026</span>
                     <div class="tag-group">
@@ -597,162 +615,6 @@
                 <p>• ⚡ <b>Versión:</b> Fox One V10.<br>• ⚠️ <b>Estado:</b> PARCHADO - Esperando nueva actualización.</p>
                 <button class="btn btn-danger" onclick="startDownloadWithTimer('https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file', '3. Fox One V10')">📥 Descargar Fox One V10 (.apk)</button>
                 <button class="btn-report" onclick="reportFile('3. Fox One V10', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 4. PROXY TNT V14 -->
-            <div class="card" data-id="4. Proxy TNT V14">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 18/09/2026</span>
-                </div>
-                <h3>💣 PROXY TNT V14 🤯⚡</h3>
-                <p>• ⚡ <b>Versión:</b> Proxy TNT V14 + Tutorial.<br>• 🎮 <b>Compatibilidad:</b> Exclusivo FULL para Free Fire MAX.</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/xqaut5his12q600/PROXY_TNT_V14_%2B_TUTORIAL.zip/file', '4. Proxy TNT V14')">📥 Descargar Proxy TNT V14 + Tutorial (.zip)</button>
-                <button class="btn-report" onclick="reportFile('4. Proxy TNT V14', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 5. NETCHEAT PROXY V8 -->
-            <div class="card" data-id="5. NetCheat Proxy V8">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 17/09/2026</span>
-                </div>
-                <h3>🔥 NETCHEAT PROXY V8 🤯⚡</h3>
-                <p>• ⚙️ <b>Requisito:</b> Conectar Shizuku por depuración inalámbrica.</p>
-                <div class="instructions"><b>📌 NOTA IMPORTANTE:</b> Conectar Shizuku por depuración para su correcto funcionamiento.</div>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ug8td10trqx9w4k/Proxy+NetCheat+V8.apk/file', '5. NetCheat Proxy V8')">📥 Descargar Proxy NetCheat V8 (.apk)</button>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/smlcnmdbo3p5hbk/SHIZUKU.apk/file', '5. NetCheat Proxy V8 (Shizuku)')">🌟 Descargar Shizuku App (.apk)</button>
-                <button class="btn-report" onclick="reportFile('5. NetCheat Proxy V8', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 6. VELQERIX PROXY V1.0 -->
-            <div class="card" data-id="6. Velqerix Proxy V1.0">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 17/09/2026</span>
-                </div>
-                <h3>🔥 VELQERIX PROXY V1.0 ⚡</h3>
-                <p>• 🎯 <b>Funciones:</b> AIMBOT NO BUG + ESP.<br>• ⚠️ <b>Requisito:</b> Free Fire MAX actualizado.</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://modsff.com/proxy', '6. Velqerix Proxy V1.0')">📥 Descargar Velqerix Proxy V1.0</button>
-                <a href="https://modsff.com/keysgratis" target="_blank" class="btn btn-key track-dl">🔑 Generar Keys Gratis Aquí</a>
-                <button class="btn-report" onclick="reportFile('6. Velqerix Proxy V1.0', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 7. 02 MODS NON ROOT -->
-            <div class="card" data-id="7. 02 Mods Non Root">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 17/09/2026</span>
-                </div>
-                <h3>🔥 02 MODS NON ROOT ⚡</h3>
-                <p>• 🎮 <b>Tipo:</b> Mod Non Root.<br>• ⚙️ <b>Requiere:</b> Shizuku y FF MAX.</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/juwc8yqozftbpaw/02+MODS_1.0.apk/file', '7. 02 Mods Non Root')">📥 Descargar 02 MODS 1.0 (.apk)</button>
-                <div class="key-container">
-                    <span class="key-text">KEY: 02 VIP</span>
-                    <button class="copy-btn track-copy" onclick="copyKey('02 VIP', this)">📋 Copiar Key</button>
-                </div>
-                <button class="btn-report" onclick="reportFile('7. 02 Mods Non Root', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 8. NETWORK XLEO -->
-            <div class="card" data-id="8. Network Xleo">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 16/09/2026</span>
-                </div>
-                <h3>🌐 NETWORK XLEO ⚡</h3>
-                <p>• 👤 <b>Créditos:</b> XLEOPROLIVE</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/uluis9jenvvftd4/Network_FIXED.apk/file', '8. Network Xleo')">📥 Descargar Network FIXED (.apk)</button>
-                <div class="key-container">
-                    <span class="key-text">KEY: xLeo-SN52041D</span>
-                    <button class="copy-btn track-copy" onclick="copyKey('xLeo-SN52041D', this)">📋 Copiar Key</button>
-                </div>
-                <button class="btn-report" onclick="reportFile('8. Network Xleo', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 9. NETWORK GAME V16.4 -->
-            <div class="card" data-id="9. Network Game V16.4">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 15/09/2026</span>
-                </div>
-                <h3>⚡ NETWORK GAME V16.4 🌐</h3>
-                <p>• 🎮 <b>Proxy:</b> Full Gratis por 1 día (VIP).</p>
-                <div class="instructions"><b>⏳ PROMO EXCLUSIVA:</b> Gratis por un día. ¡Aprovecha!</div>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/oqnnp07m1c6spvf/Network+Game+V16+PROXY+ASTRA.apk/file', '9. Network Game V16.4')">📥 Descargar Network Game V16 Proxy (.apk)</button>
-                <div class="key-container">
-                    <span class="key-text">KEY: NETWORK-GAME-FREE-8K</span>
-                    <button class="copy-btn track-copy" onclick="copyKey('NETWORK-GAME-FREE-8K', this)">📋 Copiar Key</button>
-                </div>
-                <button class="btn-report" onclick="reportFile('9. Network Game V16.4', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 10. POWER TEAM V 33 -->
-            <div class="card" data-id="10. Power Team V33">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 15/09/2026</span>
-                </div>
-                <h3>🌟 POWER TEAM V 33 🌟</h3>
-                <p>• 🎮 <b>Proxy:</b> Power Mods Proxy V33.</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/7wa69fc223avvck/POWER%257EMODS%257EPROXY_V33_%25F0%259F%2594%25A5.apk/file', '10. Power Team V33')">📥 Descargar Power Mods Proxy V33 (.apk)</button>
-                <div class="key-container">
-                    <span class="key-text">KEY: POWER-FJZXA</span>
-                    <button class="copy-btn track-copy" onclick="copyKey('POWER-FJZXA', this)">📋 Copiar Key</button>
-                </div>
-                <button class="btn-report" onclick="reportFile('10. Power Team V33', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 11. MTH TEAM V25 FULL SAFE -->
-            <div class="card" data-id="11. MTH Team V25">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 14/09/2026</span>
-                </div>
-                <h3>🛡️ MTH TEAM V25 FULL SAFE 🛡️</h3>
-                <p>• 🎮 <b>Versión:</b> Proxy MTH Team v25 Menu.</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/uxbegapk6nh2mnv/Proxy_Mth_Team_v25_Menu.zip/file?dkey=7p2cwwvpobt&r=1939', '11. MTH Team V25')">📥 Descargar Proxy MTH Team V25 (.zip)</button>
-                <a href="https://mthteam.com/getkey" target="_blank" class="btn btn-key track-dl">🔑 Generar Key MTH Team Aquí</a>
-                <button class="btn-report" onclick="reportFile('11. MTH Team V25', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 12. PATO TEAM MODZ -->
-            <div class="card" data-id="12. Pato Team Modz">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 13/09/2026</span>
-                </div>
-                <h3>💬 PATO TEAM MODZ 👹</h3>
-                <p>• 🎮 <b>Versión:</b> APK MOD 2.131.X PATO TEAM</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/kbdmol16astsogo/APKMOD.2.131.X.PATOTEAM.apks/file', '12. Pato Team Modz')">📥 Descargar Pato Team APK (.apks)</button>
-                <a href="https://mrlightvn.fun/app/getkey?ref=xnhauv" target="_blank" class="btn btn-key track-dl">🔑 Genera tu Key Aquí</a>
-                <button class="btn-report" onclick="reportFile('12. Pato Team Modz', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 13. PROXY GRINGO XP -->
-            <div class="card" data-id="13. Proxy Gringo XP">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 13/09/2026</span>
-                </div>
-                <h3>🥶 PROXY GRINGO XP PAINEL V13 💀</h3>
-                <p>• 🎮 <b>FF Recomendado:</b> Free Fire MAX.</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/opqlabzh0yfo4qn/GRINGO+XP+PAINEL+V13+PROXY.apk/file', '13. Proxy Gringo XP')">📥 Descargar Gringo XP Painel V13 (.apk)</button>
-                <a href="https://gringoxp.site/gringo/GetKey" target="_blank" class="btn btn-key track-dl">🔑 Genera tu Key Aquí</a>
-                <button class="btn-report" onclick="reportFile('13. Proxy Gringo XP', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 14. SILENT CHEATS (PARCHADO) -->
-            <div class="card card-danger" data-id="14. Silent Cheats VII">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 13/09/2026</span>
-                    <span class="tag-patched">🚫 PARCHADO</span>
-                </div>
-                <h3>🔥 SILENT CHEATS ATT MOD MENU VII 🔥</h3>
-                <p>• 🆕 NEW BYPASS / NEW UPDATE</p>
-                <button class="btn btn-danger" onclick="startDownloadWithTimer('https://www.mediafire.com/file/bamquz5eouw1tr6/SILENT+CHEATS+ATT+MOD+MENU+VII.apks/file', '14. Silent Cheats VII')">📥 Descargar Mod Menu VII (.apks)</button>
-                <button class="btn-report" onclick="reportFile('14. Silent Cheats VII', this)">⚠️ Reportar Enlace o Mod Caído</button>
-            </div>
-
-            <!-- 15. DAYO PING V40 -->
-            <div class="card" data-id="15. Dayo Ping V40">
-                <div class="card-header">
-                    <span class="card-date">📅 SUBIDO: 12/09/2026</span>
-                </div>
-                <h3>🔥 DAYO PING V40 🔥</h3>
-                <p>• FULL CON MÁS DE 100 RACHAS 🔥</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/o7h6tdtcifbvsje/DAYO+PING+V40+MDZ+.apk/file', '15. Dayo Ping V40')">📥 Descargar Dayo Ping V40 (.apk)</button>
-                <button class="btn-report" onclick="reportFile('15. Dayo Ping V40', this)">⚠️ Reportar Enlace o Mod Caído</button>
             </div>
 
             <!-- APARTADO DE DEJAR NOTA AL ADMIN -->
@@ -795,6 +657,14 @@
             <div class="stat-card"><span>📋 Keys Copiadas:</span><b id="stat-copies">0</b></div>
             <button class="btn-sub-reset" onclick="resetStatsOnly()">🗑️ Reiniciar Estadísticas (Visitas/Clics)</button>
 
+            <!-- TIEMPO DEL TEMPORIZADOR ANTI-BOT -->
+            <div class="admin-section-title">⏳ Tiempo de Espera Anti-Bot:</div>
+            <div class="theme-selector">
+                <button class="theme-btn" style="background: #3b82f6;" onclick="setTimerSpeed(3)">3 Segundos</button>
+                <button class="theme-btn" style="background: #a855f7;" onclick="setTimerSpeed(5)">5 Segundos</button>
+                <button class="theme-btn" style="background: #e11d48;" onclick="setTimerSpeed(10)">10 Segundos</button>
+            </div>
+
             <div class="admin-section-title">🎨 Tema Visual:</div>
             <div class="theme-selector">
                 <button class="theme-btn" style="background: #9333ea;" onclick="setTheme('')">Violeta</button>
@@ -809,6 +679,12 @@
                     <input type="checkbox" id="maintSwitch" onchange="toggleMaintenance(this.checked)">
                     <span class="slider"></span>
                 </label>
+            </div>
+
+            <div class="admin-section-title">🛠️ Texto Pantalla Mantenimiento:</div>
+            <div class="admin-input-group">
+                <input type="text" id="newMaintTextInput" class="admin-input" placeholder="Escribe el aviso de mantenimiento...">
+                <button class="admin-btn-action" onclick="saveMaintText()">Guardar</button>
             </div>
 
             <!-- MOSTRAR / OCULTAR BANNER -->
@@ -868,6 +744,10 @@
             return localStorage.getItem('admin_creator_mode') === 'true';
         }
 
+        function getTimerSpeed() {
+            return parseInt(localStorage.getItem('admin_timer_speed') || 5);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             if (!isCreatorMode()) {
                 let views = parseInt(localStorage.getItem('admin_views') || 0) + 1;
@@ -881,6 +761,9 @@
 
             let savedBannerText = localStorage.getItem('admin_banner_text');
             if (savedBannerText) document.getElementById('bannerTextContent').innerHTML = savedBannerText;
+
+            let savedMaintText = localStorage.getItem('admin_maint_text');
+            if (savedMaintText) document.getElementById('maintText').innerText = savedMaintText;
 
             if (localStorage.getItem('admin_banner_hidden') === 'true') {
                 document.getElementById('announcementBanner').style.display = 'none';
@@ -910,6 +793,25 @@
 
             updateCardCounter();
         });
+
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.card').forEach(card => {
+                if (cat === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    let type = card.getAttribute('data-type');
+                    card.style.display = (type === cat) ? 'block' : 'none';
+                }
+            });
+        }
+
+        function setTimerSpeed(seconds) {
+            localStorage.setItem('admin_timer_speed', seconds);
+            alert(`⏳ Temporizador de descarga configurado en ${seconds} segundos.`);
+        }
 
         function toggleCreatorMode(active) {
             localStorage.setItem('admin_creator_mode', active);
@@ -944,7 +846,7 @@
         function startDownloadWithTimer(url, fileId) {
             let modal = document.getElementById('timerModal');
             let countElem = document.getElementById('timerCount');
-            let timeLeft = 5;
+            let timeLeft = getTimerSpeed();
 
             modal.style.display = 'flex';
             countElem.innerText = timeLeft;
@@ -1055,6 +957,15 @@
                 localStorage.setItem('admin_banner_text', formattedText);
                 document.getElementById('bannerTextContent').innerHTML = formattedText;
                 alert("✅ Texto del banner actualizado.");
+            }
+        }
+
+        function saveMaintText() {
+            let text = document.getElementById('newMaintTextInput').value;
+            if (text.trim() !== "") {
+                localStorage.setItem('admin_maint_text', text);
+                document.getElementById('maintText').innerText = text;
+                alert("✅ Texto de mantenimiento actualizado.");
             }
         }
 
