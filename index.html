@@ -18,20 +18,6 @@
             --card-bg: rgba(18, 11, 32, 0.82);
         }
 
-        body.theme-green {
-            --primary-glow: #22c55e;
-            --secondary-glow: #4ade80;
-            --accent-color: #86efac;
-            --card-bg: rgba(10, 25, 18, 0.85);
-        }
-
-        body.theme-red {
-            --primary-glow: #f43f5e;
-            --secondary-glow: #fb7185;
-            --accent-color: #fca5a5;
-            --card-bg: rgba(28, 10, 18, 0.85);
-        }
-
         /* PROTECCIÓN ANTI-COPIA / SELECCIÓN DE TEXTO */
         body.no-select {
             -webkit-user-select: none;
@@ -60,7 +46,6 @@
                 radial-gradient(circle at 0% 50%, rgba(217, 70, 239, 0.15), transparent 45%),
                 radial-gradient(circle at 100% 80%, rgba(147, 51, 234, 0.2), transparent 50%);
             background-attachment: fixed;
-            transition: all 0.5s ease;
         }
 
         .container {
@@ -104,12 +89,6 @@
             justify-content: space-between;
             backdrop-filter: blur(15px);
             box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
-            animation: pulse-border 2.5s infinite alternate;
-        }
-
-        @keyframes pulse-border {
-            0% { border-color: rgba(232, 121, 249, 0.4); box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
-            100% { border-color: rgba(232, 121, 249, 0.9); box-shadow: 0 0 25px rgba(217, 70, 239, 0.5); }
         }
 
         .announcement-text {
@@ -261,18 +240,7 @@
             opacity: 0.9;
         }
 
-        /* ESTADO: DESTACADO / VIP (BORDE DORADO) */
-        .card.card-featured {
-            border: 2px solid #eab308;
-            box-shadow: 0 0 30px rgba(234, 179, 8, 0.4);
-        }
-
-        .card.card-featured::before {
-            background: linear-gradient(180deg, #fef08a, #eab308, #ca8a04);
-            width: 6px;
-        }
-
-        /* ESTADO: PARCHADO */
+        /* TARJETA PARCHADA */
         .card.card-danger {
             background: linear-gradient(145deg, rgba(45, 10, 25, 0.85), rgba(20, 5, 12, 0.9));
             border: 1.5px solid rgba(244, 63, 94, 0.5);
@@ -297,7 +265,6 @@
         .tag-tested { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-patched { background: linear-gradient(135deg, #f43f5e, #881337); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
-        .tag-featured { background: linear-gradient(135deg, #eab308, #ca8a04); color: #000; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
 
         .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; }
         .card p { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
@@ -330,20 +297,6 @@
         .btn-danger { background: linear-gradient(135deg, #f43f5e, #9f1239); color: #ffffff; }
         .btn-key { background: rgba(168, 85, 247, 0.15); color: #f0abfc; border: 1px solid rgba(192, 132, 252, 0.45); }
 
-        .btn-report {
-            background: rgba(244, 63, 94, 0.12);
-            color: #fda4af;
-            border: 1px solid rgba(244, 63, 94, 0.3);
-            border-radius: 10px;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 6px 12px;
-            margin-top: 10px;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.2s ease;
-        }
-
         .timer-modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); z-index: 2000;
@@ -357,110 +310,10 @@
 
         .timer-number { font-size: 54px; font-weight: 900; color: var(--secondary-glow); margin: 15px 0; }
 
-        .admin-trigger {
-            position: fixed; bottom: 20px; right: 20px; background: rgba(20, 14, 35, 0.9);
-            border: 1px solid #c084fc; color: #ffffff; width: 48px; height: 48px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer;
-            box-shadow: 0 0 20px rgba(192, 132, 252, 0.6); z-index: 999;
-        }
-
-        .admin-modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(12px); z-index: 1000;
-            align-items: center; justify-content: center; padding: 20px;
-        }
-
-        .admin-content {
-            background: #120a22; border: 2px solid #a855f7; border-radius: 22px; padding: 24px;
-            max-width: 460px; width: 100%; color: #fff; text-align: left;
-            position: relative; max-height: 85vh; overflow-y: auto;
-        }
-
-        .admin-content h2 { font-size: 22px; color: #f0abfc; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: 900; }
-        .close-admin { background: none; border: none; color: #ff4d4d; font-size: 24px; cursor: pointer; font-weight: 900; }
-
-        .stat-card {
-            background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(192, 132, 252, 0.35);
-            border-radius: 12px; padding: 12px 16px; margin-bottom: 10px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        .stat-card span { font-size: 14px; color: #cbd5e1; font-weight: 700; }
-        .stat-card b { font-size: 20px; color: #22c55e; font-weight: 900; }
-
-        .admin-section-title { font-size: 15px; color: #a78bfa; margin-top: 18px; margin-bottom: 8px; font-weight: 800; text-transform: uppercase; }
-
-        .admin-input-group { display: flex; gap: 8px; margin-bottom: 12px; }
-
-        .admin-input {
-            flex: 1; padding: 10px 14px; background: rgba(30, 15, 50, 0.8);
-            border: 1px solid rgba(192, 132, 252, 0.4); border-radius: 10px;
-            color: #ffffff; font-size: 13px; font-weight: 700; outline: none;
-        }
-
-        .admin-btn-action {
-            background: linear-gradient(135deg, #a855f7, #7c3aed);
-            color: #ffffff; border: none; padding: 10px 14px; border-radius: 10px;
-            font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap;
-        }
-
-        .admin-btn-export {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: #ffffff; border: none; padding: 11px; border-radius: 12px;
-            width: 100%; font-weight: 900; margin-top: 10px; cursor: pointer; font-size: 13.5px;
-        }
-
-        .theme-selector { display: flex; gap: 10px; margin-bottom: 15px; }
-        .theme-btn { flex: 1; padding: 8px; border: none; border-radius: 10px; color: white; font-weight: 800; font-size: 12px; cursor: pointer; }
-
-        .maintenance-toggle {
-            display: flex; align-items: center; justify-content: space-between;
-            background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4);
-            padding: 12px 16px; border-radius: 12px; margin-top: 12px; margin-bottom: 12px;
-        }
-
-        .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .3s; border-radius: 24px; }
-        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
-        input:checked + .slider { background-color: #22c55e; }
-        input:checked + .slider:before { transform: translateX(20px); }
-
-        .card-control-item {
-            background: rgba(30, 15, 50, 0.8);
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .card-control-select {
-            background: #120a22;
-            color: #f0abfc;
-            border: 1px solid #a855f7;
-            padding: 5px 8px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        .btn-sub-reset {
-            background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4);
-            color: #fda4af; padding: 6px 12px; border-radius: 8px; font-size: 11px;
-            font-weight: 800; cursor: pointer; margin-top: 6px; display: block; width: 100%;
-        }
-
-        .btn-reset-all { background: #f43f5e; color: white; border: none; padding: 12px; border-radius: 12px; width: 100%; font-weight: 900; margin-top: 18px; cursor: pointer; font-size: 14px; }
-
-        .maint-screen { display: none; background: rgba(10, 5, 20, 0.96); padding: 30px 20px; border-radius: 22px; border: 2px solid #f43f5e; margin-top: 20px; }
-
         footer { margin-top: 30px; padding-bottom: 12px; font-size: 13px; color: #64748b; font-weight: 700; }
     </style>
 </head>
-<body>
+<body class="no-select">
 
     <div class="container">
 
@@ -489,11 +342,6 @@
 
         <span class="counter-badge" id="card-counter">📌 MOSTRANDO ARCHIVOS MÁS RECIENTES</span>
 
-        <div class="maint-screen" id="maintScreen">
-            <h2 style="color: #f43f5e;">⚠️ MODO MANTENIMIENTO ⚠️</h2>
-            <p style="color: #cbd5e1; font-weight: 700; font-size: 15px;">Estamos actualizando los servidores y archivos de Fake Mods.<br>Regresamos en unos minutos. 🚀</p>
-        </div>
-
         <!-- CONTENIDO PRINCIPAL -->
         <div id="cardsContainer">
             <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn btn-main">
@@ -505,53 +353,50 @@
             </a>
 
             <!-- 1. BRASI PROXY V4 -->
-            <div class="card" id="card-1" data-id="1. Brasi Proxy V4">
+            <div class="card" id="card-1">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 20/09/2026</span>
-                    <div class="tag-group" id="tags-card-1">
+                    <div class="tag-group">
                         <span class="tag-new">NUEVO</span>
                         <span class="tag-tested">✅ TESTEADO</span>
                     </div>
                 </div>
                 <h3>🔥 BRASI PROXY V4 - AIMBOT + ESP LÍNEAS 💥</h3>
                 <p>• 🎯 <b>Funciones:</b> AIMBOT + ESP Líneas.<br>• ⚠️ <b>Compatibilidad:</b> Solo funciona en FF MAX.</p>
-                <button class="btn btn-mediafire dl-btn" onclick="startDownloadWithTimer('https://www.mediafire.com/file/th3r0zxdoifnjnt/BrasileiroProxyv4_Ezt.apk/file', '1. Brasi Proxy V4')">📥 Descargar Brasi Proxy V4 (.apk)</button>
-                <button class="btn btn-mediafire dl-btn" onclick="startDownloadWithTimer('https://www.mediafire.com/file/x8s9e81lolns6hk/Free_Fire_MAX_2.132.1.apks/file', '1. Brasi Proxy V4 (FF MAX)')">🔥 Descargar FF MAX 2.132.1 (.apks)</button>
-                <a href="https://whatsapp.com/channel/0029VbDCYlh3mFY6j5zmUR3Q" target="_blank" class="btn btn-key track-dl">▶️ Tutorial para Configurar (Canal de Tutos)</a>
-                <button class="btn-report" onclick="reportFile('1. Brasi Proxy V4', this)">⚠️ Reportar Enlace o Mod Caído</button>
+                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/th3r0zxdoifnjnt/BrasileiroProxyv4_Ezt.apk/file')">📥 Descargar Brasi Proxy V4 (.apk)</button>
+                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/x8s9e81lolns6hk/Free_Fire_MAX_2.132.1.apks/file')">🔥 Descargar FF MAX 2.132.1 (.apks)</button>
+                <a href="https://whatsapp.com/channel/0029VbDCYlh3mFY6j5zmUR3Q" target="_blank" class="btn btn-key">▶️ Tutorial para Configurar (Canal de Tutos)</a>
             </div>
 
             <!-- 2. PROXY STIRLAX -->
-            <div class="card" id="card-2" data-id="2. Proxy Stirlax">
+            <div class="card" id="card-2">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 20/09/2026</span>
-                    <div class="tag-group" id="tags-card-2">
+                    <div class="tag-group">
                         <span class="tag-tested">✅ TESTEADO</span>
                     </div>
                 </div>
                 <h3>💬 PROXY STIRLAX UPDATE ❗⚡</h3>
                 <p>• ⚡ <b>Versión:</b> Proxy Stirlax Actualizado.<br>• 🎮 <b>Compatibilidad:</b> Free Fire Normal.</p>
-                <button class="btn btn-mediafire dl-btn" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ufv912wn6oh9w7b/PROXY+STIRLAX', '2. Proxy Stirlax')">📥 Descargar Proxy Stirlax</button>
-                <a href="https://sociosxiters.com/keystirlax.php" target="_blank" class="btn btn-key track-dl">🔑 Generar Key Permanente Gratis</a>
+                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ufv912wn6oh9w7b/PROXY+STIRLAX')">📥 Descargar Proxy Stirlax</button>
+                <a href="https://sociosxiters.com/keystirlax.php" target="_blank" class="btn btn-key">🔑 Generar Key Permanente Gratis</a>
                 <div class="key-container">
                     <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
-                    <button class="copy-btn track-copy" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
+                    <button class="copy-btn" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
                 </div>
-                <button class="btn-report" onclick="reportFile('2. Proxy Stirlax', this)">⚠️ Reportar Enlace o Mod Caído</button>
             </div>
 
             <!-- 3. FOX ONE V10 -->
-            <div class="card card-danger" id="card-3" data-id="3. Fox One V10">
+            <div class="card card-danger" id="card-3">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 19/09/2026</span>
-                    <div class="tag-group" id="tags-card-3">
+                    <div class="tag-group">
                         <span class="tag-patched">🚫 PARCHADO</span>
                     </div>
                 </div>
                 <h3>🦊 FOX ONE V10 (FULL) 🤯👇</h3>
                 <p>• ⚡ <b>Versión:</b> Fox One V10.<br>• ⚠️ <b>Estado:</b> PARCHADO - Esperando nueva actualización.</p>
-                <button class="btn btn-danger dl-btn" onclick="startDownloadWithTimer('https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file', '3. Fox One V10')">📥 Descargar Fox One V10 (.apk)</button>
-                <button class="btn-report" onclick="reportFile('3. Fox One V10', this)">⚠️ Reportar Enlace o Mod Caído</button>
+                <button class="btn btn-danger" onclick="startDownloadWithTimer('https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file')">📥 Descargar Fox One V10 (.apk)</button>
             </div>
         </div>
     </div>
@@ -565,273 +410,15 @@
         </div>
     </div>
 
-    <!-- BOTÓN FLOTANTE ADMIN -->
-    <button class="admin-trigger" onclick="openAdminModal()">🔐</button>
-
-    <!-- VENTANA MODAL PANEL ADMIN -->
-    <div class="admin-modal" id="adminModal">
-        <div class="admin-content">
-            <h2>📊 Panel Admin <button class="close-admin" onclick="closeAdminModal()">✕</button></h2>
-            
-            <!-- MODO CREADOR -->
-            <div class="maintenance-toggle" style="background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.4);">
-                <span style="color: #86efac; font-size: 14px; font-weight: 800;">👑 Ignorar mis Clics/Visitas (Modo Creador):</span>
-                <label class="switch">
-                    <input type="checkbox" id="creatorSwitch" onchange="toggleCreatorMode(this.checked)">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- PROTECCIÓN ANTI-COPIA -->
-            <div class="maintenance-toggle" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(192, 132, 252, 0.4);">
-                <span style="color: #f0abfc; font-size: 14px; font-weight: 800;">🔒 Protección Anti-Copia (Bloquear Selección):</span>
-                <label class="switch">
-                    <input type="checkbox" id="antiCopySwitch" onchange="toggleAntiCopy(this.checked)">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- OCULTAR PARCHADOS -->
-            <div class="maintenance-toggle" style="background: rgba(234, 179, 8, 0.15); border-color: rgba(234, 179, 8, 0.4);">
-                <span style="color: #fef08a; font-size: 14px; font-weight: 800;">🛡️ Ocultar Mods Parchados a Visitas:</span>
-                <label class="switch">
-                    <input type="checkbox" id="hidePatchedSwitch" onchange="toggleHidePatched(this.checked)">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <div class="stat-card"><span>👁️ Visitas Totales:</span><b id="stat-views">0</b></div>
-            <div class="stat-card"><span>📥 Descargas Totales:</span><b id="stat-downloads">0</b></div>
-            <div class="stat-card"><span>📋 Keys Copiadas:</span><b id="stat-copies">0</b></div>
-            <button class="btn-sub-reset" onclick="resetStatsOnly()">🗑️ Reiniciar Estadísticas (Visitas/Clics)</button>
-
-            <!-- CONTROL MANUAL DE ESTADO DE TARJETAS -->
-            <div class="admin-section-title">🎛️ Control de Estado de Tarjetas:</div>
-            
-            <div class="card-control-item">
-                <span style="font-size: 12px; font-weight: 800;">1. Brasi Proxy V4</span>
-                <select class="card-control-select" onchange="changeCardState('card-1', this.value)">
-                    <option value="normal">🔥 Normal / Nuevo</option>
-                    <option value="featured">⭐ Destacar / VIP</option>
-                    <option value="pinned">📌 Fijar Arriba</option>
-                    <option value="patched">🚫 Parchado</option>
-                </select>
-            </div>
-
-            <div class="card-control-item">
-                <span style="font-size: 12px; font-weight: 800;">2. Proxy Stirlax</span>
-                <select class="card-control-select" onchange="changeCardState('card-2', this.value)">
-                    <option value="normal">🔥 Normal / Nuevo</option>
-                    <option value="featured">⭐ Destacar / VIP</option>
-                    <option value="pinned">📌 Fijar Arriba</option>
-                    <option value="patched">🚫 Parchado</option>
-                </select>
-            </div>
-
-            <div class="card-control-item">
-                <span style="font-size: 12px; font-weight: 800;">3. Fox One V10</span>
-                <select class="card-control-select" id="select-card-3" onchange="changeCardState('card-3', this.value)">
-                    <option value="normal">🔥 Normal / Nuevo</option>
-                    <option value="featured">⭐ Destacar / VIP</option>
-                    <option value="pinned">📌 Fijar Arriba</option>
-                    <option value="patched" selected>🚫 Parchado</option>
-                </select>
-            </div>
-
-            <div class="admin-section-title">🎨 Tema Visual:</div>
-            <div class="theme-selector">
-                <button class="theme-btn" style="background: #9333ea;" onclick="setTheme('')">Violeta</button>
-                <button class="theme-btn" style="background: #16a34a;" onclick="setTheme('theme-green')">Verde Hacker</button>
-                <button class="theme-btn" style="background: #e11d48;" onclick="setTheme('theme-red')">Rojo Carmesí</button>
-            </div>
-
-            <div class="maintenance-toggle">
-                <span style="color: #fda4af; font-size: 14px; font-weight: 800;">🛠️ Activar Mantenimiento:</span>
-                <label class="switch">
-                    <input type="checkbox" id="maintSwitch" onchange="toggleMaintenance(this.checked)">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <div class="admin-section-title">📢 Cambiar Aviso del Banner:</div>
-            <div class="admin-input-group">
-                <input type="text" id="newBannerInput" class="admin-input" placeholder="Escribe el nuevo aviso...">
-                <button class="admin-btn-action" onclick="saveBannerText()">Guardar</button>
-            </div>
-
-            <div class="admin-section-title">🔐 Cambiar Contraseña Admin:</div>
-            <div class="admin-input-group">
-                <input type="password" id="newPassInput" class="admin-input" placeholder="Nueva contraseña...">
-                <button class="admin-btn-action" onclick="saveAdminPass()">Actualizar</button>
-            </div>
-
-            <button class="admin-btn-export" onclick="exportStatsReport()">📥 Descargar Reporte (.txt)</button>
-
-            <div class="admin-section-title">⚠️ Reportes de Enlaces Caídos:</div>
-            <div id="reports-breakdown"></div>
-            <button class="btn-sub-reset" onclick="resetReportsOnly()">🚨 Limpiar Reportes de Caídas</button>
-
-            <div class="admin-section-title">🔥 Clics por Archivo:</div>
-            <div id="file-breakdown"></div>
-
-            <button class="btn-reset-all" onclick="resetAllData()">💥 Reiniciar Todo (Limpia Absolutamente Todo)</button>
-        </div>
-    </div>
-
     <footer>
         <p>© 2026 FAKE MODS - Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        function getAdminPass() {
-            return localStorage.getItem('admin_pass') || "FAKEMODS2026";
-        }
+        // Bloquear clic derecho y selección en toda la página
+        document.oncontextmenu = () => false;
 
-        function isCreatorMode() {
-            return localStorage.getItem('admin_creator_mode') === 'true';
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (!isCreatorMode()) {
-                let views = parseInt(localStorage.getItem('admin_views') || 0) + 1;
-                localStorage.setItem('admin_views', views);
-            }
-
-            document.getElementById('creatorSwitch').checked = isCreatorMode();
-
-            if (localStorage.getItem('admin_anti_copy') === 'true') {
-                document.getElementById('antiCopySwitch').checked = true;
-                applyAntiCopy(true);
-            }
-
-            if (localStorage.getItem('admin_hide_patched') === 'true') {
-                document.getElementById('hidePatchedSwitch').checked = true;
-                applyHidePatched(true);
-            }
-
-            loadSavedCardStates();
-
-            let savedTheme = localStorage.getItem('admin_theme');
-            if (savedTheme) document.body.className = savedTheme;
-
-            let savedBannerText = localStorage.getItem('admin_banner_text');
-            if (savedBannerText) document.getElementById('bannerTextContent').innerHTML = savedBannerText;
-
-            if (localStorage.getItem('admin_maint') === 'true') {
-                document.getElementById('maintSwitch').checked = true;
-                applyMaintenance(true);
-            }
-
-            document.querySelectorAll('.track-dl').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (!isCreatorMode()) {
-                        let dls = parseInt(localStorage.getItem('admin_dls') || 0) + 1;
-                        localStorage.setItem('admin_dls', dls);
-
-                        let card = btn.closest('.card');
-                        if (card) {
-                            let id = card.getAttribute('data-id');
-                            let fileDls = parseInt(localStorage.getItem('file_' + id) || 0) + 1;
-                            localStorage.setItem('file_' + id, fileDls);
-                        }
-                    }
-                });
-            });
-
-            updateCardCounter();
-        });
-
-        function changeCardState(cardId, state) {
-            localStorage.setItem('state_' + cardId, state);
-            applyCardState(cardId, state);
-        }
-
-        function applyCardState(cardId, state) {
-            let card = document.getElementById(cardId);
-            let tagsContainer = document.getElementById('tags-' + cardId);
-            if (!card) return;
-
-            card.className = "card";
-
-            if (state === 'featured') {
-                card.classList.add('card-featured');
-                if (tagsContainer) tagsContainer.innerHTML = `<span class="tag-featured">⭐ DESTACADO / VIP</span>`;
-            } else if (state === 'patched') {
-                card.classList.add('card-danger');
-                if (tagsContainer) tagsContainer.innerHTML = `<span class="tag-patched">🚫 PARCHADO</span>`;
-            } else if (state === 'pinned') {
-                card.classList.add('card-featured');
-                if (tagsContainer) tagsContainer.innerHTML = `<span class="tag-featured">📌 FIJADO</span>`;
-                let container = document.getElementById('cardsContainer');
-                container.insertBefore(card, container.children[2]);
-            } else {
-                if (tagsContainer) tagsContainer.innerHTML = `<span class="tag-new">NUEVO</span><span class="tag-tested">✅ TESTEADO</span>`;
-            }
-
-            if (localStorage.getItem('admin_hide_patched') === 'true' && state === 'patched') {
-                card.style.display = 'none';
-            } else {
-                card.style.display = 'block';
-            }
-        }
-
-        function loadSavedCardStates() {
-            ['card-1', 'card-2', 'card-3'].forEach(id => {
-                let savedState = localStorage.getItem('state_' + id);
-                if (savedState) {
-                    applyCardState(id, savedState);
-                    let select = document.querySelector(`select[onchange="changeCardState('${id}', this.value)"]`);
-                    if (select) select.value = savedState;
-                }
-            });
-        }
-
-        function toggleAntiCopy(active) {
-            localStorage.setItem('admin_anti_copy', active);
-            applyAntiCopy(active);
-        }
-
-        function applyAntiCopy(active) {
-            if (active) {
-                document.body.classList.add('no-select');
-                document.oncontextmenu = () => false;
-            } else {
-                document.body.classList.remove('no-select');
-                document.oncontextmenu = null;
-            }
-        }
-
-        function toggleHidePatched(active) {
-            localStorage.setItem('admin_hide_patched', active);
-            applyHidePatched(active);
-        }
-
-        function applyHidePatched(active) {
-            ['card-1', 'card-2', 'card-3'].forEach(id => {
-                let state = localStorage.getItem('state_' + id) || (id === 'card-3' ? 'patched' : 'normal');
-                let card = document.getElementById(id);
-                if (card && state === 'patched') {
-                    card.style.display = active ? 'none' : 'block';
-                }
-            });
-        }
-
-        function toggleCreatorMode(active) {
-            localStorage.setItem('admin_creator_mode', active);
-            alert(active ? "👑 Modo Creador ACTIVADO: Tus visitas no se contarán." : " Modo Creador DESACTIVADO.");
-        }
-
-        function reportFile(fileId, btn) {
-            if (!isCreatorMode()) {
-                let reports = parseInt(localStorage.getItem('report_' + fileId) || 0) + 1;
-                localStorage.setItem('report_' + fileId, reports);
-            }
-            btn.innerText = '✅ ¡Reporte enviado! Gracias.';
-            btn.style.color = '#4ade80';
-            btn.disabled = true;
-        }
-
-        function startDownloadWithTimer(url, fileId) {
+        function startDownloadWithTimer(url) {
             let modal = document.getElementById('timerModal');
             let countElem = document.getElementById('timerCount');
             let timeLeft = 5;
@@ -846,22 +433,9 @@
                 if (timeLeft <= 0) {
                     clearInterval(interval);
                     modal.style.display = 'none';
-
-                    if (!isCreatorMode()) {
-                        let dls = parseInt(localStorage.getItem('admin_dls') || 0) + 1;
-                        localStorage.setItem('admin_dls', dls);
-                        let fileDls = parseInt(localStorage.getItem('file_' + fileId) || 0) + 1;
-                        localStorage.setItem('file_' + fileId, fileDls);
-                    }
-
                     window.open(url, '_blank');
                 }
             }, 1000);
-        }
-
-        function setTheme(themeName) {
-            document.body.className = themeName;
-            localStorage.setItem('admin_theme', themeName);
         }
 
         function filterCards() {
@@ -877,148 +451,10 @@
 
         function copyKey(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
-                if (!isCreatorMode()) {
-                    let copies = parseInt(localStorage.getItem('admin_copies') || 0) + 1;
-                    localStorage.setItem('admin_copies', copies);
-                }
-
                 btn.innerText = '✅ ¡Copiado!';
                 btn.style.background = '#22c55e';
                 setTimeout(() => { btn.innerText = '📋 Copiar Key'; btn.style.background = ''; }, 2000);
             });
-        }
-
-        function openAdminModal() {
-            let pass = prompt("🔐 Ingresa la Clave de Administrador:");
-            if (pass === getAdminPass()) {
-                updateAdminStats();
-                document.getElementById('adminModal').style.display = 'flex';
-            } else if (pass !== null) {
-                alert("❌ Clave incorrecta.");
-            }
-        }
-
-        function closeAdminModal() { document.getElementById('adminModal').style.display = 'none'; }
-
-        function updateAdminStats() {
-            document.getElementById('stat-views').innerText = localStorage.getItem('admin_views') || 0;
-            document.getElementById('stat-downloads').innerText = localStorage.getItem('admin_dls') || 0;
-            document.getElementById('stat-copies').innerText = localStorage.getItem('admin_copies') || 0;
-
-            let reportsHTML = "";
-            document.querySelectorAll('.card').forEach(card => {
-                let id = card.getAttribute('data-id');
-                let count = localStorage.getItem('report_' + id) || 0;
-                if (count > 0) {
-                    reportsHTML += `<div style="font-size:12px; color:#f43f5e; padding:3px 0;"><b>• ${id}:</b> ${count} reportes</div>`;
-                }
-            });
-            document.getElementById('reports-breakdown').innerHTML = reportsHTML || "<div style='font-size:12px; color:#64748b;'>Sin reportes activos.</div>";
-
-            let breakdownHTML = "";
-            document.querySelectorAll('.card').forEach(card => {
-                let id = card.getAttribute('data-id');
-                let count = localStorage.getItem('file_' + id) || 0;
-                breakdownHTML += `
-                    <div style="font-size: 13px; color: #cbd5e1; padding: 5px 0; border-bottom: 1px rgba(255,255,255,0.1) solid; display: flex; justify-content: space-between; font-weight: 700;">
-                        <span>• ${id}:</span>
-                        <b style="color: #f0abfc;">${count} clics</b>
-                    </div>`;
-            });
-            document.getElementById('file-breakdown').innerHTML = breakdownHTML;
-        }
-
-        function saveBannerText() {
-            let text = document.getElementById('newBannerInput').value;
-            if (text.trim() !== "") {
-                let formattedText = `📢 <b>AVISO FAKE MODS:</b> ${text}`;
-                localStorage.setItem('admin_banner_text', formattedText);
-                document.getElementById('bannerTextContent').innerHTML = formattedText;
-                alert("✅ Texto del banner actualizado.");
-            }
-        }
-
-        function saveAdminPass() {
-            let newPass = document.getElementById('newPassInput').value;
-            if (newPass.trim() !== "") {
-                localStorage.setItem('admin_pass', newPass);
-                alert("✅ Contraseña de Admin actualizada.");
-                document.getElementById('newPassInput').value = "";
-            }
-        }
-
-        function toggleMaintenance(active) {
-            localStorage.setItem('admin_maint', active);
-            applyMaintenance(active);
-        }
-
-        function applyMaintenance(active) {
-            document.getElementById('cardsContainer').style.display = active ? 'none' : 'block';
-            document.getElementById('maintScreen').style.display = active ? 'block' : 'none';
-        }
-
-        function exportStatsReport() {
-            let views = localStorage.getItem('admin_views') || 0;
-            let dls = localStorage.getItem('admin_dls') || 0;
-            let copies = localStorage.getItem('admin_copies') || 0;
-
-            let report = `=== REPORTE FAKE MODS ===\n`;
-            report += `Fecha: ${new Date().toLocaleString()}\n`;
-            report += `Visitas Totales: ${views}\n`;
-            report += `Descargas Totales: ${dls}\n`;
-            report += `Keys Copiadas: ${copies}\n\n`;
-            report += `--- CLICS POR ARCHIVO ---\n`;
-
-            document.querySelectorAll('.card').forEach(card => {
-                let id = card.getAttribute('data-id');
-                let count = localStorage.getItem('file_' + id) || 0;
-                report += `${id}: ${count} clics\n`;
-            });
-
-            let blob = new Blob([report], { type: "text/plain" });
-            let a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "reporte_fakemods.txt";
-            a.click();
-        }
-
-        function updateCardCounter() {
-            const count = document.querySelectorAll('.card').length;
-            const counterBadge = document.getElementById('card-counter');
-            if (counterBadge) counterBadge.innerText = `📌 MOSTRANDO TOP ${count} ARCHIVOS MÁS RECIENTES`;
-        }
-
-        function resetStatsOnly() {
-            if (confirm("¿Reiniciar solo las estadísticas de Visitas y Descargas?")) {
-                localStorage.removeItem('admin_views');
-                localStorage.removeItem('admin_dls');
-                localStorage.removeItem('admin_copies');
-                document.querySelectorAll('.card').forEach(card => {
-                    let id = card.getAttribute('data-id');
-                    localStorage.removeItem('file_' + id);
-                });
-                updateAdminStats();
-                alert("✅ Estadísticas reiniciadas.");
-            }
-        }
-
-        function resetReportsOnly() {
-            if (confirm("¿Limpiar todos los reportes de caídas?")) {
-                document.querySelectorAll('.card').forEach(card => {
-                    let id = card.getAttribute('data-id');
-                    localStorage.removeItem('report_' + id);
-                });
-                updateAdminStats();
-                alert("✅ Reportes de caídas limpiados.");
-            }
-        }
-
-        function resetAllData() {
-            if (confirm("⚠️ ¿Estás seguro de REINICIAR ABSOLUTAMENTE TODO?")) {
-                localStorage.clear();
-                updateAdminStats();
-                alert("✅ Todos los datos han sido reiniciados.");
-            }
         }
     </script>
 </body>
