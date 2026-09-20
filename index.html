@@ -148,18 +148,6 @@
             box-shadow: 0 16px 40px rgba(168, 85, 247, 0.35);
         }
 
-        /* UNICO FIJADO */
-        .card-pinned {
-            background: linear-gradient(145deg, rgba(50, 20, 80, 0.9), rgba(25, 10, 45, 0.95));
-            border: 2px solid #e879f9;
-            box-shadow: 0 0 35px rgba(232, 121, 249, 0.45);
-        }
-
-        .card-pinned::before {
-            background: linear-gradient(180deg, #f472b6, #e879f9, #3b82f6);
-            width: 6px;
-        }
-
         .card-special {
             background: linear-gradient(145deg, rgba(45, 18, 70, 0.85), rgba(22, 10, 40, 0.9));
             border: 1.5px solid rgba(232, 121, 249, 0.6);
@@ -195,16 +183,6 @@
             gap: 6px;
             align-items: center;
             flex-wrap: wrap;
-        }
-
-        .tag-pinned {
-            background: linear-gradient(135deg, #f472b6, #e879f9);
-            color: #ffffff;
-            font-size: 10px;
-            font-weight: 900;
-            padding: 3px 10px;
-            border-radius: 12px;
-            text-transform: uppercase;
         }
 
         .tag-tested {
@@ -523,29 +501,8 @@
             🔑 CANAL DE TUTOS & KEYS EN WHATSAPP
         </a>
 
-        <!-- 1. 📌 FIJADO: FOX ONE V10 -->
-        <div class="card card-pinned" data-id="1. Fox One V10">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 19/09/2026</span>
-                <div class="tag-group">
-                    <span class="tag-pinned">📌 FIJADO</span>
-                    <span class="tag-full">FULL</span>
-                    <span class="tag-tested">✅ TESTEADO</span>
-                </div>
-            </div>
-            <h3>🦊 FOX ONE V10 (FULL) 🤯👇</h3>
-            <p>• ⚡ <b>Versión:</b> Fox One V10.<br>• 🔥 <b>Estado:</b> FULL - Testeado y funcional.</p>
-            <div class="instructions">
-                <b>📌 INSTRUCCIONES DE USO:</b><br>
-                En la primera contraseña escribe cualquier texto y avanza a la segunda donde generas tu Key.
-            </div>
-            <a href="https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Fox One V10 (.apk)</a>
-            <a href="https://vplink.in/FoxOneVersion" target="_blank" class="btn btn-key track-dl">🔑 Generar Key Gratis</a>
-            <a href="https://whatsapp.com/channel/0029VbDCYlh3mFY6j5zmUR3Q" target="_blank" class="btn btn-secondary-wa" style="margin-bottom: 0;">📲 Tutorial de Key en WhatsApp</a>
-        </div>
-
-        <!-- 2. PROXY STIRLAX -->
-        <div class="card" data-id="2. Proxy Stirlax">
+        <!-- 1. PROXY STIRLAX -->
+        <div class="card" data-id="1. Proxy Stirlax">
             <div class="card-header">
                 <span class="card-date">📅 SUBIDO: 20/09/2026</span>
                 <div class="tag-group">
@@ -563,6 +520,19 @@
                 <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
                 <button class="copy-btn track-copy" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
             </div>
+        </div>
+
+        <!-- 2. FOX ONE V10 (PARCHADO) -->
+        <div class="card card-danger" data-id="2. Fox One V10">
+            <div class="card-header">
+                <span class="card-date">📅 SUBIDO: 19/09/2026</span>
+                <div class="tag-group">
+                    <span class="tag-patched">🚫 PARCHADO</span>
+                </div>
+            </div>
+            <h3>🦊 FOX ONE V10 (FULL) 🤯👇</h3>
+            <p>• ⚡ <b>Versión:</b> Fox One V10.<br>• ⚠️ <b>Estado:</b> PARCHADO - Esperando nueva actualización.</p>
+            <a href="https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file" target="_blank" class="btn btn-danger track-dl">📥 Descargar Fox One V10 (.apk)</a>
         </div>
 
         <!-- 3. PROXY TNT V14 -->
