@@ -32,6 +32,14 @@
             --card-bg: rgba(28, 10, 18, 0.85);
         }
 
+        /* PROTECCIÓN ANTI-COPIA / SELECCIÓN DE TEXTO */
+        body.no-select {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -61,7 +69,6 @@
             text-align: center;
         }
 
-        /* STATUS SERVIDOR */
         .server-status {
             display: inline-flex;
             align-items: center;
@@ -86,7 +93,6 @@
             animation: pulse 1.5s infinite;
         }
 
-        /* BANNER ANUNCIOS */
         .announcement-banner {
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(217, 70, 239, 0.25));
             border: 1px solid rgba(232, 121, 249, 0.6);
@@ -210,32 +216,6 @@
             font-weight: 600;
         }
 
-        /* FILTROS RÁPIDOS Y BUSCADOR */
-        .filter-group {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            background: rgba(30, 15, 50, 0.8);
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            color: #d8b4fe;
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--primary-glow);
-            color: #ffffff;
-            border-color: var(--secondary-glow);
-        }
-
         .search-box {
             width: 100%;
             padding: 12px 18px;
@@ -281,19 +261,25 @@
             opacity: 0.9;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary-glow);
-            box-shadow: 0 16px 40px rgba(168, 85, 247, 0.45);
+        /* ESTADO: DESTACADO / VIP (BORDE DORADO) */
+        .card.card-featured {
+            border: 2px solid #eab308;
+            box-shadow: 0 0 30px rgba(234, 179, 8, 0.4);
         }
 
-        .card-danger {
+        .card.card-featured::before {
+            background: linear-gradient(180deg, #fef08a, #eab308, #ca8a04);
+            width: 6px;
+        }
+
+        /* ESTADO: PARCHADO */
+        .card.card-danger {
             background: linear-gradient(145deg, rgba(45, 10, 25, 0.85), rgba(20, 5, 12, 0.9));
             border: 1.5px solid rgba(244, 63, 94, 0.5);
             box-shadow: 0 0 25px rgba(244, 63, 94, 0.25);
         }
 
-        .card-danger::before {
+        .card.card-danger::before {
             background: linear-gradient(180deg, #ff4d4d, #f43f5e, #9f1239);
             width: 5px;
         }
@@ -311,6 +297,7 @@
         .tag-tested { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-patched { background: linear-gradient(135deg, #f43f5e, #881337); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-featured { background: linear-gradient(135deg, #eab308, #ca8a04); color: #000; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
 
         .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; }
         .card p { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
@@ -357,8 +344,6 @@
             transition: all 0.2s ease;
         }
 
-        .btn-report:hover { background: rgba(244, 63, 94, 0.25); color: #fff; }
-
         .feedback-box {
             background: rgba(18, 11, 32, 0.82);
             border: 1px solid rgba(168, 85, 247, 0.3);
@@ -368,38 +353,19 @@
             text-align: left;
         }
 
-        .feedback-box h4 {
-            font-size: 15px;
-            color: #f0abfc;
-            margin-bottom: 8px;
-            font-weight: 900;
-        }
+        .feedback-box h4 { font-size: 15px; color: #f0abfc; margin-bottom: 8px; font-weight: 900; }
 
         .feedback-input {
-            width: 100%;
-            padding: 10px 12px;
-            background: rgba(30, 15, 50, 0.8);
-            border: 1px solid rgba(192, 132, 252, 0.4);
-            border-radius: 12px;
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            outline: none;
-            resize: none;
-            height: 65px;
+            width: 100%; padding: 10px 12px; background: rgba(30, 15, 50, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.4); border-radius: 12px;
+            color: #ffffff; font-size: 13px; font-weight: 700; margin-bottom: 10px;
+            outline: none; resize: none; height: 65px;
         }
 
         .btn-send-feedback {
             background: linear-gradient(135deg, #a855f7, #7c3aed);
-            color: #ffffff;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 900;
-            cursor: pointer;
-            width: 100%;
+            color: #ffffff; border: none; padding: 10px 16px; border-radius: 12px;
+            font-size: 12px; font-weight: 900; cursor: pointer; width: 100%;
         }
 
         .timer-modal {
@@ -484,29 +450,38 @@
         input:checked + .slider { background-color: #22c55e; }
         input:checked + .slider:before { transform: translateX(20px); }
 
-        .btn-sub-reset {
-            background: rgba(244, 63, 94, 0.15);
-            border: 1px solid rgba(244, 63, 94, 0.4);
-            color: #fda4af;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 800;
-            cursor: pointer;
-            margin-top: 6px;
-            display: block;
-            width: 100%;
+        .card-control-item {
+            background: rgba(30, 15, 50, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .btn-sub-reset:hover { background: rgba(244, 63, 94, 0.3); color: #fff; }
+        .card-control-select {
+            background: #120a22;
+            color: #f0abfc;
+            border: 1px solid #a855f7;
+            padding: 5px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .btn-sub-reset {
+            background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4);
+            color: #fda4af; padding: 6px 12px; border-radius: 8px; font-size: 11px;
+            font-weight: 800; cursor: pointer; margin-top: 6px; display: block; width: 100%;
+        }
 
         .btn-reset-all { background: #f43f5e; color: white; border: none; padding: 12px; border-radius: 12px; width: 100%; font-weight: 900; margin-top: 18px; cursor: pointer; font-size: 14px; }
 
         .note-item {
-            background: rgba(30, 15, 50, 0.8);
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            border-radius: 10px; padding: 10px 12px; margin-bottom: 8px;
-            font-size: 13px; color: #cbd5e1;
+            background: rgba(30, 15, 50, 0.8); border: 1px solid rgba(192, 132, 252, 0.3);
+            border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; font-size: 13px; color: #cbd5e1;
         }
 
         .note-item small { color: #f0abfc; display: block; font-weight: 800; margin-bottom: 4px; }
@@ -541,24 +516,17 @@
         
         <p class="desc">🔥 DESCARGA LO MÁS NUEVO Y RECIENTE AQUÍ 🔥<br>Lo último en optimizaciones y herramientas subidas al instante.</p>
         
-        <!-- FILTROS RÁPIDOS -->
-        <div class="filter-group">
-            <button class="filter-btn active" onclick="filterCategory('all', this)">TODOS</button>
-            <button class="filter-btn" onclick="filterCategory('proxy', this)">🔥 PROXIES</button>
-            <button class="filter-btn" onclick="filterCategory('patched', this)">🚫 PARCHADOS</button>
-        </div>
-
         <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar archivo, proxy o mod..." onkeyup="filterCards()">
 
         <span class="counter-badge" id="card-counter">📌 MOSTRANDO ARCHIVOS MÁS RECIENTES</span>
 
         <div class="maint-screen" id="maintScreen">
-            <h2 style="color: #f43f5e;" id="maintTitle">⚠️ MODO MANTENIMIENTO ⚠️</h2>
-            <p style="color: #cbd5e1; font-weight: 700; font-size: 15px;" id="maintText">Estamos actualizando los servidores y archivos de Fake Mods.<br>Regresamos en unos minutos. 🚀</p>
+            <h2 style="color: #f43f5e;">⚠️ MODO MANTENIMIENTO ⚠️</h2>
+            <p style="color: #cbd5e1; font-weight: 700; font-size: 15px;">Estamos actualizando los servidores y archivos de Fake Mods.<br>Regresamos en unos minutos. 🚀</p>
         </div>
 
-        <!-- CONTENIDO PRINCIPAL (ÚNICAMENTE LAS 3 TARJETAS DEL NUEVO CICLO) -->
-        <div id="mainWebList">
+        <!-- CONTENIDO PRINCIPAL (3 TARJETAS DEL CICLO ACTUAL) -->
+        <div id="cardsContainer">
             <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn btn-main">
                 🚀 UNIRSE AL CANAL PRINCIPAL DE WHATSAPP
             </a>
@@ -567,34 +535,34 @@
                 🔑 CANAL DE TUTOS & KEYS EN WHATSAPP
             </a>
 
-            <!-- 1. BRASI PROXY V4 (NUEVO) -->
-            <div class="card" data-id="1. Brasi Proxy V4" data-type="proxy">
+            <!-- 1. BRASI PROXY V4 -->
+            <div class="card" id="card-1" data-id="1. Brasi Proxy V4">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 20/09/2026</span>
-                    <div class="tag-group">
+                    <div class="tag-group" id="tags-card-1">
                         <span class="tag-new">NUEVO</span>
                         <span class="tag-tested">✅ TESTEADO</span>
                     </div>
                 </div>
                 <h3>🔥 BRASI PROXY V4 - AIMBOT + ESP LÍNEAS 💥</h3>
                 <p>• 🎯 <b>Funciones:</b> AIMBOT + ESP Líneas.<br>• ⚠️ <b>Compatibilidad:</b> Solo funciona en FF MAX.</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/th3r0zxdoifnjnt/BrasileiroProxyv4_Ezt.apk/file', '1. Brasi Proxy V4')">📥 Descargar Brasi Proxy V4 (.apk)</button>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/x8s9e81lolns6hk/Free_Fire_MAX_2.132.1.apks/file', '1. Brasi Proxy V4 (FF MAX)')">🔥 Descargar FF MAX 2.132.1 (.apks)</button>
+                <button class="btn btn-mediafire dl-btn" onclick="startDownloadWithTimer('https://www.mediafire.com/file/th3r0zxdoifnjnt/BrasileiroProxyv4_Ezt.apk/file', '1. Brasi Proxy V4')">📥 Descargar Brasi Proxy V4 (.apk)</button>
+                <button class="btn btn-mediafire dl-btn" onclick="startDownloadWithTimer('https://www.mediafire.com/file/x8s9e81lolns6hk/Free_Fire_MAX_2.132.1.apks/file', '1. Brasi Proxy V4 (FF MAX)')">🔥 Descargar FF MAX 2.132.1 (.apks)</button>
                 <a href="https://whatsapp.com/channel/0029VbDCYlh3mFY6j5zmUR3Q" target="_blank" class="btn btn-key track-dl">▶️ Tutorial para Configurar (Canal de Tutos)</a>
                 <button class="btn-report" onclick="reportFile('1. Brasi Proxy V4', this)">⚠️ Reportar Enlace o Mod Caído</button>
             </div>
 
             <!-- 2. PROXY STIRLAX -->
-            <div class="card" data-id="2. Proxy Stirlax" data-type="proxy">
+            <div class="card" id="card-2" data-id="2. Proxy Stirlax">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 20/09/2026</span>
-                    <div class="tag-group">
+                    <div class="tag-group" id="tags-card-2">
                         <span class="tag-tested">✅ TESTEADO</span>
                     </div>
                 </div>
                 <h3>💬 PROXY STIRLAX UPDATE ❗⚡</h3>
                 <p>• ⚡ <b>Versión:</b> Proxy Stirlax Actualizado.<br>• 🎮 <b>Compatibilidad:</b> Free Fire Normal.</p>
-                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ufv912wn6oh9w7b/PROXY+STIRLAX', '2. Proxy Stirlax')">📥 Descargar Proxy Stirlax</button>
+                <button class="btn btn-mediafire dl-btn" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ufv912wn6oh9w7b/PROXY+STIRLAX', '2. Proxy Stirlax')">📥 Descargar Proxy Stirlax</button>
                 <a href="https://sociosxiters.com/keystirlax.php" target="_blank" class="btn btn-key track-dl">🔑 Generar Key Permanente Gratis</a>
                 <div class="key-container">
                     <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
@@ -603,21 +571,20 @@
                 <button class="btn-report" onclick="reportFile('2. Proxy Stirlax', this)">⚠️ Reportar Enlace o Mod Caído</button>
             </div>
 
-            <!-- 3. FOX ONE V10 (PARCHADO) -->
-            <div class="card card-danger" data-id="3. Fox One V10" data-type="patched">
+            <!-- 3. FOX ONE V10 -->
+            <div class="card card-danger" id="card-3" data-id="3. Fox One V10">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 19/09/2026</span>
-                    <div class="tag-group">
+                    <div class="tag-group" id="tags-card-3">
                         <span class="tag-patched">🚫 PARCHADO</span>
                     </div>
                 </div>
                 <h3>🦊 FOX ONE V10 (FULL) 🤯👇</h3>
                 <p>• ⚡ <b>Versión:</b> Fox One V10.<br>• ⚠️ <b>Estado:</b> PARCHADO - Esperando nueva actualización.</p>
-                <button class="btn btn-danger" onclick="startDownloadWithTimer('https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file', '3. Fox One V10')">📥 Descargar Fox One V10 (.apk)</button>
+                <button class="btn btn-danger dl-btn" onclick="startDownloadWithTimer('https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file', '3. Fox One V10')">📥 Descargar Fox One V10 (.apk)</button>
                 <button class="btn-report" onclick="reportFile('3. Fox One V10', this)">⚠️ Reportar Enlace o Mod Caído</button>
             </div>
 
-            <!-- APARTADO DE DEJAR NOTA AL ADMIN -->
             <div class="feedback-box">
                 <h4>💬 ¿Un mod dejó de funcionar? Escríbele al Admin:</h4>
                 <textarea id="userNoteInput" class="feedback-input" placeholder="Escribe aquí tu mensaje o qué mod necesita actualización..."></textarea>
@@ -652,17 +619,60 @@
                 </label>
             </div>
 
+            <!-- PROTECCIÓN ANTI-COPIA -->
+            <div class="maintenance-toggle" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(192, 132, 252, 0.4);">
+                <span style="color: #f0abfc; font-size: 14px; font-weight: 800;">🔒 Protección Anti-Copia (Bloquear Selección):</span>
+                <label class="switch">
+                    <input type="checkbox" id="antiCopySwitch" onchange="toggleAntiCopy(this.checked)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- OCULTAR PARCHADOS -->
+            <div class="maintenance-toggle" style="background: rgba(234, 179, 8, 0.15); border-color: rgba(234, 179, 8, 0.4);">
+                <span style="color: #fef08a; font-size: 14px; font-weight: 800;">🛡️ Ocultar Mods Parchados a Visitas:</span>
+                <label class="switch">
+                    <input type="checkbox" id="hidePatchedSwitch" onchange="toggleHidePatched(this.checked)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
             <div class="stat-card"><span>👁️ Visitas Totales:</span><b id="stat-views">0</b></div>
             <div class="stat-card"><span>📥 Descargas Totales:</span><b id="stat-downloads">0</b></div>
             <div class="stat-card"><span>📋 Keys Copiadas:</span><b id="stat-copies">0</b></div>
             <button class="btn-sub-reset" onclick="resetStatsOnly()">🗑️ Reiniciar Estadísticas (Visitas/Clics)</button>
 
-            <!-- TIEMPO DEL TEMPORIZADOR ANTI-BOT -->
-            <div class="admin-section-title">⏳ Tiempo de Espera Anti-Bot:</div>
-            <div class="theme-selector">
-                <button class="theme-btn" style="background: #3b82f6;" onclick="setTimerSpeed(3)">3 Segundos</button>
-                <button class="theme-btn" style="background: #a855f7;" onclick="setTimerSpeed(5)">5 Segundos</button>
-                <button class="theme-btn" style="background: #e11d48;" onclick="setTimerSpeed(10)">10 Segundos</button>
+            <!-- CONTROL MANUAL DE ESTADO DE TARJETAS -->
+            <div class="admin-section-title">🎛️ Control de Estado de Tarjetas:</div>
+            
+            <div class="card-control-item">
+                <span style="font-size: 12px; font-weight: 800;">1. Brasi Proxy V4</span>
+                <select class="card-control-select" onchange="changeCardState('card-1', this.value)">
+                    <option value="normal">🔥 Normal / Nuevo</option>
+                    <option value="featured">⭐ Destacar / VIP</option>
+                    <option value="pinned">📌 Fijar Arriba</option>
+                    <option value="patched">🚫 Parchado</option>
+                </select>
+            </div>
+
+            <div class="card-control-item">
+                <span style="font-size: 12px; font-weight: 800;">2. Proxy Stirlax</span>
+                <select class="card-control-select" onchange="changeCardState('card-2', this.value)">
+                    <option value="normal">🔥 Normal / Nuevo</option>
+                    <option value="featured">⭐ Destacar / VIP</option>
+                    <option value="pinned">📌 Fijar Arriba</option>
+                    <option value="patched">🚫 Parchado</option>
+                </select>
+            </div>
+
+            <div class="card-control-item">
+                <span style="font-size: 12px; font-weight: 800;">3. Fox One V10</span>
+                <select class="card-control-select" id="select-card-3" onchange="changeCardState('card-3', this.value)">
+                    <option value="normal">🔥 Normal / Nuevo</option>
+                    <option value="featured">⭐ Destacar / VIP</option>
+                    <option value="pinned">📌 Fijar Arriba</option>
+                    <option value="patched" selected>🚫 Parchado</option>
+                </select>
             </div>
 
             <div class="admin-section-title">🎨 Tema Visual:</div>
@@ -672,7 +682,6 @@
                 <button class="theme-btn" style="background: #e11d48;" onclick="setTheme('theme-red')">Rojo Carmesí</button>
             </div>
 
-            <!-- MANTENIMIENTO -->
             <div class="maintenance-toggle">
                 <span style="color: #fda4af; font-size: 14px; font-weight: 800;">🛠️ Activar Mantenimiento:</span>
                 <label class="switch">
@@ -681,49 +690,28 @@
                 </label>
             </div>
 
-            <div class="admin-section-title">🛠️ Texto Pantalla Mantenimiento:</div>
-            <div class="admin-input-group">
-                <input type="text" id="newMaintTextInput" class="admin-input" placeholder="Escribe el aviso de mantenimiento...">
-                <button class="admin-btn-action" onclick="saveMaintText()">Guardar</button>
-            </div>
-
-            <!-- MOSTRAR / OCULTAR BANNER -->
-            <div class="maintenance-toggle" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(192, 132, 252, 0.4);">
-                <span style="color: #f0abfc; font-size: 14px; font-weight: 800;">📢 Mostrar Banner Anuncios:</span>
-                <label class="switch">
-                    <input type="checkbox" id="bannerSwitch" checked onchange="toggleBannerVisibility(this.checked)">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- CAMBIAR TEXTO BANNER -->
             <div class="admin-section-title">📢 Cambiar Aviso del Banner:</div>
             <div class="admin-input-group">
                 <input type="text" id="newBannerInput" class="admin-input" placeholder="Escribe el nuevo aviso...">
                 <button class="admin-btn-action" onclick="saveBannerText()">Guardar</button>
             </div>
 
-            <!-- CAMBIAR CLAVE ADMIN -->
             <div class="admin-section-title">🔐 Cambiar Contraseña Admin:</div>
             <div class="admin-input-group">
                 <input type="password" id="newPassInput" class="admin-input" placeholder="Nueva contraseña...">
                 <button class="admin-btn-action" onclick="saveAdminPass()">Actualizar</button>
             </div>
 
-            <!-- EXPORTAR DATOS -->
             <button class="admin-btn-export" onclick="exportStatsReport()">📥 Descargar Reporte (.txt)</button>
 
-            <!-- REPORTES CAÍDAS -->
             <div class="admin-section-title">⚠️ Reportes de Enlaces Caídos:</div>
             <div id="reports-breakdown"></div>
             <button class="btn-sub-reset" onclick="resetReportsOnly()">🚨 Limpiar Reportes de Caídas</button>
 
-            <!-- NOTAS DE USUARIOS -->
             <div class="admin-section-title">📩 Notas de Usuarios:</div>
             <div id="notes-breakdown"></div>
             <button class="btn-sub-reset" onclick="resetNotesOnly()">📩 Borrar Notas de Usuarios</button>
 
-            <!-- CLICS POR ARCHIVO -->
             <div class="admin-section-title">🔥 Clics por Archivo:</div>
             <div id="file-breakdown"></div>
 
@@ -744,10 +732,6 @@
             return localStorage.getItem('admin_creator_mode') === 'true';
         }
 
-        function getTimerSpeed() {
-            return parseInt(localStorage.getItem('admin_timer_speed') || 5);
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             if (!isCreatorMode()) {
                 let views = parseInt(localStorage.getItem('admin_views') || 0) + 1;
@@ -756,19 +740,26 @@
 
             document.getElementById('creatorSwitch').checked = isCreatorMode();
 
+            // Cargar Protección Anti-Copia
+            if (localStorage.getItem('admin_anti_copy') === 'true') {
+                document.getElementById('antiCopySwitch').checked = true;
+                applyAntiCopy(true);
+            }
+
+            // Cargar Ocultar Parchados
+            if (localStorage.getItem('admin_hide_patched') === 'true') {
+                document.getElementById('hidePatchedSwitch').checked = true;
+                applyHidePatched(true);
+            }
+
+            // Cargar Estados de Tarjetas Guardados
+            loadSavedCardStates();
+
             let savedTheme = localStorage.getItem('admin_theme');
             if (savedTheme) document.body.className = savedTheme;
 
             let savedBannerText = localStorage.getItem('admin_banner_text');
             if (savedBannerText) document.getElementById('bannerTextContent').innerHTML = savedBannerText;
-
-            let savedMaintText = localStorage.getItem('admin_maint_text');
-            if (savedMaintText) document.getElementById('maintText').innerText = savedMaintText;
-
-            if (localStorage.getItem('admin_banner_hidden') === 'true') {
-                document.getElementById('announcementBanner').style.display = 'none';
-                document.getElementById('bannerSwitch').checked = false;
-            }
 
             if (localStorage.getItem('admin_maint') === 'true') {
                 document.getElementById('maintSwitch').checked = true;
@@ -794,28 +785,89 @@
             updateCardCounter();
         });
 
-        function filterCategory(cat, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        // CAMBIAR ESTADO MANUAL DE TARJETA
+        function changeCardState(cardId, state) {
+            localStorage.setItem('state_' + cardId, state);
+            applyCardState(cardId, state);
+        }
 
-            document.querySelectorAll('.card').forEach(card => {
-                if (cat === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    let type = card.getAttribute('data-type');
-                    card.style.display = (type === cat) ? 'block' : 'none';
+        function applyCardState(cardId, state) {
+            let card = document.getElementById(cardId);
+            let tagsContainer = document.getElementById('tags-' + cardId);
+            if (!card) return;
+
+            // Reset de clases
+            card.className = "card";
+            let dlBtns = card.querySelectorAll('.dl-btn');
+
+            if (state === 'featured') {
+                card.classList.add('card-featured');
+                if (tagsContainer) tagsContainer.innerHTML = `<span class="tag-featured">⭐ DESTACADO / VIP</span>`;
+            } else if (state === 'patched') {
+                card.classList.add('card-danger');
+                if (tagsContainer) tagsContainer.innerHTML = `<span class="tag-patched">🚫 PARCHADO</span>`;
+            } else if (state === 'pinned') {
+                card.classList.add('card-featured');
+                if (tagsContainer) tagsContainer.innerHTML = `<span class="tag-featured">📌 FIJADO</span>`;
+                // Mover al principio del contenedor
+                let container = document.getElementById('cardsContainer');
+                container.insertBefore(card, container.children[2]);
+            } else {
+                if (tagsContainer) tagsContainer.innerHTML = `<span class="tag-new">NUEVO</span><span class="tag-tested">✅ TESTEADO</span>`;
+            }
+
+            // Aplicar ocultado si está activado el filtro anti-ban
+            if (localStorage.getItem('admin_hide_patched') === 'true' && state === 'patched') {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        }
+
+        function loadSavedCardStates() {
+            ['card-1', 'card-2', 'card-3'].forEach(id => {
+                let savedState = localStorage.getItem('state_' + id);
+                if (savedState) {
+                    applyCardState(id, savedState);
+                    let select = document.querySelector(`select[onchange="changeCardState('${id}', this.value)"]`);
+                    if (select) select.value = savedState;
                 }
             });
         }
 
-        function setTimerSpeed(seconds) {
-            localStorage.setItem('admin_timer_speed', seconds);
-            alert(`⏳ Temporizador de descarga configurado en ${seconds} segundos.`);
+        function toggleAntiCopy(active) {
+            localStorage.setItem('admin_anti_copy', active);
+            applyAntiCopy(active);
+        }
+
+        function applyAntiCopy(active) {
+            if (active) {
+                document.body.classList.add('no-select');
+                document.oncontextmenu = () => false;
+            } else {
+                document.body.classList.remove('no-select');
+                document.oncontextmenu = null;
+            }
+        }
+
+        function toggleHidePatched(active) {
+            localStorage.setItem('admin_hide_patched', active);
+            applyHidePatched(active);
+        }
+
+        function applyHidePatched(active) {
+            ['card-1', 'card-2', 'card-3'].forEach(id => {
+                let state = localStorage.getItem('state_' + id) || (id === 'card-3' ? 'patched' : 'normal');
+                let card = document.getElementById(id);
+                if (card && state === 'patched') {
+                    card.style.display = active ? 'none' : 'block';
+                }
+            });
         }
 
         function toggleCreatorMode(active) {
             localStorage.setItem('admin_creator_mode', active);
-            alert(active ? "👑 Modo Creador ACTIVADO: Tus visitas y clics no se contarán." : " Modo Creador DESACTIVADO: Tus clics contarán normalmente.");
+            alert(active ? "👑 Modo Creador ACTIVADO: Tus visitas no se contarán." : " Modo Creador DESACTIVADO.");
         }
 
         function reportFile(fileId, btn) {
@@ -846,7 +898,7 @@
         function startDownloadWithTimer(url, fileId) {
             let modal = document.getElementById('timerModal');
             let countElem = document.getElementById('timerCount');
-            let timeLeft = getTimerSpeed();
+            let timeLeft = 5;
 
             modal.style.display = 'flex';
             countElem.innerText = timeLeft;
@@ -917,7 +969,6 @@
             document.getElementById('stat-downloads').innerText = localStorage.getItem('admin_dls') || 0;
             document.getElementById('stat-copies').innerText = localStorage.getItem('admin_copies') || 0;
 
-            // Reportes
             let reportsHTML = "";
             document.querySelectorAll('.card').forEach(card => {
                 let id = card.getAttribute('data-id');
@@ -928,7 +979,6 @@
             });
             document.getElementById('reports-breakdown').innerHTML = reportsHTML || "<div style='font-size:12px; color:#64748b;'>Sin reportes activos.</div>";
 
-            // Notas
             let notes = JSON.parse(localStorage.getItem('user_notes') || "[]");
             let notesHTML = "";
             notes.forEach(note => {
@@ -936,7 +986,6 @@
             });
             document.getElementById('notes-breakdown').innerHTML = notesHTML || "<div style='font-size:12px; color:#64748b;'>Sin mensajes de usuarios.</div>";
 
-            // Clics
             let breakdownHTML = "";
             document.querySelectorAll('.card').forEach(card => {
                 let id = card.getAttribute('data-id');
@@ -960,15 +1009,6 @@
             }
         }
 
-        function saveMaintText() {
-            let text = document.getElementById('newMaintTextInput').value;
-            if (text.trim() !== "") {
-                localStorage.setItem('admin_maint_text', text);
-                document.getElementById('maintText').innerText = text;
-                alert("✅ Texto de mantenimiento actualizado.");
-            }
-        }
-
         function saveAdminPass() {
             let newPass = document.getElementById('newPassInput').value;
             if (newPass.trim() !== "") {
@@ -978,18 +1018,13 @@
             }
         }
 
-        function toggleBannerVisibility(visible) {
-            localStorage.setItem('admin_banner_hidden', !visible);
-            document.getElementById('announcementBanner').style.display = visible ? 'flex' : 'none';
-        }
-
         function toggleMaintenance(active) {
             localStorage.setItem('admin_maint', active);
             applyMaintenance(active);
         }
 
         function applyMaintenance(active) {
-            document.getElementById('mainWebList').style.display = active ? 'none' : 'block';
+            document.getElementById('cardsContainer').style.display = active ? 'none' : 'block';
             document.getElementById('maintScreen').style.display = active ? 'block' : 'none';
         }
 
@@ -1024,7 +1059,6 @@
             if (counterBadge) counterBadge.innerText = `📌 MOSTRANDO TOP ${count} ARCHIVOS MÁS RECIENTES`;
         }
 
-        /* REINICIOS INDEPENDIENTES */
         function resetStatsOnly() {
             if (confirm("¿Reiniciar solo las estadísticas de Visitas y Descargas?")) {
                 localStorage.removeItem('admin_views');
