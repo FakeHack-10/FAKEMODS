@@ -426,6 +426,26 @@
 
         .admin-section-title { font-size: 15px; color: #a78bfa; margin-top: 18px; margin-bottom: 8px; font-weight: 800; text-transform: uppercase; }
 
+        .admin-input-group { display: flex; gap: 8px; margin-bottom: 12px; }
+
+        .admin-input {
+            flex: 1; padding: 10px 14px; background: rgba(30, 15, 50, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.4); border-radius: 10px;
+            color: #ffffff; font-size: 13px; font-weight: 700; outline: none;
+        }
+
+        .admin-btn-action {
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            color: #ffffff; border: none; padding: 10px 14px; border-radius: 10px;
+            font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap;
+        }
+
+        .admin-btn-export {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: #ffffff; border: none; padding: 11px; border-radius: 12px;
+            width: 100%; font-weight: 900; margin-top: 10px; cursor: pointer; font-size: 13.5px;
+        }
+
         .theme-selector { display: flex; gap: 10px; margin-bottom: 15px; }
         .theme-btn { flex: 1; padding: 8px; border: none; border-radius: 10px; color: white; font-weight: 800; font-size: 12px; cursor: pointer; }
 
@@ -439,7 +459,7 @@
         .switch input { opacity: 0; width: 0; height: 0; }
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .3s; border-radius: 24px; }
         .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
-        input:checked + .slider { background-color: #f43f5e; }
+        input:checked + .slider { background-color: #22c55e; }
         input:checked + .slider:before { transform: translateX(20px); }
 
         .btn-reset { background: #f43f5e; color: white; border: none; padding: 12px; border-radius: 12px; width: 100%; font-weight: 900; margin-top: 10px; cursor: pointer; font-size: 14px; }
@@ -447,11 +467,8 @@
         .note-item {
             background: rgba(30, 15, 50, 0.8);
             border: 1px solid rgba(192, 132, 252, 0.3);
-            border-radius: 10px;
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            font-size: 13px;
-            color: #cbd5e1;
+            border-radius: 10px; padding: 10px 12px; margin-bottom: 8px;
+            font-size: 13px; color: #cbd5e1;
         }
 
         .note-item small { color: #f0abfc; display: block; font-weight: 800; margin-bottom: 4px; }
@@ -539,7 +556,7 @@
                 <button class="btn-report" onclick="reportFile('2. Fox One V10', this)">⚠️ Reportar Enlace o Mod Caído</button>
             </div>
 
-            <!-- APARTADO DE DEJAR NOTA / MENSAJE AL ADMIN -->
+            <!-- APARTADO DE DEJAR NOTA AL ADMIN -->
             <div class="feedback-box">
                 <h4>💬 ¿Un mod dejó de funcionar? Escríbele al Admin:</h4>
                 <textarea id="userNoteInput" class="feedback-input" placeholder="Escribe aquí tu mensaje o qué mod necesita actualización..."></textarea>
@@ -548,7 +565,7 @@
         </div>
     </div>
 
-    <!-- MODAL TEMPORIZADOR -->
+    <!-- MODAL TEMPORIZADOR ANTI-BOT -->
     <div class="timer-modal" id="timerModal">
         <div class="timer-box">
             <h3 style="color: #f0abfc; font-weight: 900;">⚡ GENERANDO ENLACE SEGURO...</h3>
@@ -565,6 +582,15 @@
         <div class="admin-content">
             <h2>📊 Panel Admin <button class="close-admin" onclick="closeAdminModal()">✕</button></h2>
             
+            <!-- MODO CREADOR / IGNORAR MI DISPOSITIVO -->
+            <div class="maintenance-toggle" style="background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.4);">
+                <span style="color: #86efac; font-size: 14px; font-weight: 800;">👑 Ignorar mis Clics/Visitas (Modo Creador):</span>
+                <label class="switch">
+                    <input type="checkbox" id="creatorSwitch" onchange="toggleCreatorMode(this.checked)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
             <div class="stat-card"><span>👁️ Visitas Totales:</span><b id="stat-views">0</b></div>
             <div class="stat-card"><span>📥 Descargas Totales:</span><b id="stat-downloads">0</b></div>
             <div class="stat-card"><span>📋 Keys Copiadas:</span><b id="stat-copies">0</b></div>
@@ -576,6 +602,7 @@
                 <button class="theme-btn" style="background: #e11d48;" onclick="setTheme('theme-red')">Rojo Carmesí</button>
             </div>
 
+            <!-- MANTENIMIENTO -->
             <div class="maintenance-toggle">
                 <span style="color: #fda4af; font-size: 14px; font-weight: 800;">🛠️ Activar Mantenimiento:</span>
                 <label class="switch">
@@ -583,6 +610,32 @@
                     <span class="slider"></span>
                 </label>
             </div>
+
+            <!-- MOSTRAR / OCULTAR BANNER -->
+            <div class="maintenance-toggle" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(192, 132, 252, 0.4);">
+                <span style="color: #f0abfc; font-size: 14px; font-weight: 800;">📢 Mostrar Banner Anuncios:</span>
+                <label class="switch">
+                    <input type="checkbox" id="bannerSwitch" checked onchange="toggleBannerVisibility(this.checked)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- CAMBIAR TEXTO DEL BANNER -->
+            <div class="admin-section-title">📢 Cambiar Aviso del Banner:</div>
+            <div class="admin-input-group">
+                <input type="text" id="newBannerInput" class="admin-input" placeholder="Escribe el nuevo aviso...">
+                <button class="admin-btn-action" onclick="saveBannerText()">Guardar</button>
+            </div>
+
+            <!-- CAMBIAR CONTRASEÑA ADMIN -->
+            <div class="admin-section-title">🔐 Cambiar Contraseña Admin:</div>
+            <div class="admin-input-group">
+                <input type="password" id="newPassInput" class="admin-input" placeholder="Nueva contraseña...">
+                <button class="admin-btn-action" onclick="saveAdminPass()">Actualizar</button>
+            </div>
+
+            <!-- BOTÓN EXPORTAR REPORTES -->
+            <button class="admin-btn-export" onclick="exportStatsReport()">📥 Descargar Reporte (.txt)</button>
 
             <div class="admin-section-title">⚠️ Reportes de Enlaces Caídos:</div>
             <div id="reports-breakdown"></div>
@@ -606,34 +659,75 @@
             return localStorage.getItem('admin_pass') || "FAKEMODS2026";
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            let views = parseInt(localStorage.getItem('admin_views') || 0) + 1;
-            localStorage.setItem('admin_views', views);
+        function isCreatorMode() {
+            return localStorage.getItem('admin_creator_mode') === 'true';
+        }
 
+        document.addEventListener('DOMContentLoaded', () => {
+            // Contar Visita solo si NO es el Creador
+            if (!isCreatorMode()) {
+                let views = parseInt(localStorage.getItem('admin_views') || 0) + 1;
+                localStorage.setItem('admin_views', views);
+            }
+
+            // Cargar Modo Creador Switch
+            document.getElementById('creatorSwitch').checked = isCreatorMode();
+
+            // Cargar Tema
             let savedTheme = localStorage.getItem('admin_theme');
             if (savedTheme) document.body.className = savedTheme;
 
+            // Cargar Banner Texto
+            let savedBannerText = localStorage.getItem('admin_banner_text');
+            if (savedBannerText) document.getElementById('bannerTextContent').innerHTML = savedBannerText;
+
+            // Cargar Visibilidad Banner
+            if (localStorage.getItem('admin_banner_hidden') === 'true') {
+                document.getElementById('announcementBanner').style.display = 'none';
+                document.getElementById('bannerSwitch').checked = false;
+            }
+
+            // Cargar Mantenimiento
             if (localStorage.getItem('admin_maint') === 'true') {
                 document.getElementById('maintSwitch').checked = true;
                 applyMaintenance(true);
             }
 
-            const count = document.querySelectorAll('.card').length;
-            const counterBadge = document.getElementById('card-counter');
-            if (counterBadge) counterBadge.innerText = `📌 MOSTRANDO TOP ${count} ARCHIVOS MÁS RECIENTES`;
+            // Rastreador de Clics directos en enlaces (para links de keys)
+            document.querySelectorAll('.track-dl').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (!isCreatorMode()) {
+                        let dls = parseInt(localStorage.getItem('admin_dls') || 0) + 1;
+                        localStorage.setItem('admin_dls', dls);
+
+                        let card = btn.closest('.card');
+                        if (card) {
+                            let id = card.getAttribute('data-id');
+                            let fileDls = parseInt(localStorage.getItem('file_' + id) || 0) + 1;
+                            localStorage.setItem('file_' + id, fileDls);
+                        }
+                    }
+                });
+            });
+
+            updateCardCounter();
         });
 
-        // REPORTAR MOD
-        function reportFile(fileId, btn) {
-            let reports = parseInt(localStorage.getItem('report_' + fileId) || 0) + 1;
-            localStorage.setItem('report_' + fileId, reports);
+        function toggleCreatorMode(active) {
+            localStorage.setItem('admin_creator_mode', active);
+            alert(active ? "👑 Modo Creador ACTIVADO: Tus visitas y clics ya no se sumarán a las estadísticas." : " Modo Creador DESACTIVADO: Tus clics contarán normalmente.");
+        }
 
+        function reportFile(fileId, btn) {
+            if (!isCreatorMode()) {
+                let reports = parseInt(localStorage.getItem('report_' + fileId) || 0) + 1;
+                localStorage.setItem('report_' + fileId, reports);
+            }
             btn.innerText = '✅ ¡Reporte enviado! Gracias.';
             btn.style.color = '#4ade80';
             btn.disabled = true;
         }
 
-        // ENVIAR NOTA DE USUARIO
         function sendUserNote() {
             let input = document.getElementById('userNoteInput');
             let text = input.value.trim();
@@ -665,10 +759,12 @@
                     clearInterval(interval);
                     modal.style.display = 'none';
 
-                    let dls = parseInt(localStorage.getItem('admin_dls') || 0) + 1;
-                    localStorage.setItem('admin_dls', dls);
-                    let fileDls = parseInt(localStorage.getItem('file_' + fileId) || 0) + 1;
-                    localStorage.setItem('file_' + fileId, fileDls);
+                    if (!isCreatorMode()) {
+                        let dls = parseInt(localStorage.getItem('admin_dls') || 0) + 1;
+                        localStorage.setItem('admin_dls', dls);
+                        let fileDls = parseInt(localStorage.getItem('file_' + fileId) || 0) + 1;
+                        localStorage.setItem('file_' + fileId, fileDls);
+                    }
 
                     window.open(url, '_blank');
                 }
@@ -693,8 +789,10 @@
 
         function copyKey(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
-                let copies = parseInt(localStorage.getItem('admin_copies') || 0) + 1;
-                localStorage.setItem('admin_copies', copies);
+                if (!isCreatorMode()) {
+                    let copies = parseInt(localStorage.getItem('admin_copies') || 0) + 1;
+                    localStorage.setItem('admin_copies', copies);
+                }
 
                 btn.innerText = '✅ ¡Copiado!';
                 btn.style.background = '#22c55e';
@@ -752,6 +850,30 @@
             document.getElementById('file-breakdown').innerHTML = breakdownHTML;
         }
 
+        function saveBannerText() {
+            let text = document.getElementById('newBannerInput').value;
+            if (text.trim() !== "") {
+                let formattedText = `📢 <b>AVISO FAKE MODS:</b> ${text}`;
+                localStorage.setItem('admin_banner_text', formattedText);
+                document.getElementById('bannerTextContent').innerHTML = formattedText;
+                alert("✅ Texto del banner actualizado.");
+            }
+        }
+
+        function saveAdminPass() {
+            let newPass = document.getElementById('newPassInput').value;
+            if (newPass.trim() !== "") {
+                localStorage.setItem('admin_pass', newPass);
+                alert("✅ Contraseña de Admin actualizada.");
+                document.getElementById('newPassInput').value = "";
+            }
+        }
+
+        function toggleBannerVisibility(visible) {
+            localStorage.setItem('admin_banner_hidden', !visible);
+            document.getElementById('announcementBanner').style.display = visible ? 'flex' : 'none';
+        }
+
         function toggleMaintenance(active) {
             localStorage.setItem('admin_maint', active);
             applyMaintenance(active);
@@ -760,6 +882,37 @@
         function applyMaintenance(active) {
             document.getElementById('mainWebList').style.display = active ? 'none' : 'block';
             document.getElementById('maintScreen').style.display = active ? 'block' : 'none';
+        }
+
+        function exportStatsReport() {
+            let views = localStorage.getItem('admin_views') || 0;
+            let dls = localStorage.getItem('admin_dls') || 0;
+            let copies = localStorage.getItem('admin_copies') || 0;
+
+            let report = `=== REPORTE FAKE MODS ===\n`;
+            report += `Fecha: ${new Date().toLocaleString()}\n`;
+            report += `Visitas Totales: ${views}\n`;
+            report += `Descargas Totales: ${dls}\n`;
+            report += `Keys Copiadas: ${copies}\n\n`;
+            report += `--- CLICS POR ARCHIVO ---\n`;
+
+            document.querySelectorAll('.card').forEach(card => {
+                let id = card.getAttribute('data-id');
+                let count = localStorage.getItem('file_' + id) || 0;
+                report += `${id}: ${count} clics\n`;
+            });
+
+            let blob = new Blob([report], { type: "text/plain" });
+            let a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "reporte_fakemods.txt";
+            a.click();
+        }
+
+        function updateCardCounter() {
+            const count = document.querySelectorAll('.card').length;
+            const counterBadge = document.getElementById('card-counter');
+            if (counterBadge) counterBadge.innerText = `📌 MOSTRANDO TOP ${count} ARCHIVOS MÁS RECIENTES`;
         }
 
         function resetStats() {
