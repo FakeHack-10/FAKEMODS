@@ -18,7 +18,6 @@
             --card-bg: rgba(18, 11, 32, 0.82);
         }
 
-        /* TEMAS CONFIGURABLES DESDE EL PANEL ADMIN */
         body.theme-green {
             --primary-glow: #22c55e;
             --secondary-glow: #4ade80;
@@ -62,7 +61,7 @@
             text-align: center;
         }
 
-        /* SERVER PING BADGE */
+        /* STATUS SERVIDOR */
         .server-status {
             display: inline-flex;
             align-items: center;
@@ -87,7 +86,7 @@
             animation: pulse 1.5s infinite;
         }
 
-        /* BANNER DE ANUNCIOS */
+        /* BANNER ANUNCIOS */
         .announcement-banner {
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(217, 70, 239, 0.25));
             border: 1px solid rgba(232, 121, 249, 0.6);
@@ -211,7 +210,6 @@
             font-weight: 600;
         }
 
-        /* BUSCADOR */
         .search-box {
             width: 100%;
             padding: 12px 18px;
@@ -233,11 +231,8 @@
             box-shadow: 0 0 20px var(--primary-glow);
         }
 
-        .search-box::placeholder {
-            color: #94a3b8;
-        }
+        .search-box::placeholder { color: #94a3b8; }
 
-        /* TARJETAS */
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(168, 85, 247, 0.3);
@@ -255,10 +250,7 @@
         .card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
+            top: 0; left: 0; width: 4px; height: 100%;
             background: linear-gradient(180deg, var(--secondary-glow), var(--primary-glow));
             opacity: 0.9;
         }
@@ -287,355 +279,160 @@
             margin-bottom: 12px;
         }
 
-        .card-date {
-            font-size: 12px;
-            color: #d8b4fe;
-            font-weight: 800;
-        }
+        .card-date { font-size: 12px; color: #d8b4fe; font-weight: 800; }
 
-        .tag-group {
-            display: flex;
-            gap: 6px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+        .tag-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+        .tag-tested { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-patched { background: linear-gradient(135deg, #f43f5e, #881337); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
 
-        .tag-tested {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 900;
-            padding: 3px 10px;
-            border-radius: 12px;
-            text-transform: uppercase;
-        }
-
-        .tag-new {
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
-            color: #fff;
-            font-size: 11px;
-            font-weight: 900;
-            padding: 3px 10px;
-            border-radius: 12px;
-            text-transform: uppercase;
-        }
-
-        .tag-patched {
-            background: linear-gradient(135deg, #f43f5e, #881337);
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 900;
-            padding: 3px 10px;
-            border-radius: 12px;
-            text-transform: uppercase;
-        }
-
-        .card h3 {
-            font-size: 19px;
-            color: #ffffff;
-            margin-bottom: 8px;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-        }
-
-        .card p {
-            font-size: 14.5px;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-            line-height: 1.4;
-            font-weight: 600;
-        }
-
-        .instructions {
-            font-size: 13.5px;
-            color: #e2e8f0;
-            line-height: 1.4;
-            margin-top: 10px;
-            margin-bottom: 14px;
-            background: rgba(168, 85, 247, 0.12);
-            padding: 12px 14px;
-            border-radius: 14px;
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            font-weight: 600;
-        }
-
-        .instructions b { color: #f0abfc; }
+        .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; }
+        .card p { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
 
         .key-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(30, 15, 50, 0.85);
-            border: 1px dashed rgba(192, 132, 252, 0.6);
-            padding: 10px 14px;
-            border-radius: 14px;
-            margin-top: 10px;
-            gap: 8px;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(30, 15, 50, 0.85); border: 1px dashed rgba(192, 132, 252, 0.6);
+            padding: 10px 14px; border-radius: 14px; margin-top: 10px; gap: 8px;
         }
 
-        .key-text {
-            color: #f8fafc;
-            font-weight: 800;
-            font-size: 14px;
-            word-break: break-all;
-            letter-spacing: 0.5px;
-        }
+        .key-text { color: #f8fafc; font-weight: 800; font-size: 14px; word-break: break-all; }
 
         .copy-btn {
             background: linear-gradient(135deg, #c084fc, #9333ea);
-            color: #ffffff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-
-        .copy-btn:hover {
-            transform: scale(1.05);
-            filter: brightness(1.15);
+            color: #ffffff; border: none; padding: 8px 16px; border-radius: 10px;
+            font-size: 12px; font-weight: 900; cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
         }
 
         .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 14px 16px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 14.5px;
-            text-align: center;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 14px 16px; border-radius: 14px; text-decoration: none;
+            font-weight: 900; font-size: 14.5px; text-align: center; cursor: pointer;
+            transition: all 0.25s ease; margin-top: 9px; border: none;
+        }
+
+        .btn:hover { transform: translateY(-2px); filter: brightness(1.15); }
+        .btn-main { background: linear-gradient(135deg, #22c55e, #15803d); color: #ffffff; margin-bottom: 12px; border-radius: 16px; font-size: 15.5px; padding: 16px; }
+        .btn-secondary-wa { background: linear-gradient(135deg, var(--primary-glow), #6b21a8); color: #ffffff; margin-bottom: 20px; border-radius: 16px; font-size: 15.5px; padding: 16px; }
+        .btn-mediafire { background: linear-gradient(135deg, #7c3aed, #4c1d95); color: #ffffff; }
+        .btn-danger { background: linear-gradient(135deg, #f43f5e, #9f1239); color: #ffffff; }
+        .btn-key { background: rgba(168, 85, 247, 0.15); color: #f0abfc; border: 1px solid rgba(192, 132, 252, 0.45); }
+
+        /* BOTÓN REPORTAR EN TARJETA */
+        .btn-report {
+            background: rgba(244, 63, 94, 0.12);
+            color: #fda4af;
+            border: 1px solid rgba(244, 63, 94, 0.3);
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 6px 12px;
+            margin-top: 10px;
             cursor: pointer;
-            transition: all 0.25s ease;
-            margin-top: 9px;
-            border: none;
+            width: 100%;
+            transition: all 0.2s ease;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.15);
+        .btn-report:hover { background: rgba(244, 63, 94, 0.25); color: #fff; }
+
+        /* SECCIÓN DE FEEDBACK / NOTAS DE USUARIO EN LA WEB */
+        .feedback-box {
+            background: rgba(18, 11, 32, 0.82);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 20px;
+            padding: 18px;
+            margin-top: 25px;
+            text-align: left;
         }
 
-        .btn-main {
-            background: linear-gradient(135deg, #22c55e, #15803d);
-            color: #ffffff;
-            margin-bottom: 12px;
-            border-radius: 16px;
-            font-size: 15.5px;
-            padding: 16px;
-            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.35);
-        }
-
-        .btn-secondary-wa {
-            background: linear-gradient(135deg, var(--primary-glow), #6b21a8);
-            color: #ffffff;
-            margin-bottom: 20px;
-            border-radius: 16px;
-            font-size: 15.5px;
-            padding: 16px;
-            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
-        }
-
-        .btn-mediafire {
-            background: linear-gradient(135deg, #7c3aed, #4c1d95);
-            color: #ffffff;
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #f43f5e, #9f1239);
-            color: #ffffff;
-        }
-
-        .btn-key {
-            background: rgba(168, 85, 247, 0.15);
+        .feedback-box h4 {
+            font-size: 15px;
             color: #f0abfc;
-            border: 1px solid rgba(192, 132, 252, 0.45);
+            margin-bottom: 8px;
+            font-weight: 900;
         }
 
-        /* MODAL DE TEMPORIZADOR ANTI-BOT */
+        .feedback-input {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(30, 15, 50, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.4);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            outline: none;
+            resize: none;
+            height: 65px;
+        }
+
+        .btn-send-feedback {
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            color: #ffffff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 900;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* MODAL ANTI-BOT TEMPORIZADOR */
         .timer-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(15px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); z-index: 2000;
+            align-items: center; justify-content: center; padding: 20px;
         }
 
         .timer-box {
-            background: #140c26;
-            border: 2px solid var(--primary-glow);
-            border-radius: 24px;
-            padding: 30px 20px;
-            max-width: 380px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 0 40px var(--primary-glow);
+            background: #140c26; border: 2px solid var(--primary-glow); border-radius: 24px;
+            padding: 30px 20px; max-width: 380px; width: 100%; text-align: center;
         }
 
-        .timer-number {
-            font-size: 54px;
-            font-weight: 900;
-            color: var(--secondary-glow);
-            margin: 15px 0;
-            text-shadow: 0 0 20px var(--primary-glow);
-        }
+        .timer-number { font-size: 54px; font-weight: 900; color: var(--secondary-glow); margin: 15px 0; }
 
         /* BOTÓN Y MODAL PANEL ADMIN */
         .admin-trigger {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(20, 14, 35, 0.9);
-            border: 1px solid #c084fc;
-            color: #ffffff;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(192, 132, 252, 0.6);
-            z-index: 999;
+            position: fixed; bottom: 20px; right: 20px; background: rgba(20, 14, 35, 0.9);
+            border: 1px solid #c084fc; color: #ffffff; width: 48px; height: 48px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer;
+            box-shadow: 0 0 20px rgba(192, 132, 252, 0.6); z-index: 999;
         }
 
         .admin-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.88);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(12px); z-index: 1000;
+            align-items: center; justify-content: center; padding: 20px;
         }
 
         .admin-content {
-            background: #120a22;
-            border: 2px solid #a855f7;
-            border-radius: 22px;
-            padding: 24px;
-            max-width: 460px;
-            width: 100%;
-            color: #fff;
-            text-align: left;
-            box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
-            position: relative;
-            max-height: 85vh;
-            overflow-y: auto;
+            background: #120a22; border: 2px solid #a855f7; border-radius: 22px; padding: 24px;
+            max-width: 460px; width: 100%; color: #fff; text-align: left;
+            position: relative; max-height: 85vh; overflow-y: auto;
         }
 
-        .admin-content h2 {
-            font-size: 22px;
-            color: #f0abfc;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 900;
-        }
-
-        .close-admin {
-            background: none;
-            border: none;
-            color: #ff4d4d;
-            font-size: 24px;
-            cursor: pointer;
-            font-weight: 900;
-        }
+        .admin-content h2 { font-size: 22px; color: #f0abfc; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: 900; }
+        .close-admin { background: none; border: none; color: #ff4d4d; font-size: 24px; cursor: pointer; font-weight: 900; }
 
         .stat-card {
-            background: rgba(168, 85, 247, 0.12);
-            border: 1px solid rgba(192, 132, 252, 0.35);
-            border-radius: 12px;
-            padding: 12px 16px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(192, 132, 252, 0.35);
+            border-radius: 12px; padding: 12px 16px; margin-bottom: 10px;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
         .stat-card span { font-size: 14px; color: #cbd5e1; font-weight: 700; }
         .stat-card b { font-size: 20px; color: #22c55e; font-weight: 900; }
 
-        .admin-section-title {
-            font-size: 15px;
-            color: #a78bfa;
-            margin-top: 18px;
-            margin-bottom: 8px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
+        .admin-section-title { font-size: 15px; color: #a78bfa; margin-top: 18px; margin-bottom: 8px; font-weight: 800; text-transform: uppercase; }
 
-        .admin-input-group {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .admin-input {
-            flex: 1;
-            padding: 10px 14px;
-            background: rgba(30, 15, 50, 0.8);
-            border: 1px solid rgba(192, 132, 252, 0.4);
-            border-radius: 10px;
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 700;
-            outline: none;
-        }
-
-        .admin-btn-action {
-            background: linear-gradient(135deg, #a855f7, #7c3aed);
-            color: #ffffff;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: 800;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .theme-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .theme-btn {
-            flex: 1;
-            padding: 8px;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-weight: 800;
-            font-size: 12px;
-            cursor: pointer;
-        }
+        .theme-selector { display: flex; gap: 10px; margin-bottom: 15px; }
+        .theme-btn { flex: 1; padding: 8px; border: none; border-radius: 10px; color: white; font-weight: 800; font-size: 12px; cursor: pointer; }
 
         .maintenance-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(244, 63, 94, 0.15);
-            border: 1px solid rgba(244, 63, 94, 0.4);
-            padding: 12px 16px;
-            border-radius: 12px;
-            margin-top: 12px;
-            margin-bottom: 12px;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4);
+            padding: 12px 16px; border-radius: 12px; margin-top: 12px; margin-bottom: 12px;
         }
 
         .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
@@ -647,6 +444,18 @@
 
         .btn-reset { background: #f43f5e; color: white; border: none; padding: 12px; border-radius: 12px; width: 100%; font-weight: 900; margin-top: 10px; cursor: pointer; font-size: 14px; }
 
+        .note-item {
+            background: rgba(30, 15, 50, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            border-radius: 10px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .note-item small { color: #f0abfc; display: block; font-weight: 800; margin-bottom: 4px; }
+
         .maint-screen { display: none; background: rgba(10, 5, 20, 0.96); padding: 30px 20px; border-radius: 22px; border: 2px solid #f43f5e; margin-top: 20px; }
 
         footer { margin-top: 30px; padding-bottom: 12px; font-size: 13px; color: #64748b; font-weight: 700; }
@@ -656,12 +465,10 @@
 
     <div class="container">
 
-        <!-- STATUS DE SERVIDOR EN TIEMPO REAL -->
         <div class="server-status">
             <div class="server-dot"></div> SERVIDORES FAKE MODS: ONLINE (24ms)
         </div>
 
-        <!-- BANNER DE ANUNCIOS -->
         <div class="announcement-banner" id="announcementBanner">
             <div class="announcement-text" id="bannerTextContent">
                 📢 <b>AVISO FAKE MODS:</b> ¡Proxy Stirlax funcionando al 100%! Recuerden unirse a los canales oficiales.
@@ -683,7 +490,6 @@
 
         <span class="counter-badge" id="card-counter">📌 MOSTRANDO ARCHIVOS MÁS RECIENTES</span>
 
-        <!-- PANTALLA MANTENIMIENTO -->
         <div class="maint-screen" id="maintScreen">
             <h2 style="color: #f43f5e;">⚠️ MODO MANTENIMIENTO ⚠️</h2>
             <p style="color: #cbd5e1; font-weight: 700; font-size: 15px;">Estamos actualizando los servidores y archivos de Fake Mods.<br>Regresamos en unos minutos. 🚀</p>
@@ -716,6 +522,7 @@
                     <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
                     <button class="copy-btn track-copy" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
                 </div>
+                <button class="btn-report" onclick="reportFile('1. Proxy Stirlax', this)">⚠️ Reportar Enlace o Mod Caído</button>
             </div>
 
             <!-- 2. FOX ONE V10 (PARCHADO) -->
@@ -729,11 +536,19 @@
                 <h3>🦊 FOX ONE V10 (FULL) 🤯👇</h3>
                 <p>• ⚡ <b>Versión:</b> Fox One V10.<br>• ⚠️ <b>Estado:</b> PARCHADO - Esperando nueva actualización.</p>
                 <button class="btn btn-danger" onclick="startDownloadWithTimer('https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file', '2. Fox One V10')">📥 Descargar Fox One V10 (.apk)</button>
+                <button class="btn-report" onclick="reportFile('2. Fox One V10', this)">⚠️ Reportar Enlace o Mod Caído</button>
+            </div>
+
+            <!-- APARTADO DE DEJAR NOTA / MENSAJE AL ADMIN -->
+            <div class="feedback-box">
+                <h4>💬 ¿Un mod dejó de funcionar? Escríbele al Admin:</h4>
+                <textarea id="userNoteInput" class="feedback-input" placeholder="Escribe aquí tu mensaje o qué mod necesita actualización..."></textarea>
+                <button class="btn-send-feedback" onclick="sendUserNote()">📩 Enviar Nota al Admin</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL TEMPORIZADOR DE DESCARGA -->
+    <!-- MODAL TEMPORIZADOR -->
     <div class="timer-modal" id="timerModal">
         <div class="timer-box">
             <h3 style="color: #f0abfc; font-weight: 900;">⚡ GENERANDO ENLACE SEGURO...</h3>
@@ -754,15 +569,13 @@
             <div class="stat-card"><span>📥 Descargas Totales:</span><b id="stat-downloads">0</b></div>
             <div class="stat-card"><span>📋 Keys Copiadas:</span><b id="stat-copies">0</b></div>
 
-            <!-- SELECCIONAR TEMA DE COLOR -->
-            <div class="admin-section-title">🎨 Tema Visual de la Web:</div>
+            <div class="admin-section-title">🎨 Tema Visual:</div>
             <div class="theme-selector">
                 <button class="theme-btn" style="background: #9333ea;" onclick="setTheme('')">Violeta</button>
                 <button class="theme-btn" style="background: #16a34a;" onclick="setTheme('theme-green')">Verde Hacker</button>
                 <button class="theme-btn" style="background: #e11d48;" onclick="setTheme('theme-red')">Rojo Carmesí</button>
             </div>
 
-            <!-- MANTENIMIENTO -->
             <div class="maintenance-toggle">
                 <span style="color: #fda4af; font-size: 14px; font-weight: 800;">🛠️ Activar Mantenimiento:</span>
                 <label class="switch">
@@ -771,16 +584,16 @@
                 </label>
             </div>
 
-            <div class="admin-section-title">📢 Cambiar Aviso del Banner:</div>
-            <div class="admin-input-group">
-                <input type="text" id="newBannerInput" class="admin-input" placeholder="Nuevo aviso...">
-                <button class="admin-btn-action" onclick="saveBannerText()">Guardar</button>
-            </div>
+            <div class="admin-section-title">⚠️ Reportes de Enlaces Caídos:</div>
+            <div id="reports-breakdown"></div>
+
+            <div class="admin-section-title">📩 Notas de Usuarios:</div>
+            <div id="notes-breakdown"></div>
 
             <div class="admin-section-title">🔥 Clics por Archivo:</div>
             <div id="file-breakdown"></div>
 
-            <button class="btn-reset" onclick="resetStats()">🗑️ Reiniciar Estadísticas</button>
+            <button class="btn-reset" onclick="resetStats()">🗑️ Reiniciar Todo</button>
         </div>
     </div>
 
@@ -800,9 +613,6 @@
             let savedTheme = localStorage.getItem('admin_theme');
             if (savedTheme) document.body.className = savedTheme;
 
-            let savedBannerText = localStorage.getItem('admin_banner_text');
-            if (savedBannerText) document.getElementById('bannerTextContent').innerHTML = savedBannerText;
-
             if (localStorage.getItem('admin_maint') === 'true') {
                 document.getElementById('maintSwitch').checked = true;
                 applyMaintenance(true);
@@ -813,7 +623,32 @@
             if (counterBadge) counterBadge.innerText = `📌 MOSTRANDO TOP ${count} ARCHIVOS MÁS RECIENTES`;
         });
 
-        // TEMPORIZADOR DE DESCARGA ANTI-BOT
+        // REPORTAR MOD
+        function reportFile(fileId, btn) {
+            let reports = parseInt(localStorage.getItem('report_' + fileId) || 0) + 1;
+            localStorage.setItem('report_' + fileId, reports);
+
+            btn.innerText = '✅ ¡Reporte enviado! Gracias.';
+            btn.style.color = '#4ade80';
+            btn.disabled = true;
+        }
+
+        // ENVIAR NOTA DE USUARIO
+        function sendUserNote() {
+            let input = document.getElementById('userNoteInput');
+            let text = input.value.trim();
+
+            if (text !== "") {
+                let notes = JSON.parse(localStorage.getItem('user_notes') || "[]");
+                let dateStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                notes.unshift({ text: text, date: dateStr });
+
+                localStorage.setItem('user_notes', JSON.stringify(notes));
+                input.value = "";
+                alert("✅ Mensaje enviado al Admin correctamente.");
+            }
+        }
+
         function startDownloadWithTimer(url, fileId) {
             let modal = document.getElementById('timerModal');
             let countElem = document.getElementById('timerCount');
@@ -830,13 +665,11 @@
                     clearInterval(interval);
                     modal.style.display = 'none';
 
-                    // Registrar Descarga en el Admin
                     let dls = parseInt(localStorage.getItem('admin_dls') || 0) + 1;
                     localStorage.setItem('admin_dls', dls);
                     let fileDls = parseInt(localStorage.getItem('file_' + fileId) || 0) + 1;
                     localStorage.setItem('file_' + fileId, fileDls);
 
-                    // Redirigir al enlace de MediaFire
                     window.open(url, '_blank');
                 }
             }, 1000);
@@ -886,6 +719,26 @@
             document.getElementById('stat-downloads').innerText = localStorage.getItem('admin_dls') || 0;
             document.getElementById('stat-copies').innerText = localStorage.getItem('admin_copies') || 0;
 
+            // Reportes
+            let reportsHTML = "";
+            document.querySelectorAll('.card').forEach(card => {
+                let id = card.getAttribute('data-id');
+                let count = localStorage.getItem('report_' + id) || 0;
+                if (count > 0) {
+                    reportsHTML += `<div style="font-size:12px; color:#f43f5e; padding:3px 0;"><b>• ${id}:</b> ${count} reportes</div>`;
+                }
+            });
+            document.getElementById('reports-breakdown').innerHTML = reportsHTML || "<div style='font-size:12px; color:#64748b;'>Sin reportes activos.</div>";
+
+            // Notas
+            let notes = JSON.parse(localStorage.getItem('user_notes') || "[]");
+            let notesHTML = "";
+            notes.forEach(note => {
+                notesHTML += `<div class="note-item"><small>🕒 ${note.date}</small>${note.text}</div>`;
+            });
+            document.getElementById('notes-breakdown').innerHTML = notesHTML || "<div style='font-size:12px; color:#64748b;'>Sin mensajes de usuarios.</div>";
+
+            // Clics
             let breakdownHTML = "";
             document.querySelectorAll('.card').forEach(card => {
                 let id = card.getAttribute('data-id');
@@ -899,16 +752,6 @@
             document.getElementById('file-breakdown').innerHTML = breakdownHTML;
         }
 
-        function saveBannerText() {
-            let text = document.getElementById('newBannerInput').value;
-            if (text.trim() !== "") {
-                let formattedText = `📢 <b>AVISO FAKE MODS:</b> ${text}`;
-                localStorage.setItem('admin_banner_text', formattedText);
-                document.getElementById('bannerTextContent').innerHTML = formattedText;
-                alert("✅ Texto actualizado.");
-            }
-        }
-
         function toggleMaintenance(active) {
             localStorage.setItem('admin_maint', active);
             applyMaintenance(active);
@@ -920,7 +763,7 @@
         }
 
         function resetStats() {
-            if (confirm("¿Estás seguro de reiniciar los contadores?")) {
+            if (confirm("¿Estás seguro de reiniciar los contadores y limpiar notas?")) {
                 localStorage.clear();
                 updateAdminStats();
             }
