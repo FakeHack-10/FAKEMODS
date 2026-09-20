@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAKE MODS - Official Web</title>
+    <!-- FUENTE GAMER / CYBERPUNK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background-color: #080511;
+            background-color: #06030e;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 24px 14px;
+            padding: 20px 14px;
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.35), transparent 50%),
-                radial-gradient(circle at 10% 40%, rgba(217, 70, 239, 0.15), transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(147, 51, 234, 0.2), transparent 45%);
+                radial-gradient(circle at 50% 0%, rgba(192, 132, 252, 0.4), transparent 55%),
+                radial-gradient(circle at 0% 50%, rgba(217, 70, 239, 0.2), transparent 45%),
+                radial-gradient(circle at 100% 80%, rgba(147, 51, 234, 0.25), transparent 50%);
             background-attachment: fixed;
         }
 
@@ -33,10 +38,48 @@
             text-align: center;
         }
 
+        /* BANNER DE ANUNCIOS */
+        .announcement-banner {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(217, 70, 239, 0.25));
+            border: 1px solid rgba(232, 121, 249, 0.6);
+            border-radius: 16px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+            animation: pulse-border 2.5s infinite alternate;
+        }
+
+        @keyframes pulse-border {
+            0% { border-color: rgba(232, 121, 249, 0.4); box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+            100% { border-color: rgba(232, 121, 249, 0.9); box-shadow: 0 0 25px rgba(217, 70, 239, 0.5); }
+        }
+
+        .announcement-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: #f5d0fe;
+            text-align: left;
+            line-height: 1.3;
+        }
+
+        .announcement-close {
+            background: none;
+            border: none;
+            color: #f0abfc;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: 900;
+            padding-left: 10px;
+        }
+
         .profile-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .profile-img {
@@ -50,7 +93,7 @@
         }
 
         .profile-img:hover {
-            transform: scale(1.08) rotate(2deg);
+            transform: scale(1.08) rotate(3deg);
         }
 
         .status-dot {
@@ -73,13 +116,14 @@
         }
 
         h1 {
-            font-size: 32px;
-            letter-spacing: -0.5px;
+            font-size: 36px;
+            letter-spacing: 1px;
             font-weight: 900;
             background: linear-gradient(135deg, #ffffff 20%, #e879f9 60%, #a855f7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+            text-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+            text-transform: uppercase;
         }
 
         .badge {
@@ -89,44 +133,46 @@
             background: rgba(168, 85, 247, 0.18);
             color: #f0abfc;
             border: 1px solid rgba(192, 132, 252, 0.45);
-            padding: 6px 16px;
+            padding: 5px 16px;
             border-radius: 20px;
-            font-size: 11.5px;
+            font-size: 13px;
             font-weight: 800;
-            margin-top: 8px;
-            margin-bottom: 16px;
+            margin-top: 6px;
+            margin-bottom: 14px;
             backdrop-filter: blur(12px);
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
         }
 
         .counter-badge {
             display: block;
-            font-size: 11px;
+            font-size: 12px;
             color: #a78bfa;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 18px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         p.desc {
             color: #cbd5e1;
-            font-size: 14px;
-            margin-bottom: 22px;
-            line-height: 1.5;
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            font-weight: 600;
         }
 
+        /* TARJETAS CON EFECTO GLOW UP */
         .card {
-            background: rgba(20, 14, 35, 0.75);
-            border: 1px solid rgba(168, 85, 247, 0.25);
+            background: rgba(18, 11, 32, 0.82);
+            border: 1px solid rgba(168, 85, 247, 0.3);
             border-radius: 22px;
             padding: 20px;
             margin-bottom: 18px;
             text-align: left;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             backdrop-filter: blur(20px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
             position: relative;
             overflow: hidden;
         }
@@ -144,14 +190,8 @@
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(192, 132, 252, 0.6);
-            box-shadow: 0 16px 40px rgba(168, 85, 247, 0.35);
-        }
-
-        .card-special {
-            background: linear-gradient(145deg, rgba(45, 18, 70, 0.85), rgba(22, 10, 40, 0.9));
-            border: 1.5px solid rgba(232, 121, 249, 0.6);
-            box-shadow: 0 0 30px rgba(217, 70, 239, 0.35);
+            border-color: rgba(232, 121, 249, 0.8);
+            box-shadow: 0 16px 40px rgba(168, 85, 247, 0.45);
         }
 
         .card-danger {
@@ -173,9 +213,9 @@
         }
 
         .card-date {
-            font-size: 11px;
+            font-size: 12px;
             color: #d8b4fe;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .tag-group {
@@ -188,28 +228,8 @@
         .tag-tested {
             background: linear-gradient(135deg, #22c55e, #16a34a);
             color: #ffffff;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 900;
-            padding: 3px 10px;
-            border-radius: 12px;
-            text-transform: uppercase;
-        }
-
-        .tag-full {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: #ffffff;
-            font-size: 10px;
-            font-weight: 900;
-            padding: 3px 10px;
-            border-radius: 12px;
-            text-transform: uppercase;
-        }
-
-        .tag-special {
-            background: linear-gradient(135deg, #e879f9, #a855f7);
-            color: #ffffff;
-            font-size: 10px;
-            font-weight: 800;
             padding: 3px 10px;
             border-radius: 12px;
             text-transform: uppercase;
@@ -218,8 +238,8 @@
         .tag-new {
             background: linear-gradient(135deg, #ec4899, #8b5cf6);
             color: #fff;
-            font-size: 10px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 900;
             padding: 3px 10px;
             border-radius: 12px;
             text-transform: uppercase;
@@ -228,37 +248,40 @@
         .tag-patched {
             background: linear-gradient(135deg, #f43f5e, #881337);
             color: #ffffff;
-            font-size: 10px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 900;
             padding: 3px 10px;
             border-radius: 12px;
             text-transform: uppercase;
         }
 
         .card h3 {
-            font-size: 17px;
+            font-size: 19px;
             color: #ffffff;
             margin-bottom: 8px;
-            font-weight: 800;
+            font-weight: 900;
+            letter-spacing: 0.5px;
         }
 
         .card p {
-            font-size: 13.5px;
+            font-size: 14.5px;
             color: #cbd5e1;
             margin-bottom: 12px;
-            line-height: 1.45;
+            line-height: 1.4;
+            font-weight: 600;
         }
 
         .instructions {
-            font-size: 13px;
+            font-size: 13.5px;
             color: #e2e8f0;
-            line-height: 1.5;
+            line-height: 1.4;
             margin-top: 10px;
             margin-bottom: 14px;
-            background: rgba(168, 85, 247, 0.1);
+            background: rgba(168, 85, 247, 0.12);
             padding: 12px 14px;
             border-radius: 14px;
-            border: 1px solid rgba(192, 132, 252, 0.25);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            font-weight: 600;
         }
 
         .instructions b { color: #f0abfc; }
@@ -267,8 +290,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(35, 20, 55, 0.75);
-            border: 1px dashed rgba(192, 132, 252, 0.5);
+            background: rgba(30, 15, 50, 0.85);
+            border: 1px dashed rgba(192, 132, 252, 0.6);
             padding: 10px 14px;
             border-radius: 14px;
             margin-top: 10px;
@@ -277,27 +300,29 @@
 
         .key-text {
             color: #f8fafc;
-            font-weight: 700;
-            font-size: 13px;
+            font-weight: 800;
+            font-size: 14px;
             word-break: break-all;
+            letter-spacing: 0.5px;
         }
 
         .copy-btn {
             background: linear-gradient(135deg, #c084fc, #9333ea);
             color: #ffffff;
             border: none;
-            padding: 7px 15px;
+            padding: 8px 16px;
             border-radius: 10px;
-            font-size: 11.5px;
-            font-weight: 800;
+            font-size: 12px;
+            font-weight: 900;
             cursor: pointer;
             transition: all 0.25s ease;
             white-space: nowrap;
+            letter-spacing: 0.5px;
         }
 
         .copy-btn:hover {
             transform: scale(1.05);
-            filter: brightness(1.1);
+            filter: brightness(1.15);
         }
 
         .btn {
@@ -306,21 +331,22 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 13px 16px;
+            padding: 14px 16px;
             border-radius: 14px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 13.5px;
+            font-weight: 900;
+            font-size: 14.5px;
             text-align: center;
             cursor: pointer;
             transition: all 0.25s ease;
             margin-top: 9px;
             border: none;
+            letter-spacing: 0.5px;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            filter: brightness(1.1);
+            filter: brightness(1.15);
         }
 
         .btn-main {
@@ -328,8 +354,9 @@
             color: #ffffff;
             margin-bottom: 12px;
             border-radius: 16px;
-            font-size: 14.5px;
-            padding: 15px;
+            font-size: 15.5px;
+            padding: 16px;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.35);
         }
 
         .btn-secondary-wa {
@@ -337,18 +364,15 @@
             color: #ffffff;
             margin-bottom: 20px;
             border-radius: 16px;
-            font-size: 14.5px;
-            padding: 15px;
+            font-size: 15.5px;
+            padding: 16px;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
         }
 
         .btn-mediafire {
             background: linear-gradient(135deg, #7c3aed, #4c1d95);
             color: #ffffff;
-        }
-
-        .btn-special {
-            background: linear-gradient(135deg, #e879f9, #a855f7);
-            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
         }
 
         .btn-danger {
@@ -357,14 +381,9 @@
         }
 
         .btn-key {
-            background: rgba(168, 85, 247, 0.12);
+            background: rgba(168, 85, 247, 0.15);
             color: #f0abfc;
-            border: 1px solid rgba(192, 132, 252, 0.4);
-        }
-
-        .btn-youtube {
-            background: linear-gradient(135deg, #ef4444, #991b1b);
-            color: #ffffff;
+            border: 1px solid rgba(192, 132, 252, 0.45);
         }
 
         .btn-whatsapp {
@@ -384,16 +403,21 @@
             background: rgba(20, 14, 35, 0.9);
             border: 1px solid #c084fc;
             color: #ffffff;
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
+            box-shadow: 0 0 20px rgba(192, 132, 252, 0.6);
             z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+        .admin-trigger:hover {
+            transform: scale(1.1) rotate(15deg);
         }
 
         .admin-modal {
@@ -403,8 +427,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -412,41 +436,42 @@
         }
 
         .admin-content {
-            background: #140e23;
+            background: #120a22;
             border: 2px solid #a855f7;
-            border-radius: 20px;
+            border-radius: 22px;
             padding: 24px;
-            max-width: 450px;
+            max-width: 460px;
             width: 100%;
             color: #fff;
             text-align: left;
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
             position: relative;
             max-height: 85vh;
             overflow-y: auto;
         }
 
         .admin-content h2 {
-            font-size: 20px;
+            font-size: 22px;
             color: #f0abfc;
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: 900;
         }
 
         .close-admin {
             background: none;
             border: none;
             color: #ff4d4d;
-            font-size: 22px;
+            font-size: 24px;
             cursor: pointer;
             font-weight: 900;
         }
 
         .stat-card {
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px solid rgba(192, 132, 252, 0.3);
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid rgba(192, 132, 252, 0.35);
             border-radius: 12px;
             padding: 12px 16px;
             margin-bottom: 10px;
@@ -455,32 +480,113 @@
             align-items: center;
         }
 
-        .stat-card span { font-size: 13px; color: #cbd5e1; }
-        .stat-card b { font-size: 18px; color: #22c55e; }
+        .stat-card span { font-size: 14px; color: #cbd5e1; font-weight: 700; }
+        .stat-card b { font-size: 20px; color: #22c55e; font-weight: 900; }
+
+        .maintenance-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .maintenance-toggle span {
+            font-size: 14px;
+            font-weight: 800;
+            color: #fda4af;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #334155;
+            transition: .3s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider { background-color: #f43f5e; }
+        input:checked + .slider:before { transform: translateX(20px); }
 
         .btn-reset {
             background: #f43f5e;
             color: white;
             border: none;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 12px;
             width: 100%;
-            font-weight: 800;
-            margin-top: 15px;
+            font-weight: 900;
+            margin-top: 10px;
             cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PANTALLA MANTENIMIENTO OCULTA POR DEFECTO */
+        .maint-screen {
+            display: none;
+            background: rgba(10, 5, 20, 0.96);
+            padding: 30px 20px;
+            border-radius: 22px;
+            border: 2px solid #f43f5e;
+            margin-top: 20px;
+            box-shadow: 0 0 30px rgba(244, 63, 94, 0.4);
+        }
+
+        .maint-screen h2 {
+            color: #f43f5e;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 900;
         }
 
         footer {
             margin-top: 30px;
             padding-bottom: 12px;
-            font-size: 12px;
+            font-size: 13px;
             color: #64748b;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+
+        <!-- 📢 BANNER DE ANUNCIOS DEL DÍA -->
+        <div class="announcement-banner" id="announcementBanner">
+            <div class="announcement-text">
+                📢 <b>AVISO FAKE MODS:</b> ¡Proxy Stirlax funcionando al 100%! Recuerden unirse a los canales oficiales.
+            </div>
+            <button class="announcement-close" onclick="closeBanner()">✕</button>
+        </div>
+
         <div class="profile-container">
             <img src="Screenshot_20260825_173640_WhatsApp.jpg" alt="Fake Mods Logo" class="profile-img">
             <div class="status-dot"></div>
@@ -493,213 +599,107 @@
         
         <span class="counter-badge" id="card-counter">📌 MOSTRANDO ARCHIVOS MÁS RECIENTES</span>
 
-        <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn btn-main">
-            🚀 UNIRSE AL CANAL PRINCIPAL DE WHATSAPP
-        </a>
+        <!-- PANTALLA MANTENIMIENTO -->
+        <div class="maint-screen" id="maintScreen">
+            <h2>⚠️ MODO MANTENIMIENTO ⚠️</h2>
+            <p style="color: #cbd5e1; font-weight: 700; font-size: 15px;">Estamos actualizando los servidores y archivos de Fake Mods.<br>Regresamos en unos minutos con todo funcional. 🚀</p>
+        </div>
 
-        <a href="https://whatsapp.com/channel/0029VbDCYlh3mFY6j5zmUR3Q" target="_blank" class="btn btn-secondary-wa">
-            🔑 CANAL DE TUTOS & KEYS EN WHATSAPP
-        </a>
+        <!-- CONTENIDO PRINCIPAL WEB -->
+        <div id="mainWebList">
+            <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn btn-main">
+                🚀 UNIRSE AL CANAL PRINCIPAL DE WHATSAPP
+            </a>
 
-        <!-- 1. PROXY STIRLAX -->
-        <div class="card" data-id="1. Proxy Stirlax">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 20/09/2026</span>
-                <div class="tag-group">
-                    <span class="tag-new">NUEVO</span>
-                    <span class="tag-tested">✅ TESTEADO</span>
+            <a href="https://whatsapp.com/channel/0029VbDCYlh3mFY6j5zmUR3Q" target="_blank" class="btn btn-secondary-wa">
+                🔑 CANAL DE TUTOS & KEYS EN WHATSAPP
+            </a>
+
+            <!-- 1. PROXY STIRLAX -->
+            <div class="card" data-id="1. Proxy Stirlax">
+                <div class="card-header">
+                    <span class="card-date">📅 SUBIDO: 20/09/2026</span>
+                    <div class="tag-group">
+                        <span class="tag-new">NUEVO</span>
+                        <span class="tag-tested">✅ TESTEADO</span>
+                    </div>
+                </div>
+                <h3>💬 PROXY STIRLAX UPDATE ❗⚡</h3>
+                <p>• ⚡ <b>Versión:</b> Proxy Stirlax Actualizado.<br>• 🎮 <b>Compatibilidad:</b> Free Fire Normal.</p>
+                <a href="https://www.mediafire.com/file/ufv912wn6oh9w7b/PROXY+STIRLAX" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Proxy Stirlax</a>
+                <a href="https://sociosxiters.com/keystirlax.php" target="_blank" class="btn btn-key track-dl">🔑 Generar Key Permanente Gratis</a>
+                <a href="https://www.mediafire.com/file/2e5oeajjsyiy7fp/Shizuku-Fixers" target="_blank" class="btn btn-mediafire track-dl">🌟 Descargar Shizuku + Fixers</a>
+                <a href="https://www.mediafire.com/file/4exeju2ge3kwr81/Free+Fire" target="_blank" class="btn btn-mediafire track-dl">🔥 Descargar Free Fire Normal</a>
+                <div class="key-container">
+                    <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
+                    <button class="copy-btn track-copy" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
                 </div>
             </div>
-            <h3>💬 PROXY STIRLAX UPDATE ❗⚡</h3>
-            <p>• ⚡ <b>Versión:</b> Proxy Stirlax Actualizado.<br>• 🎮 <b>Compatibilidad:</b> Free Fire Normal.</p>
-            <a href="https://www.mediafire.com/file/ufv912wn6oh9w7b/PROXY+STIRLAX" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Proxy Stirlax</a>
-            <a href="https://sociosxiters.com/keystirlax.php" target="_blank" class="btn btn-key track-dl">🔑 Generar Key Permanente Gratis</a>
-            <a href="https://www.mediafire.com/file/2e5oeajjsyiy7fp/Shizuku-Fixers" target="_blank" class="btn btn-mediafire track-dl">🌟 Descargar Shizuku + Fixers</a>
-            <a href="https://www.mediafire.com/file/4exeju2ge3kwr81/Free+Fire" target="_blank" class="btn btn-mediafire track-dl">🔥 Descargar Free Fire Normal</a>
-            <div class="key-container">
-                <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
-                <button class="copy-btn track-copy" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
-            </div>
-        </div>
 
-        <!-- 2. FOX ONE V10 (PARCHADO) -->
-        <div class="card card-danger" data-id="2. Fox One V10">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 19/09/2026</span>
-                <div class="tag-group">
-                    <span class="tag-patched">🚫 PARCHADO</span>
+            <!-- 2. FOX ONE V10 (PARCHADO) -->
+            <div class="card card-danger" data-id="2. Fox One V10">
+                <div class="card-header">
+                    <span class="card-date">📅 SUBIDO: 19/09/2026</span>
+                    <div class="tag-group">
+                        <span class="tag-patched">🚫 PARCHADO</span>
+                    </div>
+                </div>
+                <h3>🦊 FOX ONE V10 (FULL) 🤯👇</h3>
+                <p>• ⚡ <b>Versión:</b> Fox One V10.<br>• ⚠️ <b>Estado:</b> PARCHADO - Esperando nueva actualización.</p>
+                <a href="https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file" target="_blank" class="btn btn-danger track-dl">📥 Descargar Fox One V10 (.apk)</a>
+            </div>
+
+            <!-- 3. PROXY TNT V14 -->
+            <div class="card" data-id="3. Proxy TNT V14">
+                <div class="card-header">
+                    <span class="card-date">📅 SUBIDO: 18/09/2026</span>
+                </div>
+                <h3>💣 PROXY TNT V14 🤯⚡</h3>
+                <p>• ⚡ <b>Versión:</b> Proxy TNT V14 + Tutorial.<br>• 🎮 <b>Compatibilidad:</b> Exclusivo FULL para Free Fire MAX.</p>
+                <a href="https://www.mediafire.com/file/xqaut5his12q600/PROXY_TNT_V14_%2B_TUTORIAL.zip/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Proxy TNT V14 + Tutorial (.zip)</a>
+            </div>
+
+            <!-- 4. NETCHEAT PROXY V8 -->
+            <div class="card" data-id="4. NetCheat Proxy V8">
+                <div class="card-header">
+                    <span class="card-date">📅 SUBIDO: 17/09/2026</span>
+                </div>
+                <h3>🔥 NETCHEAT PROXY V8 🤯⚡</h3>
+                <p>• ⚙️ <b>Requisito:</b> Conectar Shizuku por depuración inalámbrica.</p>
+                <div class="instructions"><b>📌 NOTA IMPORTANTE:</b> Conectar Shizuku por depuración para su correcto funcionamiento.</div>
+                <a href="https://www.mediafire.com/file/ug8td10trqx9w4k/Proxy+NetCheat+V8.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Proxy NetCheat V8 (.apk)</a>
+                <a href="https://www.mediafire.com/file/smlcnmdbo3p5hbk/SHIZUKU.apk/file" target="_blank" class="btn btn-mediafire track-dl">🌟 Descargar Shizuku App (.apk)</a>
+            </div>
+
+            <!-- 5. VELQERIX PROXY V1.0 -->
+            <div class="card" data-id="5. Velqerix Proxy V1.0">
+                <div class="card-header">
+                    <span class="card-date">📅 SUBIDO: 17/09/2026</span>
+                </div>
+                <h3>🔥 VELQERIX PROXY V1.0 ⚡</h3>
+                <p>• 🎯 <b>Funciones:</b> AIMBOT NO BUG + ESP.<br>• ⚠️ <b>Requisito:</b> Free Fire MAX actualizado.</p>
+                <a href="https://modsff.com/proxy" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Velqerix Proxy V1.0</a>
+                <a href="https://modsff.com/keysgratis" target="_blank" class="btn btn-key track-dl">🔑 Generar Keys Gratis Aquí</a>
+            </div>
+
+            <!-- 6. 02 MODS NON ROOT -->
+            <div class="card" data-id="6. 02 Mods Non Root">
+                <div class="card-header">
+                    <span class="card-date">📅 SUBIDO: 17/09/2026</span>
+                </div>
+                <h3>🔥 02 MODS NON ROOT ⚡</h3>
+                <p>• 🎮 <b>Tipo:</b> Mod Non Root.<br>• ⚙️ <b>Requiere:</b> Shizuku y FF MAX.</p>
+                <a href="https://www.mediafire.com/file/juwc8yqozftbpaw/02+MODS_1.0.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar 02 MODS 1.0 (.apk)</a>
+                <div class="key-container">
+                    <span class="key-text">KEY: 02 VIP</span>
+                    <button class="copy-btn track-copy" onclick="copyKey('02 VIP', this)">📋 Copiar Key</button>
                 </div>
             </div>
-            <h3>🦊 FOX ONE V10 (FULL) 🤯👇</h3>
-            <p>• ⚡ <b>Versión:</b> Fox One V10.<br>• ⚠️ <b>Estado:</b> PARCHADO - Esperando nueva actualización.</p>
-            <a href="https://www.mediafire.com/file/dhpifpp7j067vh5/FOX+ONE+V10.apk/file" target="_blank" class="btn btn-danger track-dl">📥 Descargar Fox One V10 (.apk)</a>
-        </div>
 
-        <!-- 3. PROXY TNT V14 -->
-        <div class="card" data-id="3. Proxy TNT V14">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 18/09/2026</span>
-            </div>
-            <h3>💣 PROXY TNT V14 🤯⚡</h3>
-            <p>• ⚡ <b>Versión:</b> Proxy TNT V14 + Tutorial.<br>• 🎮 <b>Compatibilidad:</b> Exclusivo FULL para Free Fire MAX.</p>
-            <a href="https://www.mediafire.com/file/xqaut5his12q600/PROXY_TNT_V14_%2B_TUTORIAL.zip/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Proxy TNT V14 + Tutorial (.zip)</a>
+            <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn btn-whatsapp">
+                💬 Unirse al canal para más archivos
+            </a>
         </div>
-
-        <!-- 4. NETCHEAT PROXY V8 -->
-        <div class="card" data-id="4. NetCheat Proxy V8">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 17/09/2026</span>
-            </div>
-            <h3>🔥 NETCHEAT PROXY V8 🤯⚡</h3>
-            <p>• ⚙️ <b>Requisito:</b> Conectar Shizuku por depuración inalámbrica.</p>
-            <div class="instructions"><b>📌 NOTA IMPORTANTE:</b> Conectar Shizuku por depuración para su correcto funcionamiento.</div>
-            <a href="https://www.mediafire.com/file/ug8td10trqx9w4k/Proxy+NetCheat+V8.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Proxy NetCheat V8 (.apk)</a>
-            <a href="https://www.mediafire.com/file/smlcnmdbo3p5hbk/SHIZUKU.apk/file" target="_blank" class="btn btn-mediafire track-dl">🌟 Descargar Shizuku App (.apk)</a>
-        </div>
-
-        <!-- 5. VELQERIX PROXY V1.0 -->
-        <div class="card" data-id="5. Velqerix Proxy V1.0">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 17/09/2026</span>
-            </div>
-            <h3>🔥 VELQERIX PROXY V1.0 ⚡</h3>
-            <p>• 🎯 <b>Funciones:</b> AIMBOT NO BUG + ESP.<br>• ⚠️ <b>Requisito:</b> Free Fire MAX actualizado.</p>
-            <a href="https://modsff.com/proxy" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Velqerix Proxy V1.0</a>
-            <a href="https://modsff.com/keysgratis" target="_blank" class="btn btn-key track-dl">🔑 Generar Keys Gratis Aquí</a>
-            <a href="https://free-fire-max.es.divxland.org/download/" target="_blank" class="btn btn-mediafire track-dl">🔥 Descargar FF MAX Actualizado</a>
-        </div>
-
-        <!-- 6. 02 MODS NON ROOT -->
-        <div class="card" data-id="6. 02 Mods Non Root">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 17/09/2026</span>
-            </div>
-            <h3>🔥 02 MODS NON ROOT ⚡</h3>
-            <p>• 🎮 <b>Tipo:</b> Mod Non Root.<br>• ⚙️ <b>Requiere:</b> Shizuku y FF MAX.</p>
-            <a href="https://www.mediafire.com/file/juwc8yqozftbpaw/02+MODS_1.0.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar 02 MODS 1.0 (.apk)</a>
-            <a href="https://www.mediafire.com/file/smlcnmdbo3p5hbk/SHIZUKU.apk/file" target="_blank" class="btn btn-mediafire track-dl">🌟 Descargar Shizuku App (.apk)</a>
-            <div class="key-container">
-                <span class="key-text">KEY: 02 VIP</span>
-                <button class="copy-btn track-copy" onclick="copyKey('02 VIP', this)">📋 Copiar Key</button>
-            </div>
-        </div>
-
-        <!-- 7. NETWORK XLEO -->
-        <div class="card" data-id="7. Network Xleo">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 16/09/2026</span>
-            </div>
-            <h3>🌐 NETWORK XLEO ⚡</h3>
-            <p>• 👤 <b>Créditos:</b> XLEOPROLIVE</p>
-            <a href="https://www.mediafire.com/file/uluis9jenvvftd4/Network_FIXED.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Network FIXED (.apk)</a>
-            <div class="key-container">
-                <span class="key-text">KEY: xLeo-SN52041D</span>
-                <button class="copy-btn track-copy" onclick="copyKey('xLeo-SN52041D', this)">📋 Copiar Key</button>
-            </div>
-        </div>
-
-        <!-- 8. NETWORK GAME V16.4 -->
-        <div class="card" data-id="8. Network Game V16.4">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 15/09/2026</span>
-            </div>
-            <h3>⚡ NETWORK GAME V16.4 🌐</h3>
-            <p>• 🎮 <b>Proxy:</b> Full Gratis por 1 día (VIP).</p>
-            <div class="instructions"><b>⏳ PROMO EXCLUSIVA:</b> Gratis por un día. ¡Aprovecha!</div>
-            <a href="https://www.mediafire.com/file/oqnnp07m1c6spvf/Network+Game+V16+PROXY+ASTRA.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Network Game V16 Proxy (.apk)</a>
-            <div class="key-container">
-                <span class="key-text">KEY: NETWORK-GAME-FREE-8K</span>
-                <button class="copy-btn track-copy" onclick="copyKey('NETWORK-GAME-FREE-8K', this)">📋 Copiar Key</button>
-            </div>
-        </div>
-
-        <!-- 9. POWER TEAM V 33 -->
-        <div class="card" data-id="9. Power Team V33">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 15/09/2026</span>
-            </div>
-            <h3>🌟 POWER TEAM V 33 🌟</h3>
-            <p>• 🎮 <b>Proxy:</b> Power Mods Proxy V33.</p>
-            <a href="https://www.mediafire.com/file/7wa69fc223avvck/POWER%257EMODS%257EPROXY_V33_%25F0%259F%2594%25A5.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Power Mods Proxy V33 (.apk)</a>
-            <div class="key-container">
-                <span class="key-text">KEY: POWER-FJZXA</span>
-                <button class="copy-btn track-copy" onclick="copyKey('POWER-FJZXA', this)">📋 Copiar Key</button>
-            </div>
-        </div>
-
-        <!-- 10. MTH TEAM V25 FULL SAFE -->
-        <div class="card" data-id="10. MTH Team V25">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 14/09/2026</span>
-            </div>
-            <h3>🛡️ MTH TEAM V25 FULL SAFE 🛡️</h3>
-            <p>• 🎮 <b>Versión:</b> Proxy MTH Team v25 Menu.</p>
-            <a href="https://www.mediafire.com/file/uxbegapk6nh2mnv/Proxy_Mth_Team_v25_Menu.zip/file?dkey=7p2cwwvpobt&r=1939" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Proxy MTH Team V25 (.zip)</a>
-            <a href="https://mthteam.com/getkey" target="_blank" class="btn btn-key track-dl">🔑 Generar Key MTH Team Aquí</a>
-        </div>
-
-        <!-- 11. PATO TEAM MODZ -->
-        <div class="card" data-id="11. Pato Team Modz">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 13/09/2026</span>
-            </div>
-            <h3>💬 PATO TEAM MODZ 👹</h3>
-            <p>• 🎮 <b>Versión:</b> APK MOD 2.131.X PATO TEAM</p>
-            <a href="https://www.mediafire.com/file/kbdmol16astsogo/APKMOD.2.131.X.PATOTEAM.apks/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Pato Team APK (.apks)</a>
-            <a href="https://mrlightvn.fun/app/getkey?ref=xnhauv" target="_blank" class="btn btn-key track-dl">🔑 Genera tu Key Aquí</a>
-        </div>
-
-        <!-- 12. PROXY GRINGO XP -->
-        <div class="card" data-id="12. Proxy Gringo XP">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 13/09/2026</span>
-            </div>
-            <h3>🥶 PROXY GRINGO XP PAINEL V13 💀</h3>
-            <p>• 🎮 <b>FF Recomendado:</b> Free Fire MAX.</p>
-            <a href="https://www.mediafire.com/file/opqlabzh0yfo4qn/GRINGO+XP+PAINEL+V13+PROXY.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Gringo XP Painel V13 (.apk)</a>
-            <a href="https://gringoxp.site/gringo/GetKey" target="_blank" class="btn btn-key track-dl">🔑 Genera tu Key Aquí</a>
-            <a href="https://youtube.com/shorts/l57mVYmoD90?si=KLwcjaAHOW8am5MP" target="_blank" class="btn btn-youtube track-dl">▶️ Tutorial de Key (YouTube)</a>
-        </div>
-
-        <!-- 13. SILENT CHEATS (PARCHADO) -->
-        <div class="card card-danger" data-id="13. Silent Cheats VII">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 13/09/2026</span>
-                <span class="tag-patched">🚫 PARCHADO</span>
-            </div>
-            <h3>🔥 SILENT CHEATS ATT MOD MENU VII 🔥</h3>
-            <p>• 🆕 NEW BYPASS / NEW UPDATE</p>
-            <a href="https://www.mediafire.com/file/bamquz5eouw1tr6/SILENT+CHEATS+ATT+MOD+MENU+VII.apks/file" target="_blank" class="btn btn-danger track-dl">📥 Descargar Mod Menu VII (.apks)</a>
-        </div>
-
-        <!-- 14. DAYO PING V40 -->
-        <div class="card" data-id="14. Dayo Ping V40">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 12/09/2026</span>
-            </div>
-            <h3>🔥 DAYO PING V40 🔥</h3>
-            <p>• FULL CON MÁS DE 100 RACHAS 🔥</p>
-            <a href="https://www.mediafire.com/file/o7h6tdtcifbvsje/DAYO+PING+V40+MDZ+.apk/file" target="_blank" class="btn btn-mediafire track-dl">📥 Descargar Dayo Ping V40 (.apk)</a>
-        </div>
-
-        <!-- 15. FAKE MODS WIRE V3 -->
-        <div class="card card-special" data-id="15. Fake Mods Wire V3">
-            <div class="card-header">
-                <span class="card-date">📅 SUBIDO: 11/09/2026</span>
-                <div class="tag-group"><span class="tag-special">👑 FAKE MODS</span></div>
-            </div>
-            <h3>⚡ FAKE MODS WIRE V3 APK ⚡</h3>
-            <p>• Herramienta oficial con máxima estabilidad.</p>
-            <a href="https://www.mediafire.com/file/dxidyjl9bs3xo7n/FAKE+MODS+WIRE+V3.apk/file" target="_blank" class="btn btn-special track-dl">📥 Descargar Fake Mods Wire V3 (.apk)</a>
-            <div class="key-container">
-                <span class="key-text">KEY: B2AL VIP</span>
-                <button class="copy-btn track-copy" onclick="copyKey('B2AL VIP', this)">📋 Copiar Key</button>
-            </div>
-        </div>
-
-        <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn btn-whatsapp">
-            💬 Unirse al canal para más archivos
-        </a>
     </div>
 
     <!-- BOTÓN FLOTANTE ADMIN -->
@@ -725,7 +725,16 @@
                 <b id="stat-copies">0</b>
             </div>
 
-            <h3 style="font-size: 14px; color: #a78bfa; margin-top: 15px; margin-bottom: 10px;">🔥 Registro Clicks por Archivo (Top 15):</h3>
+            <!-- INTERRUPTOR MANTENIMIENTO -->
+            <div class="maintenance-toggle">
+                <span>🛠️ Activar Mantenimiento:</span>
+                <label class="switch">
+                    <input type="checkbox" id="maintSwitch" onchange="toggleMaintenance(this.checked)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <h3 style="font-size: 15px; color: #a78bfa; margin-top: 15px; margin-bottom: 10px; font-weight: 800;">🔥 Registro Clicks por Archivo:</h3>
             <div id="file-breakdown"></div>
 
             <button class="btn-reset" onclick="resetStats()">🗑️ Reiniciar Estadísticas</button>
@@ -737,14 +746,20 @@
     </footer>
 
     <script>
-        const ADMIN_PASS = "FAKEMODS2026"; // Clave de acceso al Panel Admin
+        const ADMIN_PASS = "FAKEMODS2026"; // Clave del Panel Admin
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Contar Visita a la web
+            // Contar Visitas
             let views = parseInt(localStorage.getItem('admin_views') || 0) + 1;
             localStorage.setItem('admin_views', views);
 
-            // Rastreador de clicks en botones de descarga / enlaces
+            // Reorganizar Mantenimiento si estaba activado
+            if (localStorage.getItem('admin_maint') === 'true') {
+                document.getElementById('maintSwitch').checked = true;
+                applyMaintenance(true);
+            }
+
+            // Rastreador de Descargas
             document.querySelectorAll('.track-dl').forEach(btn => {
                 btn.addEventListener('click', () => {
                     let dls = parseInt(localStorage.getItem('admin_dls') || 0) + 1;
@@ -759,24 +774,20 @@
                 });
             });
 
-            // Contar cuantas tarjetas hay en pantalla
+            // Conteo de tarjetas
             const count = document.querySelectorAll('.card').length;
             const counterBadge = document.getElementById('card-counter');
             if (counterBadge) counterBadge.innerText = `📌 MOSTRANDO TOP ${count} ARCHIVOS MÁS RECIENTES`;
         });
 
-        // Copiar Key con conteo
+        function closeBanner() {
+            document.getElementById('announcementBanner').style.display = 'none';
+        }
+
         function copyKey(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
                 let copies = parseInt(localStorage.getItem('admin_copies') || 0) + 1;
                 localStorage.setItem('admin_copies', copies);
-
-                let card = btn.closest('.card');
-                if (card) {
-                    let id = card.getAttribute('data-id');
-                    let fileDls = parseInt(localStorage.getItem('file_' + id) || 0) + 1;
-                    localStorage.setItem('file_' + id, fileDls);
-                }
 
                 const originalText = btn.innerText;
                 btn.innerText = '✅ ¡Copiado!';
@@ -788,7 +799,6 @@
             });
         }
 
-        // Abrir Modal Admin
         function openAdminModal() {
             let pass = prompt("🔐 Ingresa la Clave de Administrador:");
             if (pass === ADMIN_PASS) {
@@ -803,7 +813,6 @@
             document.getElementById('adminModal').style.display = 'none';
         }
 
-        // Cargar Estadísticas en Pantalla
         function updateAdminStats() {
             document.getElementById('stat-views').innerText = localStorage.getItem('admin_views') || 0;
             document.getElementById('stat-downloads').innerText = localStorage.getItem('admin_dls') || 0;
@@ -814,12 +823,27 @@
                 let id = card.getAttribute('data-id');
                 let count = localStorage.getItem('file_' + id) || 0;
                 breakdownHTML += `
-                    <div style="font-size: 12px; color: #cbd5e1; padding: 5px 0; border-bottom: 1px rgba(255,255,255,0.1) solid; display: flex; justify-content: space-between;">
+                    <div style="font-size: 13px; color: #cbd5e1; padding: 5px 0; border-bottom: 1px rgba(255,255,255,0.1) solid; display: flex; justify-content: space-between; font-weight: 700;">
                         <span>• ${id}:</span>
                         <b style="color: #f0abfc;">${count} clicks</b>
                     </div>`;
             });
             document.getElementById('file-breakdown').innerHTML = breakdownHTML;
+        }
+
+        function toggleMaintenance(active) {
+            localStorage.setItem('admin_maint', active);
+            applyMaintenance(active);
+        }
+
+        function applyMaintenance(active) {
+            if (active) {
+                document.getElementById('mainWebList').style.display = 'none';
+                document.getElementById('maintScreen').style.display = 'block';
+            } else {
+                document.getElementById('mainWebList').style.display = 'block';
+                document.getElementById('maintScreen').style.display = 'none';
+            }
         }
 
         function resetStats() {
