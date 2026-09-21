@@ -240,6 +240,49 @@
             opacity: 0.9;
         }
 
+        /* APARTADO ESPECIAL: GENERADOR DE KEY */
+        .card-generator {
+            background: linear-gradient(145deg, rgba(30, 10, 50, 0.9), rgba(10, 5, 25, 0.95));
+            border: 2px solid rgba(232, 121, 249, 0.8);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.4), inset 0 0 15px rgba(232, 121, 249, 0.2);
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .card-generator::before {
+            background: linear-gradient(180deg, #f43f5e, #c084fc, #3b82f6);
+            width: 6px;
+        }
+
+        .credentials-box {
+            display: grid;
+            gap: 10px;
+            margin: 14px 0;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 8, 30, 0.9);
+            border: 1px dashed rgba(192, 132, 252, 0.5);
+            padding: 10px 14px;
+            border-radius: 12px;
+        }
+
+        .credential-label {
+            font-size: 13px;
+            color: #d8b4fe;
+            font-weight: 800;
+        }
+
+        .credential-value {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+
         /* TARJETA PARCHADA */
         .card.card-danger {
             background: linear-gradient(145deg, rgba(45, 10, 25, 0.85), rgba(20, 5, 12, 0.9));
@@ -266,6 +309,7 @@
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-ios { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-patched { background: linear-gradient(135deg, #f43f5e, #881337); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-vip { background: linear-gradient(135deg, #eab308, #ca8a04); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
 
         .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; }
         .card p { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
@@ -296,6 +340,7 @@
         .btn-secondary-wa { background: linear-gradient(135deg, var(--primary-glow), #6b21a8); color: #ffffff; margin-bottom: 20px; border-radius: 16px; font-size: 15px; padding: 15px; }
         
         .btn-mediafire { background: linear-gradient(135deg, #7c3aed, #4c1d95); color: #ffffff; }
+        .btn-generator-link { background: linear-gradient(135deg, #ec4899, #9333ea); color: #ffffff; font-size: 15px; padding: 15px; border-radius: 16px; box-shadow: 0 0 20px rgba(236, 72, 153, 0.4); }
         .btn-danger { background: linear-gradient(135deg, #f43f5e, #9f1239); color: #ffffff; }
         .btn-key { background: rgba(168, 85, 247, 0.15); color: #f0abfc; border: 1px solid rgba(192, 132, 252, 0.45); }
 
@@ -416,6 +461,39 @@
                 </div>
             </div>
 
+            <!-- APARTADO ESPECIAL: GENERADOR DE KEY FAKE MODS V1 -->
+            <div class="card card-generator" id="card-generator-v1">
+                <div class="card-header">
+                    <span class="card-date" style="color: #f472b6;">⚡ PANEL OFICIAL</span>
+                    <div class="tag-group">
+                        <span class="tag-vip">💎 EXCLUSIVO</span>
+                    </div>
+                </div>
+                <h3>🛠️ GENERADOR DE KEY FAKE MODS V1 🔓</h3>
+                <p>• 🚀 <b>Plataforma:</b> Panel oficial de generación de licencias.<br>• ⚠️ <b>Acceso:</b> Utiliza las credenciales oficiales de la comunidad.</p>
+                
+                <div class="credentials-box">
+                    <div class="credential-item">
+                        <span class="credential-label">👤 USUARIO:</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="credential-value" id="userGen">FAKE</span>
+                            <button class="copy-btn" onclick="copyKey('FAKE', this)">📋 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <span class="credential-label">🔑 CONTRASEÑA:</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="credential-value" id="passGen">MODS10</span>
+                            <button class="copy-btn" onclick="copyKey('MODS10', this)">📋 Copiar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://fakehack-10.github.io/SenciFake/" target="_blank" class="btn btn-generator-link">
+                    🌐 ABRIR GENERADOR DE KEY V1
+                </a>
+            </div>
+
             <!-- 5. FOX ONE V10 -->
             <div class="card card-danger" id="card-5">
                 <div class="card-header">
@@ -481,9 +559,10 @@
 
         function copyKey(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
+                let originalText = btn.innerText;
                 btn.innerText = '✅ ¡Copiado!';
                 btn.style.background = '#22c55e';
-                setTimeout(() => { btn.innerText = '📋 Copiar Key'; btn.style.background = ''; }, 2000);
+                setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; }, 2000);
             });
         }
     </script>
