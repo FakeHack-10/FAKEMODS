@@ -240,7 +240,7 @@
             opacity: 0.9;
         }
 
-        /* APARTADO ESPECIAL: GENERADOR DE SENCI (DESTACADO ARRIBA) */
+        /* TARJETA DEL GENERADOR EXTERNO (ARRIBA) */
         .card-generator {
             background: linear-gradient(145deg, rgba(35, 10, 60, 0.95), rgba(15, 5, 30, 0.98));
             border: 2px solid rgba(232, 121, 249, 0.9);
@@ -253,13 +253,13 @@
             width: 6px;
         }
 
-        .senci-grid {
+        .credentials-box {
             display: grid;
             gap: 10px;
             margin: 14px 0;
         }
 
-        .senci-item {
+        .credential-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -269,13 +269,13 @@
             border-radius: 12px;
         }
 
-        .senci-label {
+        .credential-label {
             font-size: 13px;
             color: #d8b4fe;
             font-weight: 800;
         }
 
-        .senci-value {
+        .credential-value {
             font-size: 14px;
             color: #ffffff;
             font-weight: 900;
@@ -339,7 +339,7 @@
         .btn-secondary-wa { background: linear-gradient(135deg, var(--primary-glow), #6b21a8); color: #ffffff; margin-bottom: 20px; border-radius: 16px; font-size: 15px; padding: 15px; }
         
         .btn-mediafire { background: linear-gradient(135deg, #7c3aed, #4c1d95); color: #ffffff; }
-        .btn-generator-action { background: linear-gradient(135deg, #ec4899, #9333ea); color: #ffffff; font-size: 15px; padding: 15px; border-radius: 16px; box-shadow: 0 0 20px rgba(236, 72, 153, 0.4); }
+        .btn-generator-link { background: linear-gradient(135deg, #ec4899, #9333ea); color: #ffffff; font-size: 15px; padding: 15px; border-radius: 16px; box-shadow: 0 0 20px rgba(236, 72, 153, 0.4); }
         .btn-danger { background: linear-gradient(135deg, #f43f5e, #9f1239); color: #ffffff; }
         .btn-key { background: rgba(168, 85, 247, 0.15); color: #f0abfc; border: 1px solid rgba(192, 132, 252, 0.45); }
 
@@ -386,51 +386,37 @@
         
         <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar archivo, proxy o mod..." onkeyup="filterCards()">
 
-        <!-- APARTADO ESPECIAL: GENERADOR DE SENCI FAKE MODS (UBICADO ARRIBA) -->
+        <!-- APARTADO ESPECIAL: GENERADOR DE SENCI (ENLACE EXTERNO + CREDENCIALES) -->
         <div class="card card-generator" id="card-generator-senci">
             <div class="card-header">
-                <span class="card-date" style="color: #f472b6;">🎯 CONFIGURACIÓN VIP</span>
+                <span class="card-date" style="color: #f472b6;">🎯 PANEL EXTERNO</span>
                 <div class="tag-group">
-                    <span class="tag-vip">💎 100% TODO ROJO</span>
+                    <span class="tag-vip">💎 VIP</span>
                 </div>
             </div>
-            <h3>⚙️ GENERADOR DE SENCI FAKE MODS ⚡</h3>
-            <p>• 🚀 <b>Función:</b> Genera una sensibilidad optimizada al instante.<br>• 🎯 <b>Modo:</b> Calibración automática para dar todo capa.</p>
+            <h3>🌐 GENERADOR DE SENCI FAKE MODS ⚡</h3>
+            <p>• 🚀 <b>Plataforma:</b> Entra al generador externo oficial.<br>• 🔑 <b>Acceso:</b> Utiliza las credenciales para entrar y probar.</p>
             
-            <div class="senci-grid">
-                <div class="senci-item">
-                    <span class="senci-label">🔴 GENERAL:</span>
+            <div class="credentials-box">
+                <div class="credential-item">
+                    <span class="credential-label">👤 USUARIO:</span>
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <span class="senci-value" id="genVal">98</span>
-                        <button class="copy-btn" onclick="copyKey(document.getElementById('genVal').innerText, this)">📋 Copiar</button>
+                        <span class="credential-value" id="userGen">FAKE</span>
+                        <button class="copy-btn" onclick="copyKey('FAKE', this)">📋 Copiar</button>
                     </div>
                 </div>
-                <div class="senci-item">
-                    <span class="senci-label">🎯 MIRA PUNTO ROJO:</span>
+                <div class="credential-item">
+                    <span class="credential-label">🔑 CONTRASEÑA:</span>
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <span class="senci-value" id="redVal">95</span>
-                        <button class="copy-btn" onclick="copyKey(document.getElementById('redVal').innerText, this)">📋 Copiar</button>
-                    </div>
-                </div>
-                <div class="senci-item">
-                    <span class="senci-label">🔭 MIRA 2X / 4X:</span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span class="senci-value" id="miraVal">92 / 94</span>
-                        <button class="copy-btn" onclick="copyKey(document.getElementById('miraVal').innerText, this)">📋 Copiar</button>
-                    </div>
-                </div>
-                <div class="senci-item">
-                    <span class="senci-label">📱 DPI RECOMENDADO:</span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span class="senci-value" id="dpiVal">640</span>
-                        <button class="copy-btn" onclick="copyKey(document.getElementById('dpiVal').innerText, this)">📋 Copiar</button>
+                        <span class="credential-value" id="passGen">SENCI10</span>
+                        <button class="copy-btn" onclick="copyKey('SENCI10', this)">📋 Copiar</button>
                     </div>
                 </div>
             </div>
 
-            <button class="btn btn-generator-action" onclick="generateNewSenci()">
-                🔄 GENERAR NUEVA SENCI
-            </button>
+            <a href="https://fakehack-10.github.io/SenciFake/" target="_blank" class="btn btn-generator-link">
+                🚀 ABRIR GENERADOR DE SENCI EXTERNO
+            </a>
         </div>
 
         <span class="counter-badge" id="card-counter">📌 ACCESOS Y ARCHIVOS RECIENTES</span>
@@ -577,20 +563,6 @@
                 btn.style.background = '#22c55e';
                 setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; }, 2000);
             });
-        }
-
-        function generateNewSenci() {
-            let gen = Math.floor(Math.random() * 8) + 92; // Entre 92 y 99
-            let red = Math.floor(Math.random() * 10) + 90; // Entre 90 y 99
-            let m2 = Math.floor(Math.random() * 10) + 90;
-            let m4 = Math.floor(Math.random() * 10) + 90;
-            let dpis = [580, 600, 640, 720, 800];
-            let dpi = dpis[Math.floor(Math.random() * dpis.length)];
-
-            document.getElementById('genVal').innerText = gen;
-            document.getElementById('redVal').innerText = red;
-            document.getElementById('miraVal').innerText = m2 + ' / ' + m4;
-            document.getElementById('dpiVal').innerText = dpi;
         }
     </script>
 </body>
