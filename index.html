@@ -54,57 +54,6 @@
             text-align: center;
         }
 
-        /* REPRODUCTOR DE MÚSICA FLOTANTE - ARRIBA A LA DERECHA */
-        .music-player-float {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background: rgba(18, 11, 32, 0.95);
-            border: 2px solid var(--secondary-glow);
-            border-radius: 35px;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 0 25px rgba(232, 121, 249, 0.6);
-            z-index: 9999;
-            animation: floatGlow 2s infinite alternate;
-        }
-
-        @keyframes floatGlow {
-            0% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); }
-            100% { box-shadow: 0 0 25px rgba(232, 121, 249, 0.8); }
-        }
-
-        .music-player-float span {
-            font-size: 12px;
-            font-weight: 900;
-            color: #f5d0fe;
-            letter-spacing: 0.5px;
-        }
-
-        .music-btn {
-            background: linear-gradient(135deg, #e879f9, #9333ea);
-            border: none;
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15px;
-            box-shadow: 0 0 15px var(--secondary-glow);
-            transition: transform 0.2s ease;
-        }
-
-        .music-btn:active {
-            transform: scale(0.9);
-        }
-
         .server-status {
             display: inline-flex;
             align-items: center;
@@ -117,7 +66,7 @@
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 12px;
-            margin-top: 25px;
+            margin-top: 15px;
             letter-spacing: 1px;
         }
 
@@ -335,7 +284,6 @@
             font-size: 12px; font-weight: 900; cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
         }
 
-        /* ESTILOS DE BOTONES CON ICONOS SVG INCORPORADOS */
         .btn {
             display: flex; align-items: center; justify-content: center; gap: 10px;
             width: 100%; padding: 14px 16px; border-radius: 14px; text-decoration: none;
@@ -377,17 +325,6 @@
 </head>
 <body class="no-select">
 
-    <!-- AUDIO DIRECTO ESTILO DOMA / FREESTYLE (ESTABLE Y RÁPIDO) -->
-    <audio id="bgMusic" loop preload="auto">
-        <source src="https://cdn.freesound.org/previews/615/615104_14798083-lq.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- REPRODUCTOR FLOTANTE ARRIBA A LA DERECHA -->
-    <div class="music-player-float" id="musicPlayerFloat">
-        <span>🎧 DOMA & FREESTYLE</span>
-        <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()">▶</button>
-    </div>
-
     <div class="container">
 
         <div class="server-status">
@@ -396,7 +333,7 @@
 
         <div class="announcement-banner" id="announcementBanner">
             <div class="announcement-text" id="bannerTextContent">
-                📢 <b>AVISO FAKE MODS:</b> ¡BEAT DOMA & FREESTYLE ACTIVO!
+                📢 <b>AVISO FAKE MODS:</b> ¡CONTENIDO ACTUALIZADO!
             </div>
             <button class="announcement-close" onclick="closeBanner()">✕</button>
         </div>
@@ -571,28 +508,6 @@
     <script>
         // Bloquear clic derecho y selección en toda la página
         document.oncontextmenu = () => false;
-
-        // Control de Música de Fondo
-        const music = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicToggleBtn');
-        music.volume = 0.5;
-        let isPlaying = false;
-
-        function toggleMusic() {
-            if (isPlaying) {
-                music.pause();
-                musicBtn.innerText = '▶';
-                isPlaying = false;
-            } else {
-                music.play().then(() => {
-                    musicBtn.innerText = '⏸';
-                    isPlaying = true;
-                }).catch((error) => {
-                    console.log("Error al reproducir:", error);
-                    alert('Por favor toca el botón de nuevo para iniciar la música.');
-                });
-            }
-        }
 
         function startDownloadWithTimer(url) {
             let modal = document.getElementById('timerModal');
