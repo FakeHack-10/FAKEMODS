@@ -323,7 +323,7 @@
             font-size: 12px; font-weight: 900; cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
         }
 
-        /* ESTILOS DE BOTONES CON ICONOS DE REDES SOCIALES PEQUEÑOS */
+        /* ESTILOS DE BOTONES CON ICONOS CORREGIDOS */
         .btn {
             display: flex; align-items: center; justify-content: center; gap: 10px;
             width: 100%; padding: 14px 16px; border-radius: 14px; text-decoration: none;
@@ -336,6 +336,7 @@
             height: 20px;
             object-fit: contain;
             flex-shrink: 0;
+            filter: brightness(0) invert(1); /* Mantiene los iconos blancos nítidos */
         }
 
         .btn:hover { transform: translateY(-2px); filter: brightness(1.15); }
@@ -366,15 +367,16 @@
 </head>
 <body class="no-select">
 
-    <!-- AUDIO DE FONDO (SIESTA FREESTYLE - LEWIS OFMAN FT ALICIA TE QUIERO) -->
-    <audio id="bgMusic" loop>
-        <source src="https://cdn.jsdelivr.net/gh/anars/blank-audio@masterpx/250-milliseconds-of-silence.mp3" type="audio/mpeg">
+    <!-- AUDIO DE FONDO VERÍDICO Y AUTOMÁTICO (VOLUMEN BAJO AL 25%) -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="https://actions.google.com/sounds/v1/ambiences/rain_heavy.ogg" type="audio/ogg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf7f6.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- REPRODUCTOR FLOTANTE DISCRETO -->
+    <!-- REPRODUCTOR FLOTANTE PARA PAUSAR/REANUDAR -->
     <div class="music-player-float" id="musicPlayerFloat">
-        <span>🎵 Siesta Freestyle</span>
-        <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()">▶</button>
+        <span>🎵 Música de Fondo</span>
+        <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()">⏸</button>
     </div>
 
     <div class="container">
@@ -385,7 +387,7 @@
 
         <div class="announcement-banner" id="announcementBanner">
             <div class="announcement-text" id="bannerTextContent">
-                📢 <b>AVISO FAKE MODS:</b> ¡ICONOS OFICIALES Y MÚSICA DE FONDO AÑADIDOS!
+                📢 <b>AVISO FAKE MODS:</b> ¡MÚSICA AUTOMÁTICA Y ICONOS CORREGIDOS!
             </div>
             <button class="announcement-close" onclick="closeBanner()">✕</button>
         </div>
@@ -404,7 +406,7 @@
 
         <span class="counter-badge" id="card-counter">📌 ACCESOS Y ARCHIVOS RECIENTES</span>
 
-        <!-- BOTONES PRINCIPALES CON ICONOS DE REDES SOCIALES -->
+        <!-- BOTONES PRINCIPALES CON ICONOS OFICIALES Y NÍTIDOS -->
         <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn btn-main">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon"> UNIRSE AL CANAL PRINCIPAL DE WHATSAPP
         </a>
@@ -414,7 +416,7 @@
         </a>
 
         <a href="https://tiktok.com/@andresk1ng" target="_blank" class="btn btn-tiktok">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_TikTok.svg" alt="TikTok" class="social-icon"> TIKTOK OFICIAL (@andresk1ng)
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tiktok/tiktok-original.svg" alt="TikTok" class="social-icon"> TIKTOK OFICIAL (@andresk1ng)
         </a>
 
         <a href="https://youtube.com/@fakehack-haack?si=Lt2ypE3DXJMvGUoT" target="_blank" class="btn btn-youtube">
@@ -532,7 +534,7 @@
                 <p>• ⚡ <b>Versión:</b> Proxy Stirlax Actualizado.<br>• 🎮 <b>Compatibilidad:</b> Free Fire Normal.</p>
                 <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ufv912wn6oh9w7b/PROXY+STIRLAX')">📥 Descargar Proxy Stirlax</button>
                 <div class="key-container">
-                    <span class="key-text">KEY 12H GRATIS:STIRLAX-12H</span>
+                    <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
                     <button class="copy-btn" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
                 </div>
                 <div class="card-att">Att: Fake Mods</div>
@@ -557,11 +559,33 @@
         // Bloquear clic derecho y selección en toda la página
         document.oncontextmenu = () => false;
 
-        // Control de Música de Fondo
+        // Control automático de Música de Fondo
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicToggleBtn');
-        music.volume = 0.25; // Volumen bajo de fondo (25%)
-        let isPlaying = false;
+        music.volume = 0.25; // Volumen suave de fondo (25%)
+        let isPlaying = true;
+
+        // Intentar reproducción automática al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            music.play().then(() => {
+                musicBtn.innerText = '⏸';
+                isPlaying = true;
+            }).catch(() => {
+                // Si el navegador bloquea el autoplay inicial, se activará con el primer toque en la pantalla
+                isPlaying = false;
+                musicBtn.innerText = '▶';
+            });
+        });
+
+        // Activar música al primer toque si el navegador la bloqueó inicialmente
+        document.body.addEventListener('click', function unlockAudio() {
+            if (!isPlaying && music.paused) {
+                music.play().then(() => {
+                    musicBtn.innerText = '⏸';
+                    isPlaying = true;
+                });
+            }
+        }, { once: true });
 
         function toggleMusic() {
             if (isPlaying) {
@@ -569,14 +593,10 @@
                 musicBtn.innerText = '▶';
                 isPlaying = false;
             } else {
-                // Reemplazamos con un stream de audio real de fondo funcional (ej. Lo-Fi / Instrumental de ambiente)
-                if(music.src.includes('blank-audio')) {
-                    music.src = 'https://ia801504.us.archive.org/31/items/lorem-ipsum-audio-sample/Alesis-Sanctuary-QCard-Acoustic-Bass-C2.mp3'; 
-                }
                 music.play().then(() => {
                     musicBtn.innerText = '⏸';
                     isPlaying = true;
-                }).catch(e => console.log("Audio play blocked", e));
+                });
             }
         }
 
