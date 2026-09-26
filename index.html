@@ -7,7 +7,7 @@
     <!-- FUENTE GAMER / CYBERPUNK -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800;900&family=Sacramento&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -252,7 +252,20 @@
         .tag-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
         .tag-tested { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
-        .tag-ios { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        
+        /* ESTILO ELEGANTE PARA LA FIRMA ATT */
+        .card-att {
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(192, 132, 252, 0.3);
+            text-align: right;
+            font-family: 'Sacramento', cursive;
+            font-size: 22px;
+            font-weight: bold;
+            color: #f472b6;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(244, 114, 182, 0.4);
+        }
 
         .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; }
         .card p { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
@@ -310,7 +323,7 @@
 
         <div class="announcement-banner" id="announcementBanner">
             <div class="announcement-text" id="bannerTextContent">
-                📢 <b>AVISO FAKE MODS:</b> ¡FOX ONE V11 ACTUALIZADO ARRIBA DE TODO!
+                📢 <b>AVISO FAKE MODS:</b> ¡MTH TEAM AGREGADO ARRIBA DE TODO!
             </div>
             <button class="announcement-close" onclick="closeBanner()">✕</button>
         </div>
@@ -341,18 +354,37 @@
         <!-- CONTENIDO DE ARCHIVOS -->
         <div id="cardsContainer">
 
-            <!-- FOX ONE V11 (UBICADO ARRIBA DE TODO) -->
-            <div class="card" id="card-5">
+            <!-- MTH TEAM (NUEVO - ARRIBA DE TODO) -->
+            <div class="card" id="card-mth-team">
                 <div class="card-header">
                     <span class="card-date">📅 SUBIDO: 26/09/2026</span>
                     <div class="tag-group">
                         <span class="tag-new">NUEVO</span>
+                        <span class="tag-tested">✅ SEGURO</span>
+                    </div>
+                </div>
+                <h3>🔥 MTH TEAM (FREE FIRE MAX 2.132.1) ⚡</h3>
+                <p>• 🤖 <b>Versión:</b> Free Fire MAX 2.132.1 - HGCRACKEDBYANDREMODS.<br>• 🛡️ <b>Estado:</b> Estable y verificado.</p>
+                <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/du016ms773dxxr0/Free+Fire+MAX_2.132.1-HGCRACKEDBYANDREMODS.apks/file')">📥 Descargar MTH Team (.apks)</button>
+                <div class="key-container">
+                    <span class="key-text">KEY: https://mthteam.com/getkey</span>
+                    <button class="copy-btn" onclick="copyKey('https://mthteam.com/getkey', this)">📋 Copiar Key Link</button>
+                </div>
+                <div class="card-att">Att: Fake Mods</div>
+            </div>
+
+            <!-- FOX ONE V11 -->
+            <div class="card" id="card-5">
+                <div class="card-header">
+                    <span class="card-date">📅 SUBIDO: 26/09/2026</span>
+                    <div class="tag-group">
                         <span class="tag-tested">✅ SEGURO / FUNCIONANDO</span>
                     </div>
                 </div>
                 <h3>🦊 FOX ONE V11 SAFE (FULL) 🤯👇</h3>
                 <p>• ⚡ <b>Versión:</b> Fox One V11.<br>• ✨ <b>Estado:</b> Actualizado, seguro y funcionando al 100%.</p>
                 <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ekyyll8m47f1ffs/FOX+ONE+V11.apk/file')">📥 Descargar Fox One V11 (.apk)</button>
+                <div class="card-att">Att: Fake Mods</div>
             </div>
 
             <!-- ZREX V2 APK -->
@@ -371,6 +403,7 @@
                     <span class="key-text">KEY: Cualquier key sirve</span>
                     <button class="copy-btn" onclick="copyKey('Cualquiera', this)">📋 Copiar Nota</button>
                 </div>
+                <div class="card-att">Att: Fake Mods</div>
             </div>
 
             <!-- 4IMBOT MOBILE -->
@@ -385,6 +418,7 @@
                 <p>• 📱 <b>Compatibilidad:</b> Android e iOS.<br>• 🛡️ <b>Seguridad:</b> Sin riesgo de baneo ni blacklist.</p>
                 <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/5jbtk7fyrjbg6u7/4IMB0T.zip/file')">📥 Descargar 4IMBOT (.zip)</button>
                 <a href="https://youtu.be/IXTAfFxq1wE?si=qZWmp0yUwzXdtxqk" target="_blank" class="btn btn-mediafire" style="background: linear-gradient(135deg, #0284c7, #0369a1);">🎬 Video Tutorial del Creador (YouTube)</a>
+                <div class="card-att">Att: Fake Mods</div>
             </div>
 
             <!-- CONFIG PANEL LÍNEAS + AIM -->
@@ -398,6 +432,7 @@
                 <h3>🎯 CONFIG PANEL LÍNEAS + AIM 💥</h3>
                 <p>• 📥 <b>Panel / Config (ZIP):</b> Local Config ESP Line + Aim Leher.<br>• ⚠️ <b>Nota importante:</b> Jugar en cuenta bot primero.</p>
                 <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/arvovawlvk8x5jv/LOCAL+CONFIG+ESP+LINE+++AIM+LEHER.zip/file')">📥 Descargar Config Panel Líneas (.zip)</button>
+                <div class="card-att">Att: Fake Mods</div>
             </div>
 
             <!-- NETWORK GAME V17 ASTRA -->
@@ -415,6 +450,7 @@
                     <span class="key-text">KEY: NETWORK-GAME-10K</span>
                     <button class="copy-btn" onclick="copyKey('NETWORK-GAME-10K', this)">📋 Copiar Key</button>
                 </div>
+                <div class="card-att">Att: Fake Mods</div>
             </div>
 
             <!-- PROXY STIRLAX -->
@@ -432,6 +468,7 @@
                     <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
                     <button class="copy-btn" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
                 </div>
+                <div class="card-att">Att: Fake Mods</div>
             </div>
         </div>
     </div>
