@@ -54,44 +54,55 @@
             text-align: center;
         }
 
-        /* REPRODUCTOR DE MÚSICA FLOTANTE */
+        /* REPRODUCTOR DE MÚSICA FLOTANTE - MÁS ARRIBA Y MÁS GRANDE */
         .music-player-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(18, 11, 32, 0.9);
-            border: 1px solid var(--primary-glow);
-            border-radius: 30px;
-            padding: 8px 14px;
+            top: 15px;
+            right: 15px;
+            background: rgba(18, 11, 32, 0.95);
+            border: 2px solid var(--secondary-glow);
+            border-radius: 35px;
+            padding: 10px 16px;
             display: flex;
             align-items: center;
             gap: 10px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 25px rgba(232, 121, 249, 0.6);
+            z-index: 9999;
+            animation: floatGlow 2s infinite alternate;
+        }
+
+        @keyframes floatGlow {
+            0% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); }
+            100% { box-shadow: 0 0 25px rgba(232, 121, 249, 0.8); }
         }
 
         .music-player-float span {
-            font-size: 11px;
-            font-weight: 800;
-            color: #f0abfc;
+            font-size: 12px;
+            font-weight: 900;
+            color: #f5d0fe;
             letter-spacing: 0.5px;
         }
 
         .music-btn {
-            background: linear-gradient(135deg, #c084fc, #9333ea);
+            background: linear-gradient(135deg, #e879f9, #9333ea);
             border: none;
             color: white;
-            width: 28px;
-            height: 28px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             cursor: pointer;
             font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            box-shadow: 0 0 10px var(--primary-glow);
+            font-size: 15px;
+            box-shadow: 0 0 15px var(--secondary-glow);
+            transition: transform 0.2s ease;
+        }
+
+        .music-btn:active {
+            transform: scale(0.9);
         }
 
         .server-status {
@@ -106,6 +117,7 @@
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 12px;
+            margin-top: 25px; /* Espacio para que no choque con el botón de música */
             letter-spacing: 1px;
         }
 
@@ -366,11 +378,11 @@
 <body class="no-select">
 
     <!-- AUDIO DE FONDO SEGURO (FIESTA FREESTYLE / LOFI AMBIENT) -->
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop preload="auto">
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf7f6.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- REPRODUCTOR FLOTANTE PARA ACTIVAR/PAUSAR MÚSICA -->
+    <!-- REPRODUCTOR FLOTANTE ARRIBA A LA DERECHA -->
     <div class="music-player-float" id="musicPlayerFloat">
         <span>🎧 Fiesta Freestyle</span>
         <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()">▶</button>
@@ -384,7 +396,7 @@
 
         <div class="announcement-banner" id="announcementBanner">
             <div class="announcement-text" id="bannerTextContent">
-                📢 <b>AVISO FAKE MODS:</b> ¡MÚSICA Y ICONOS CORREGIDOS!
+                📢 <b>AVISO FAKE MODS:</b> ¡REPRODUCTOR UBICADO ARRIBA Y OPTIMIZADO!
             </div>
             <button class="announcement-close" onclick="closeBanner()">✕</button>
         </div>
@@ -563,7 +575,7 @@
         // Control de Música de Fondo
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicToggleBtn');
-        music.volume = 0.3; // Volumen agradable
+        music.volume = 0.4;
         let isPlaying = false;
 
         function toggleMusic() {
@@ -575,8 +587,9 @@
                 music.play().then(() => {
                     musicBtn.innerText = '⏸';
                     isPlaying = true;
-                }).catch(() => {
-                    alert('Toca la pantalla una vez para habilitar el audio.');
+                }).catch((error) => {
+                    console.log("Error al reproducir:", error);
+                    alert('Por favor toca el botón otra vez para iniciar la música.');
                 });
             }
         }
