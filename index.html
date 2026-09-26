@@ -54,7 +54,7 @@
             text-align: center;
         }
 
-        /* REPRODUCTOR DE MÚSICA FLOTANTE - MÁS ARRIBA Y MÁS GRANDE */
+        /* REPRODUCTOR DE MÚSICA FLOTANTE - ARRIBA A LA DERECHA */
         .music-player-float {
             position: fixed;
             top: 15px;
@@ -117,7 +117,7 @@
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 12px;
-            margin-top: 25px; /* Espacio para que no choque con el botón de música */
+            margin-top: 25px;
             letter-spacing: 1px;
         }
 
@@ -377,9 +377,10 @@
 </head>
 <body class="no-select">
 
-    <!-- AUDIO DE FONDO SEGURO (FIESTA FREESTYLE / LOFI AMBIENT) -->
+    <!-- AUDIO DE FONDO COMPATIBLE CON DIRECT STREAM -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf7f6.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+        <source src="https://commondatastorage.googleapis.com/codesign-bucket/ambient-freestyle.mp3" type="audio/mpeg">
+        <source src="https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg" type="audio/ogg">
     </audio>
 
     <!-- REPRODUCTOR FLOTANTE ARRIBA A LA DERECHA -->
@@ -396,7 +397,7 @@
 
         <div class="announcement-banner" id="announcementBanner">
             <div class="announcement-text" id="bannerTextContent">
-                📢 <b>AVISO FAKE MODS:</b> ¡REPRODUCTOR UBICADO ARRIBA Y OPTIMIZADO!
+                📢 <b>AVISO FAKE MODS:</b> ¡MÚSICA CORREGIDA Y ACTIVA!
             </div>
             <button class="announcement-close" onclick="closeBanner()">✕</button>
         </div>
@@ -575,7 +576,7 @@
         // Control de Música de Fondo
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicToggleBtn');
-        music.volume = 0.4;
+        music.volume = 0.5;
         let isPlaying = false;
 
         function toggleMusic() {
@@ -589,7 +590,7 @@
                     isPlaying = true;
                 }).catch((error) => {
                     console.log("Error al reproducir:", error);
-                    alert('Por favor toca el botón otra vez para iniciar la música.');
+                    alert('Por favor toca el botón de nuevo para iniciar la música.');
                 });
             }
         }
