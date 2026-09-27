@@ -255,6 +255,15 @@
             opacity: 0.9;
         }
 
+        /* TARJETA ESPECIAL KURAMA (ACENTO NARANJA/FUEGO) */
+        .card.kurama-card::before {
+            background: linear-gradient(180deg, #f97316, #ef4444);
+        }
+        .card.kurama-card {
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(249, 115, 22, 0.15);
+        }
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -267,6 +276,7 @@
         .tag-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
         .tag-tested { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-kurama { background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         
         .card-att {
             margin-top: 12px;
@@ -404,7 +414,7 @@
 
             <div class="announcement-banner" id="announcementBanner">
                 <div class="announcement-text" id="bannerTextContent">
-                    📢 <b>AVISO FAKE MODS:</b> ¡SISTEMA SKELETON AGREGADO!
+                    📢 <b>AVISO FAKE MODS:</b> ¡KURAMA MODS V1.5 DISPONIBLE! 🔥
                 </div>
                 <button class="announcement-close" onclick="closeBanner()">✕</button>
             </div>
@@ -467,12 +477,35 @@
             <!-- CONTENIDO DE ARCHIVOS -->
             <div id="cardsContainer">
 
+                <!-- KURAMA MODS V1.5 -->
+                <div class="card kurama-card" id="card-kurama-v15">
+                    <div class="card-header">
+                        <span class="card-date">📅 SUBIDO: 27/09/2026</span>
+                        <div class="tag-group">
+                            <span class="tag-kurama">🔥 NUEVO</span>
+                            <span class="tag-tested">✅ SAFE</span>
+                        </div>
+                    </div>
+                    <h3>🔥 KURAMA MODS V1.5 ⚡</h3>
+                    <p>• 🤖 <b>Funciones:</b><br>
+                    - ✅ Aim Lag<br>
+                    - ✅ Aim legit<br>
+                    - ✅ Esp location<br>
+                    - ✅ Main id safe all Servers</p>
+                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/zcvwjx8pa4poh93/KuramaMods_Safe+1.5.apk/file')">📥 Descargar Kurama Mods V1.5 (.apk)</button>
+                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/pu4dm5wrobiflxc/Free_Fire_MAX_2.132.1.apks/file')" style="background: linear-gradient(135deg, #0284c7, #0369a1);">👻 Descargar Free Fire MAX (.apks)</button>
+                    <div class="key-container">
+                        <span class="key-text">KEY: KURAMA TRIAL</span>
+                        <button class="copy-btn" onclick="copyKey('KURAMA TRIAL', this)">📋 Copiar Key</button>
+                    </div>
+                    <div class="card-att">Att: Fake Mods</div>
+                </div>
+
                 <!-- MTH TEAM -->
                 <div class="card" id="card-mth-team">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: 26/09/2026</span>
                         <div class="tag-group">
-                            <span class="tag-new">NUEVO</span>
                             <span class="tag-tested">✅ SEGURO</span>
                         </div>
                     </div>
