@@ -11,11 +11,10 @@
     
     <style>
         :root {
-            --bg-color: #06030e;
             --primary-glow: #a855f7;
             --secondary-glow: #e879f9;
             --accent-color: #c084fc;
-            --card-bg: rgba(18, 11, 32, 0.82);
+            --card-bg: rgba(18, 11, 32, 0.78);
         }
 
         /* PROTECCIÓN ANTI-COPIA / SELECCIÓN DE TEXTO */
@@ -34,24 +33,39 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            position: relative;
+            background-color: #06030e;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
             padding: 20px 14px;
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(192, 132, 252, 0.35), transparent 55%),
-                radial-gradient(circle at 0% 50%, rgba(217, 70, 239, 0.15), transparent 45%),
-                radial-gradient(circle at 100% 80%, rgba(147, 51, 234, 0.2), transparent 50%);
-            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* FONDO DIFUMINADO CON TU FOTO DE PERFIL */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('Screenshot_20260825_173640_WhatsApp.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(18px) brightness(0.22) saturate(1.4);
+            transform: scale(1.1); /* Evita bordes blancos por el blur */
+            z-index: -1;
         }
 
         .container {
             max-width: 520px;
             width: 100%;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .server-status {
@@ -320,7 +334,7 @@
 
         .timer-number { font-size: 54px; font-weight: 900; color: var(--secondary-glow); margin: 15px 0; }
 
-        footer { margin-top: 30px; padding-bottom: 12px; font-size: 13px; color: #64748b; font-weight: 700; }
+        footer { margin-top: 30px; padding-bottom: 12px; font-size: 13px; color: #94a3b8; font-weight: 700; }
     </style>
 </head>
 <body class="no-select">
@@ -333,7 +347,7 @@
 
         <div class="announcement-banner" id="announcementBanner">
             <div class="announcement-text" id="bannerTextContent">
-                📢 <b>AVISO FAKE MODS:</b> ¡CONTENIDO ACTUALIZADO!
+                📢 <b>AVISO FAKE MODS:</b> ¡FONDO ACTUALIZADO CON ESTILO PRO!
             </div>
             <button class="announcement-close" onclick="closeBanner()">✕</button>
         </div>
