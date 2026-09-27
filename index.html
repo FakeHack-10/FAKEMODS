@@ -283,13 +283,39 @@
             margin-top: 12px;
             padding-top: 8px;
             border-top: 1px dashed rgba(192, 132, 252, 0.3);
-            text-align: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .att-text {
             font-family: 'Sacramento', cursive;
             font-size: 22px;
             font-weight: bold;
             color: #f472b6;
             letter-spacing: 1px;
             text-shadow: 0 0 10px rgba(244, 114, 182, 0.4);
+        }
+
+        .share-card-btn {
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(192, 132, 252, 0.4);
+            color: #e879f9;
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .share-card-btn:hover {
+            background: rgba(168, 85, 247, 0.35);
+            border-color: var(--secondary-glow);
+            transform: translateY(-1px);
         }
 
         .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; }
@@ -493,7 +519,10 @@
                     - 🇮🇳 <b>Región India:</b> Usar VPN India<br>
                     - 🇺🇸 <b>Región Norte:</b> Usar VPN Estados Unidos</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/uihld9tgku3rbfm/FAC%20TEAM%20@forget_06rtx.apks/file?dkey=3pzq6kz0f9a&r=1531')">📥 Descargar Facteam V3.3 (.apks)</button>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-facteam-v33', '🔥 FACTEAM V3.3 APKMOD FF NORMAL ⚡')">🔗 Compartir</button>
+                    </div>
                 </div>
 
                 <!-- KURAMA MODS V1.5 -->
@@ -517,7 +546,10 @@
                         <span class="key-text">KEY: KURAMA TRIAL</span>
                         <button class="copy-btn" onclick="copyKey('KURAMA TRIAL', this)">📋 Copiar Key</button>
                     </div>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-kurama-v15', '🔥 KURAMA MODS V1.5 ⚡')">🔗 Compartir</button>
+                    </div>
                 </div>
 
                 <!-- MTH TEAM -->
@@ -532,11 +564,14 @@
                     <p>• 🤖 <b>Versión:</b> Free Fire MAX 2.132.1 - HGCRACKEDBYANDREMODS.<br>• 🛡️ <b>Estado:</b> Estable y verificado.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/du016ms773dxxr0/Free+Fire+MAX_2.132.1-HGCRACKEDBYANDREMODS.apks/file')">📥 Descargar MTH Team (.apks)</button>
                     <a href="https://mthteam.com/getkey" target="_blank" class="btn btn-key">🔑 GENERAR KEY MTH TEAM</a>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-mth-team', '🔥 MTH TEAM (FREE FIRE MAX 2.132.1)')">🔗 Compartir</button>
+                    </div>
                 </div>
 
                 <!-- FOX ONE V11 -->
-                <div class="card" id="card-5">
+                <div class="card" id="card-fox-v11">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: 26/09/2026</span>
                         <div class="tag-group">
@@ -546,7 +581,10 @@
                     <h3>🦊 FOX ONE V11 SAFE (FULL) 🤯👇</h3>
                     <p>• ⚡ <b>Versión:</b> Fox One V11.<br>• ✨ <b>Estado:</b> Actualizado, seguro y funcionando al 100%.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ekyyll8m47f1ffs/FOX+ONE+V11.apk/file')">📥 Descargar Fox One V11 (.apk)</button>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-fox-v11', '🦊 FOX ONE V11 SAFE (FULL)')">🔗 Compartir</button>
+                    </div>
                 </div>
 
                 <!-- ZREX V2 APK -->
@@ -565,7 +603,10 @@
                         <span class="key-text">KEY: Cualquier key sirve</span>
                         <button class="copy-btn" onclick="copyKey('Cualquiera', this)">📋 Copiar Nota</button>
                     </div>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-zrex-v2', '💬 ZREX V2 APK 👹')">🔗 Compartir</button>
+                    </div>
                 </div>
 
                 <!-- 4IMBOT MOBILE -->
@@ -580,7 +621,10 @@
                     <p>• 📱 <b>Compatibilidad:</b> Android e iOS.<br>• 🛡️ <b>Seguridad:</b> Sin riesgo de baneo ni blacklist.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/5jbtk7fyrjbg6u7/4IMB0T.zip/file')">📥 Descargar 4IMBOT (.zip)</button>
                     <a href="https://youtu.be/IXTAfFxq1wE?si=qZWmp0yUwzXdtxqk" target="_blank" class="btn btn-mediafire" style="background: linear-gradient(135deg, #0284c7, #0369a1);">🎬 Video Tutorial del Creador (YouTube)</a>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-4imbot', '🎯 4IMBOT MOBILE 100% CABEZA')">🔗 Compartir</button>
+                    </div>
                 </div>
 
                 <!-- CONFIG PANEL LÍNEAS + AIM -->
@@ -594,7 +638,10 @@
                     <h3>🎯 CONFIG PANEL LÍNEAS + AIM 💥</h3>
                     <p>• 📥 <b>Panel / Config (ZIP):</b> Local Config ESP Line + Aim Leher.<br>• ⚠️ <b>Nota importante:</b> Jugar en cuenta bot primero.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/arvovawlvk8x5jv/LOCAL+CONFIG+ESP+LINE+++AIM+LEHER.zip/file')">📥 Descargar Config Panel Líneas (.zip)</button>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-config-panel', '🎯 CONFIG PANEL LÍNEAS + AIM')">🔗 Compartir</button>
+                    </div>
                 </div>
 
                 <!-- NETWORK GAME V17 ASTRA -->
@@ -612,11 +659,14 @@
                         <span class="key-text">KEY: NETWORK-GAME-10K</span>
                         <button class="copy-btn" onclick="copyKey('NETWORK-GAME-10K', this)">📋 Copiar Key</button>
                     </div>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-network-v17', '🔥 NETWORK GAME V17 ASTRA GLOBAL')">🔗 Compartir</button>
+                    </div>
                 </div>
 
                 <!-- PROXY STIRLAX -->
-                <div class="card" id="card-4">
+                <div class="card" id="card-proxy-stirlax">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: 20/09/2026</span>
                         <div class="tag-group">
@@ -630,7 +680,10 @@
                         <span class="key-text">KEY 12H GRATIS: STIRLAX-12H</span>
                         <button class="copy-btn" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
                     </div>
-                    <div class="card-att">Att: Fake Mods</div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-proxy-stirlax', '💬 PROXY STIRLAX UPDATE')">🔗 Compartir</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -687,12 +740,10 @@
             let cards = container.getElementsByClassName('card');
             
             while (cards.length > 15) {
-                // Elimina la última tarjeta (la más vieja)
                 container.removeChild(cards[cards.length - 1]);
             }
         }
 
-        // Ejecutar verificación al cargar la página
         window.onload = function() {
             checkCardLimit();
         };
@@ -735,6 +786,24 @@
                 btn.style.background = '#22c55e';
                 setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; }, 2000);
             });
+        }
+
+        // Función para compartir tarjeta o mod de forma limpia
+        function shareCard(cardId, cardTitle) {
+            let shareUrl = window.location.href.split('#')[0] + '#' + cardId;
+            let shareText = `🔥 ¡Mira este mod en FAKE MODS!\n📌 ${cardTitle}\n🔗 Descárgalo aquí: ${shareUrl}`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Fake Mods - ' + cardTitle,
+                    text: shareText,
+                    url: shareUrl,
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('✅ ¡Enlace y detalles del mod copiados al portapapeles!');
+                });
+            }
         }
     </script>
 </body>
