@@ -255,13 +255,13 @@
             opacity: 0.9;
         }
 
-        /* TARJETA ESPECIAL KURAMA (ACENTO NARANJA/FUEGO) */
-        .card.kurama-card::before {
-            background: linear-gradient(180deg, #f97316, #ef4444);
+        /* TARJETA ESPECIAL FACTEAM (ACENTO CIBER-AZUL / NEO) */
+        .card.facteam-card::before {
+            background: linear-gradient(180deg, #38bdf8, #0284c7);
         }
-        .card.kurama-card {
-            border-color: rgba(249, 115, 22, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(249, 115, 22, 0.15);
+        .card.facteam-card {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.15);
         }
 
         .card-header {
@@ -276,6 +276,7 @@
         .tag-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
         .tag-tested { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-facteam { background: linear-gradient(135deg, #38bdf8, #0284c7); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-kurama { background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         
         .card-att {
@@ -414,7 +415,7 @@
 
             <div class="announcement-banner" id="announcementBanner">
                 <div class="announcement-text" id="bannerTextContent">
-                    📢 <b>AVISO FAKE MODS:</b> ¡KURAMA MODS V1.5 DISPONIBLE! 🔥
+                    📢 <b>AVISO FAKE MODS:</b> ¡FACTEAM V3.3 APKMOD DISPONIBLE! 🔥
                 </div>
                 <button class="announcement-close" onclick="closeBanner()">✕</button>
             </div>
@@ -476,6 +477,24 @@
 
             <!-- CONTENIDO DE ARCHIVOS -->
             <div id="cardsContainer">
+
+                <!-- FACTEAM V3.3 APKMOD FF NORMAL -->
+                <div class="card facteam-card" id="card-facteam-v33">
+                    <div class="card-header">
+                        <span class="card-date">📅 SUBIDO: 27/09/2026</span>
+                        <div class="tag-group">
+                            <span class="tag-facteam">🔥 NUEVO</span>
+                            <span class="tag-tested">✅ FF NORMAL</span>
+                        </div>
+                    </div>
+                    <h3>🔥 FACTEAM V3.3 APKMOD FF NORMAL ⚡</h3>
+                    <p>• 🌍 <b>Regiones Soportadas:</b><br>
+                    - Norte América e India (EE.UU. no testeado)<br>
+                    - 🇮🇳 <b>Región India:</b> Usar VPN India<br>
+                    - 🇺🇸 <b>Región Norte:</b> Usar VPN Estados Unidos</p>
+                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/uihld9tgku3rbfm/FAC%20TEAM%20@forget_06rtx.apks/file?dkey=3pzq6kz0f9a&r=1531')">📥 Descargar Facteam V3.3 (.apks)</button>
+                    <div class="card-att">Att: Fake Mods</div>
+                </div>
 
                 <!-- KURAMA MODS V1.5 -->
                 <div class="card kurama-card" id="card-kurama-v15">
