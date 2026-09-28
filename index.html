@@ -264,6 +264,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.15);
         }
 
+        /* TARJETA ESPECIAL DRIP WIRE (ACENTO NEON LIMA / CYBER) */
+        .card.dripwire-card::before {
+            background: linear-gradient(180deg, #facc15, #ca8a04);
+        }
+        .card.dripwire-card {
+            border-color: rgba(250, 204, 21, 0.45);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 22px rgba(250, 204, 21, 0.2);
+        }
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -278,6 +287,7 @@
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-facteam { background: linear-gradient(135deg, #38bdf8, #0284c7); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-kurama { background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-dripwire { background: linear-gradient(135deg, #facc15, #ca8a04); color: #111; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         
         .card-att {
             margin-top: 12px;
@@ -441,7 +451,7 @@
 
             <div class="announcement-banner" id="announcementBanner">
                 <div class="announcement-text" id="bannerTextContent">
-                    📢 <b>AVISO FAKE MODS:</b> ¡FACTEAM V3.3 APKMOD DISPONIBLE! 🔥
+                    📢 <b>AVISO FAKE MODS:</b> ¡DRIP WIRE V1.0.7 & FACTEAM V3.3 DISPONIBLES! 🔥
                 </div>
                 <button class="announcement-close" onclick="closeBanner()">✕</button>
             </div>
@@ -503,6 +513,32 @@
 
             <!-- CONTENIDO DE ARCHIVOS -->
             <div id="cardsContainer">
+
+                <!-- DRIP WIRE V1.0.7 (NUEVA TARJETA) -->
+                <div class="card dripwire-card" id="card-dripwire-v107">
+                    <div class="card-header">
+                        <span class="card-date">📅 SUBIDO: 28/09/2026</span>
+                        <div class="tag-group">
+                            <span class="tag-dripwire">⚡ DESTACADO</span>
+                            <span class="tag-tested">✅ SAFE ALL REGIONS</span>
+                        </div>
+                    </div>
+                    <h3>⚡ DRIP WIRE LAG V1.0.7 🛡️</h3>
+                    <p>• 🤖 <b>Características Principales:</b><br>
+                    - 🌍 <b>Safe All Regions</b> (Sin riesgo en emparejamientos)<br>
+                    - 🎯 <b>Aim Lag</b> & <b>Scope Lag</b> optimizados<br>
+                    - 📏 <b>ESP Linear</b> ultra preciso<br>
+                    - 🔥 <b>Aim Fire</b> activado</p>
+                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/d7e2csbomklz9wz/DRIP+WIRE_1.0.7.apk/file')">📥 Descargar Drip Wire V1.0.7 (.apk)</button>
+                    <div class="key-container">
+                        <span class="key-text">⚡ ESTADO: ANTI-BAN / VIP VERIFICADO</span>
+                        <button class="copy-btn" onclick="copyKey('DRIP-WIRE-VIP', this)">📋 Copiar Nota</button>
+                    </div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-dripwire-v107', '⚡ DRIP WIRE LAG V1.0.7 🛡️')">🔗 Compartir</button>
+                    </div>
+                </div>
 
                 <!-- FACTEAM V3.3 APKMOD FF NORMAL -->
                 <div class="card facteam-card" id="card-facteam-v33">
