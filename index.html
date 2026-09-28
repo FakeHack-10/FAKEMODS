@@ -266,6 +266,17 @@
             width: 6px;
         }
 
+        /* TARJETA ESPECIAL LM TEAM (ACENTO NARANJA/ROJO INDIA) */
+        .card.lmteam-card::before {
+            background: linear-gradient(180deg, #f97316, #dc2626);
+            width: 6px;
+        }
+        .card.lmteam-card {
+            background: linear-gradient(135deg, rgba(67, 20, 7, 0.85), rgba(124, 45, 18, 0.75), rgba(43, 13, 3, 0.9));
+            border: 2px solid #fed7aa;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(249, 115, 22, 0.5), inset 0 0 15px rgba(251, 146, 60, 0.3);
+        }
+
         /* TARJETA ESPECIAL FACTEAM (ACENTO CIBER-AZUL / NEO) */
         .card.facteam-card::before {
             background: linear-gradient(180deg, #38bdf8, #0284c7);
@@ -292,10 +303,12 @@
         }
 
         .card-date { font-size: 12px; color: #d8b4fe; font-weight: 800; }
+        .card.lmteam-card .card-date { color: #fed7aa; }
 
         .tag-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
         .tag-tested { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-lmteam { background: linear-gradient(135deg, #f97316, #ea580c); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-facteam { background: linear-gradient(135deg, #38bdf8, #0284c7); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-kurama { background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-dripwire { background: linear-gradient(135deg, #facc15, #ca8a04); color: #111; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
@@ -343,11 +356,17 @@
         .card p { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
         .card.special-purple h3 { color: #fae8ff; text-shadow: 0 0 10px rgba(216, 180, 254, 0.8); }
         .card.special-purple p { color: #f3e8ff; }
+        .card.lmteam-card h3 { color: #ffedd5; text-shadow: 0 0 10px rgba(249, 115, 22, 0.8); }
+        .card.lmteam-card p { color: #ffdec2; }
 
         .key-container {
             display: flex; align-items: center; justify-content: space-between;
             background: rgba(30, 15, 50, 0.85); border: 1px dashed rgba(192, 132, 252, 0.6);
             padding: 10px 14px; border-radius: 14px; margin-top: 10px; gap: 8px;
+        }
+        .card.lmteam-card .key-container {
+            background: rgba(43, 13, 3, 0.85);
+            border: 1px dashed rgba(249, 115, 22, 0.6);
         }
 
         .key-text { color: #f8fafc; font-weight: 800; font-size: 14px; word-break: break-all; }
@@ -356,6 +375,9 @@
             background: linear-gradient(135deg, #c084fc, #9333ea);
             color: #ffffff; border: none; padding: 8px 16px; border-radius: 10px;
             font-size: 12px; font-weight: 900; cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
+        }
+        .card.lmteam-card .copy-btn {
+            background: linear-gradient(135deg, #f97316, #c2410c);
         }
 
         .btn {
@@ -382,6 +404,7 @@
 
         .btn-mediafire { background: linear-gradient(135deg, #7c3aed, #4c1d95); color: #ffffff; }
         .card.special-purple .btn-mediafire { background: linear-gradient(135deg, #c084fc, #9333ea); box-shadow: 0 4px 15px rgba(192, 132, 252, 0.5); border: 1px solid rgba(255, 255, 255, 0.4); }
+        .card.lmteam-card .btn-mediafire { background: linear-gradient(135deg, #f97316, #c2410c); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.5); border: 1px solid rgba(255, 255, 255, 0.4); }
         .btn-key { background: linear-gradient(135deg, #f59e0b, #d97706); color: #ffffff; }
 
         /* EFECTO SKELETON LOADER (ESTILO CYBERPUNK) */
@@ -465,7 +488,7 @@
 
             <div class="announcement-banner" id="announcementBanner">
                 <div class="announcement-text" id="bannerTextContent">
-                    📢 <b>AVISO FAKE MODS:</b> ¡FAKE MODS V1 SAFE & DRIP WIRE DISPONIBLES! 🔥
+                    📢 <b>AVISO FAKE MODS:</b> ¡NUEVO LM TEAM V3 INDIA SERVER DISPONIBLE! 🔥
                 </div>
                 <button class="announcement-close" onclick="closeBanner()">✕</button>
             </div>
@@ -527,6 +550,29 @@
 
             <!-- CONTENIDO DE ARCHIVOS -->
             <div id="cardsContainer">
+
+                <!-- TARJETA NUEVA: LM TEAM V3 INDIA SERVER SAFE -->
+                <div class="card lmteam-card" id="card-lmteam-v3">
+                    <div class="card-header">
+                        <span class="card-date">📅 SUBIDO: OFICIAL</span>
+                        <div class="tag-group">
+                            <span class="tag-lmteam">🔥 NUEVO</span>
+                            <span class="tag-tested">✅ INDIA SERVER SAFE</span>
+                        </div>
+                    </div>
+                    <h3>🔥 LM TEAM V3 INDIA SERVER SAFE 🛡️</h3>
+                    <p>• 🌍 <b>Región:</b> India Server Safe<br>
+                    - ⚠️ <b>RECOMENDACIÓN:</b> Usen <b>URBAN VPN</b> para que jueguen sin riesgo de ban.</p>
+                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/5is7h10ml5drtcx/LM+TEAM+V3+INDIA+SERVER+SAFE.apks/file')">📥 Descargar LM TEAM V3 (.apks)</button>
+                    <div class="key-container">
+                        <span class="key-text">🛡️ USAR URBAN VPN (REGIÓN INDIA)</span>
+                        <button class="copy-btn" onclick="copyKey('URBAN VPN INDIA', this)">📋 Copiar Nota</button>
+                    </div>
+                    <div class="card-att">
+                        <span class="att-text">Att: Fake Mods</span>
+                        <button class="share-card-btn" onclick="shareCard('card-lmteam-v3', '🔥 LM TEAM V3 INDIA SERVER SAFE 🛡️')">🔗 Compartir</button>
+                    </div>
+                </div>
 
                 <!-- TARJETA ESPECIAL: FAKE M̸O̸D̸S V1 SAFE (CREADO POR TI) -->
                 <div class="card special-purple" id="card-fakemods-v1">
