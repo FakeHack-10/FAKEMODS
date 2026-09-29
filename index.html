@@ -255,53 +255,15 @@
             opacity: 0.9;
         }
 
-        /* TARJETA ESPECIAL P20 NON ROOT */
-        .card.p20-card::before {
-            background: linear-gradient(180deg, #eab308, #ca8a04);
-            width: 6px;
-        }
-        .card.p20-card {
-            background: linear-gradient(135deg, rgba(66, 32, 6, 0.85), rgba(113, 63, 18, 0.75), rgba(41, 20, 2, 0.9));
-            border: 2px solid #fde047;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(234, 179, 8, 0.5), inset 0 0 15px rgba(250, 204, 21, 0.3);
-        }
-
-        /* TARJETA ESPECIAL MORADA LILA RELUCIENTE */
-        .card.special-purple {
+        /* TODAS LAS TARJETAS CON ESTILO MORADO LILA RELUCIENTE */
+        .card {
             background: linear-gradient(135deg, rgba(76, 29, 149, 0.85), rgba(126, 34, 206, 0.75), rgba(88, 28, 135, 0.9));
             border: 2px solid #d8b4fe;
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(216, 180, 254, 0.6), inset 0 0 15px rgba(192, 132, 252, 0.4);
         }
-        .card.special-purple::before {
+        .card::before {
             background: linear-gradient(180deg, #f0abfc, #c084fc);
             width: 6px;
-        }
-
-        /* TARJETA ESPECIAL LM TEAM */
-        .card.lmteam-card::before {
-            background: linear-gradient(180deg, #f97316, #dc2626);
-            width: 6px;
-        }
-        .card.lmteam-card {
-            background: linear-gradient(135deg, rgba(67, 20, 7, 0.85), rgba(124, 45, 18, 0.75), rgba(43, 13, 3, 0.9));
-            border: 2px solid #fed7aa;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(249, 115, 22, 0.5), inset 0 0 15px rgba(251, 146, 60, 0.3);
-        }
-
-        .card.facteam-card::before {
-            background: linear-gradient(180deg, #38bdf8, #0284c7);
-        }
-        .card.facteam-card {
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.15);
-        }
-
-        .card.dripwire-card::before {
-            background: linear-gradient(180deg, #facc15, #ca8a04);
-        }
-        .card.dripwire-card {
-            border-color: rgba(250, 204, 21, 0.45);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 22px rgba(250, 204, 21, 0.2);
         }
 
         .card-header {
@@ -312,17 +274,12 @@
         }
 
         .card-date { font-size: 12px; color: #d8b4fe; font-weight: 800; }
-        .card.lmteam-card .card-date { color: #fed7aa; }
-        .card.p20-card .card-date { color: #fef08a; }
 
         .tag-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
         .tag-tested { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-new { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
-        .tag-p20 { background: linear-gradient(135deg, #eab308, #ca8a04); color: #111; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
-        .tag-lmteam { background: linear-gradient(135deg, #f97316, #ea580c); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-facteam { background: linear-gradient(135deg, #38bdf8, #0284c7); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-kurama { background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
-        .tag-dripwire { background: linear-gradient(135deg, #facc15, #ca8a04); color: #111; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         
         .card-att {
             margin-top: 12px;
@@ -363,27 +320,13 @@
             transform: translateY(-1px);
         }
 
-        .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; }
-        .card p { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
-        .card.special-purple h3 { color: #fae8ff; text-shadow: 0 0 10px rgba(216, 180, 254, 0.8); }
-        .card.special-purple p { color: #f3e8ff; }
-        .card.lmteam-card h3 { color: #ffedd5; text-shadow: 0 0 10px rgba(249, 115, 22, 0.8); }
-        .card.lmteam-card p { color: #ffdec2; }
-        .card.p20-card h3 { color: #fef9c3; text-shadow: 0 0 10px rgba(234, 179, 8, 0.8); }
-        .card.p20-card p { color: #fef08a; }
+        .card h3 { font-size: 19px; color: #fae8ff; margin-bottom: 8px; font-weight: 900; letter-spacing: 0.5px; text-shadow: 0 0 10px rgba(216, 180, 254, 0.8); }
+        .card p { font-size: 14.5px; color: #f3e8ff; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
 
         .key-container {
             display: flex; align-items: center; justify-content: space-between;
             background: rgba(30, 15, 50, 0.85); border: 1px dashed rgba(192, 132, 252, 0.6);
             padding: 10px 14px; border-radius: 14px; margin-top: 10px; gap: 8px;
-        }
-        .card.lmteam-card .key-container {
-            background: rgba(43, 13, 3, 0.85);
-            border: 1px dashed rgba(249, 115, 22, 0.6);
-        }
-        .card.p20-card .key-container {
-            background: rgba(66, 32, 6, 0.85);
-            border: 1px dashed rgba(234, 179, 8, 0.6);
         }
 
         .key-text { color: #f8fafc; font-weight: 800; font-size: 14px; word-break: break-all; }
@@ -392,12 +335,6 @@
             background: linear-gradient(135deg, #c084fc, #9333ea);
             color: #ffffff; border: none; padding: 8px 16px; border-radius: 10px;
             font-size: 12px; font-weight: 900; cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
-        }
-        .card.lmteam-card .copy-btn {
-            background: linear-gradient(135deg, #f97316, #c2410c);
-        }
-        .card.p20-card .copy-btn {
-            background: linear-gradient(135deg, #eab308, #b45309);
         }
 
         .btn {
@@ -422,10 +359,7 @@
         .btn-goto { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #ffffff; margin-top: 15px; margin-bottom: 20px; border-radius: 16px; font-size: 16px; padding: 16px; box-shadow: 0 0 25px rgba(236, 72, 153, 0.5); }
         .btn-back { background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(192, 132, 252, 0.5); color: #f0abfc; margin-bottom: 20px; border-radius: 14px; font-size: 14px; padding: 12px; }
 
-        .btn-mediafire { background: linear-gradient(135deg, #7c3aed, #4c1d95); color: #ffffff; }
-        .card.special-purple .btn-mediafire { background: linear-gradient(135deg, #c084fc, #9333ea); box-shadow: 0 4px 15px rgba(192, 132, 252, 0.5); border: 1px solid rgba(255, 255, 255, 0.4); }
-        .card.lmteam-card .btn-mediafire { background: linear-gradient(135deg, #f97316, #c2410c); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.5); border: 1px solid rgba(255, 255, 255, 0.4); }
-        .card.p20-card .btn-mediafire { background: linear-gradient(135deg, #eab308, #b45309); box-shadow: 0 4px 15px rgba(234, 179, 8, 0.5); border: 1px solid rgba(255, 255, 255, 0.4); color: #111; }
+        .btn-mediafire { background: linear-gradient(135deg, #c084fc, #9333ea); box-shadow: 0 4px 15px rgba(192, 132, 252, 0.5); border: 1px solid rgba(255, 255, 255, 0.4); color: #ffffff; }
         .btn-key { background: linear-gradient(135deg, #f59e0b, #d97706); color: #ffffff; }
 
         .skeleton-loader {
@@ -564,7 +498,7 @@
 
             <div id="cardsContainer">
 
-                <div class="card p20-card" id="card-kurama-16">
+                <div class="card" id="card-kurama-16">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: OFICIAL</span>
                         <div class="tag-group">
@@ -582,7 +516,7 @@
                     </div>
                 </div>
 
-                <div class="card special-purple" id="card-texturas-mia">
+                <div class="card" id="card-texturas-mia">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: OFICIAL</span>
                         <div class="tag-group">
@@ -600,17 +534,17 @@
                     </div>
                 </div>
 
-                <div class="card p20-card" id="card-p20-v9">
+                <div class="card" id="card-p20-v9">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: OFICIAL</span>
                         <div class="tag-group">
-                            <span class="tag-p20">⚡ P20 NON ROOT</span>
+                            <span class="tag-new">⚡ P20 NON ROOT</span>
                             <span class="tag-tested">✅ NO NEED KEY</span>
                         </div>
                     </div>
                     <h3>⚡ P2077kng V9.1.2 BETA NON ROOT SAFE 🛡</h3>
                     <p>• 🔓 <b>No necesitas Key:</b> Sólo instala y listo.<br>
-                    - ⚠️ <b>ADVERTENCIA:</b> ¡No uses funciones descaradas!<br>
+                    - ⚠️️ <b>ADVERTENCIA:</b> ¡No uses funciones descaradas!<br>
                     - 👁️‍🗨 <i>¡Usen y compartan mientras está el proxy!</i></p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/7izf7n7cqrmqeg2/P2077kng+V9.1.2+BETA+Non+Root+Safe+v4+(1).apks/file')">📥 Descargar P20 V9.1.2 (.apks)</button>
                     <div class="card-att">
@@ -619,17 +553,17 @@
                     </div>
                 </div>
 
-                <div class="card lmteam-card" id="card-lmteam-v3">
+                <div class="card" id="card-lmteam-v3">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: OFICIAL</span>
                         <div class="tag-group">
-                            <span class="tag-lmteam">🔥 NUEVO</span>
+                            <span class="tag-new">🔥 NUEVO</span>
                             <span class="tag-tested">✅ INDIA SERVER SAFE</span>
                         </div>
                     </div>
-                    <h3>🔥 LM TEAM V3 INDIA SERVER SAFE 🛡️</h3>
+                    <h3>🔥 LM TEAM V3 INDIA SERVER SAFE 🛡️️</h3>
                     <p>• 🌍 <b>Región:</b> India Server Safe<br>
-                    - ⚠️️ <b>RECOMENDACIÓN:</b> Usen <b>URBAN VPN</b> para que jueguen sin riesgo de ban.</p>
+                    - ⚠ <b>RECOMENDACIÓN:</b> Usen <b>URBAN VPN</b> para que jueguen sin riesgo de ban.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/5is7h10ml5drtcx/LM+TEAM+V3+INDIA+SERVER+SAFE.apks/file')">📥 Descargar LM TEAM V3 (.apks)</button>
                     <div class="card-att">
                         <span class="att-text">Att: Fake Mods</span>
@@ -637,7 +571,7 @@
                     </div>
                 </div>
 
-                <div class="card special-purple" id="card-fakemods-v1">
+                <div class="card" id="card-fakemods-v1">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: OFICIAL</span>
                         <div class="tag-group">
@@ -649,21 +583,17 @@
                     <p>• 🤖 <b>FREEZE-GHOST-TELEPORT</b><br>
                     - 📌 Archivo exclusivo y oficial del canal creado por mí.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/7v7mkkrjiqsiw8c/FA̸KE+M̸O̸D̸Z̸.apk/file')">📥 Descargar APK (MediaFire)</button>
-                    <div class="key-container">
-                        <span class="key-text">FAKEV1</span>
-                        <button class="copy-btn" onclick="copyKey('FAKEV1', this)">📋 Copiar Key</button>
-                    </div>
                     <div class="card-att">
                         <span class="att-text">Att: Fake Mods</span>
                         <button class="share-card-btn" onclick="shareCard('card-fakemods-v1', '✨ FAKE M̸O̸D̸S V1 SAFE 🛡️')">🔗 Compartir</button>
                     </div>
                 </div>
 
-                <div class="card dripwire-card" id="card-dripwire-v107">
+                <div class="card" id="card-dripwire-v107">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: 28/09/2026</span>
                         <div class="tag-group">
-                            <span class="tag-dripwire">⚡ DESTACADO</span>
+                            <span class="tag-new">⚡ DESTACADO</span>
                             <span class="tag-tested">✅ SAFE ALL REGIONS</span>
                         </div>
                     </div>
@@ -680,7 +610,7 @@
                     </div>
                 </div>
 
-                <div class="card facteam-card" id="card-facteam-v33">
+                <div class="card" id="card-facteam-v33">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: 27/09/2026</span>
                         <div class="tag-group">
@@ -700,7 +630,7 @@
                     </div>
                 </div>
 
-                <div class="card kurama-card" id="card-kurama-v15">
+                <div class="card" id="card-kurama-v15">
                     <div class="card-header">
                         <span class="card-date">📅 SUBIDO: 27/09/2026</span>
                         <div class="tag-group">
@@ -715,11 +645,7 @@
                     - ✅ Esp location<br>
                     - ✅ Main id safe all Servers</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/zcvwjx8pa4poh93/KuramaMods_Safe+1.5.apk/file')">📥 Descargar Kurama Mods V1.5 (.apk)</button>
-                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/pu4dm5wrobiflxc/Free_Fire_MAX_2.132.1.apks/file')" style="background: linear-gradient(135deg, #0284c7, #0369a1);">👻 Descargar Free Fire MAX (.apks)</button>
-                    <div class="key-container">
-                        <span class="key-text">KURAMA TRIAL</span>
-                        <button class="copy-btn" onclick="copyKey('KURAMA TRIAL', this)">📋 Copiar Key</button>
-                    </div>
+                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/pu4dm5wrobiflxc/Free_Fire_MAX_2.132.1.apks/file')" style="background: linear-gradient(135deg, #c084fc, #9333ea);">👻 Descargar Free Fire MAX (.apks)</button>
                     <div class="card-att">
                         <span class="att-text">Att: Fake Mods</span>
                         <button class="share-card-btn" onclick="shareCard('card-kurama-v15', '🔥 KURAMA MODS V1.5 ⚡')">🔗 Compartir</button>
@@ -769,7 +695,7 @@
                     <h3>💬 ZREX V2 APK 👹</h3>
                     <p>• 🤖 <b>Versión:</b> ZREX V2 (Root & Non Root).<br>• 🌐 <b>DNS Recomendado:</b> one.one.one.1 🕊️</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/rrh73qxurc0weph/ZREX+V2+ROOT+AND+NON+ROOT.apk/file')">📥 Descargar ZREX V2 (.apk)</button>
-                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/oplf0rqbyxop7b4/Free+Fire_1.132.1.apks/file')" style="background: linear-gradient(135deg, #0284c7, #0369a1);">🔥 Descargar Free Fire 1.132.1 (.apks)</button>
+                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/oplf0rqbyxop7b4/Free+Fire_1.132.1.apks/file')" style="background: linear-gradient(135deg, #c084fc, #9333ea);">🔥 Descargar Free Fire 1.132.1 (.apks)</button>
                     <div class="card-att">
                         <span class="att-text">Att: Fake Mods</span>
                         <button class="share-card-btn" onclick="shareCard('card-zrex-v2', '💬 ZREX V2 APK 👹')">🔗 Compartir</button>
@@ -786,7 +712,7 @@
                     <h3>🎯 4IMBOT MOBILE 100% CABEZA 💥</h3>
                     <p>• 📱 <b>Compatibilidad:</b> Android e iOS.<br>• 🛡️ <b>Seguridad:</b> Sin riesgo de baneo ni blacklist.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/5jbtk7fyrjbg6u7/4IMB0T.zip/file')">📥 Descargar 4IMBOT (.zip)</button>
-                    <a href="https://youtu.be/IXTAfFxq1wE?si=qZWmp0yUwzXdtxqk" target="_blank" class="btn btn-mediafire" style="background: linear-gradient(135deg, #0284c7, #0369a1);">🎬 Video Tutorial del Creador (YouTube)</a>
+                    <a href="https://youtu.be/IXTAfFxq1wE?si=qZWmp0yUwzXdtxqk" target="_blank" class="btn btn-mediafire" style="background: linear-gradient(135deg, #c084fc, #9333ea);">🎬 Video Tutorial del Creador (YouTube)</a>
                     <div class="card-att">
                         <span class="att-text">Att: Fake Mods</span>
                         <button class="share-card-btn" onclick="shareCard('card-4imbot', '🎯 4IMBOT MOBILE 100% CABEZA')">🔗 Compartir</button>
@@ -819,10 +745,6 @@
                     <h3>🔥 NETWORK GAME V17 ASTRA GLOBAL ⚡</h3>
                     <p>• ✅ <b>Sin Root</b> | Compatible con CS Rank / BR Rank<br>• 🥷 <b>Novedades:</b> Black List Corregido, Mayor Seguridad.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/4to2bik7kpm6t89/Network+Game+V17+PROXYS.apk/file')">📥 Descargar Network Game V17 (.apk)</button>
-                    <div class="key-container">
-                        <span class="key-text">NETWORK-GAME-10K</span>
-                        <button class="copy-btn" onclick="copyKey('NETWORK-GAME-10K', this)">📋 Copiar Key</button>
-                    </div>
                     <div class="card-att">
                         <span class="att-text">Att: Fake Mods</span>
                         <button class="share-card-btn" onclick="shareCard('card-network-v17', '🔥 NETWORK GAME V17 ASTRA GLOBAL')">🔗 Compartir</button>
@@ -839,10 +761,6 @@
                     <h3>💬 PROXY STIRLAX UPDATE ❗⚡</h3>
                     <p>• ⚡ <b>Versión:</b> Proxy Stirlax Actualizado.<br>• 🎮 <b>Compatibilidad:</b> Free Fire Normal.</p>
                     <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/ufv912wn6oh9w7b/PROXY+STIRLAX')">📥 Descargar Proxy Stirlax</button>
-                    <div class="key-container">
-                        <span class="key-text">STIRLAX-12H</span>
-                        <button class="copy-btn" onclick="copyKey('STIRLAX-12H', this)">📋 Copiar Key</button>
-                    </div>
                     <div class="card-att">
                         <span class="att-text">Att: Fake Mods</span>
                         <button class="share-card-btn" onclick="shareCard('card-proxy-stirlax', '💬 PROXY STIRLAX UPDATE')">🔗 Compartir</button>
@@ -933,15 +851,6 @@
 
         function closeBanner() {
             document.getElementById('announcementBanner').style.display = 'none';
-        }
-
-        function copyKey(text, btn) {
-            navigator.clipboard.writeText(text).then(() => {
-                let originalText = btn.innerText;
-                btn.innerText = '✅ ¡Copiado!';
-                btn.style.background = '#22c55e';
-                setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; }, 2000);
-            });
         }
 
         function shareCard(cardId, cardTitle) {
