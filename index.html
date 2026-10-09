@@ -233,6 +233,21 @@
 
         .search-box::placeholder { color: #555555; }
 
+        .section-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: #ffffff;
+            text-align: left;
+            margin: 20px 0 12px 5px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 4px solid #ffffff;
+            padding-left: 10px;
+        }
+
         .card {
             background: linear-gradient(135deg, rgba(12, 12, 12, 0.92), rgba(25, 25, 25, 0.85));
             border: 2px solid #333333;
@@ -255,6 +270,17 @@
             opacity: 0.9;
         }
 
+        /* ESTILO ESPECIAL PARA TARJETAS FIJADAS */
+        .card.pinned {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.95), rgba(15, 15, 15, 0.9));
+            border: 2px solid #ffffff;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 255, 255, 0.25);
+        }
+        .card.pinned::before {
+            background: linear-gradient(180deg, #ffffff, #888888);
+            width: 8px;
+        }
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -267,6 +293,7 @@
         .tag-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
         .tag-tested { background: linear-gradient(135deg, #222222, #111111); color: #ffffff; border: 1px solid #444; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
         .tag-new { background: linear-gradient(135deg, #444444, #1a1a1a); color: #ffffff; border: 1px solid #666; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; }
+        .tag-pinned { background: linear-gradient(135deg, #ffffff, #888888); color: #000000; font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; box-shadow: 0 0 10px rgba(255,255,255,0.5); }
         
         .card-att {
             margin-top: 12px;
@@ -426,7 +453,7 @@
 
             <div class="announcement-banner" id="announcementBanner">
                 <div class="announcement-text" id="bannerTextContent">
-                    📢 <b>AVISO @andresk1ng:</b> ¡NUEVO PROXY MENU SX2 TEAM V4 DISPONIBLE! 💀🦇
+                    📢 <b>AVISO @andresk1ng:</b> ¡NUEVA SECCIÓN DE FIJADOS DISPONIBLE! 🦇🔥
                 </div>
                 <button class="announcement-close" onclick="closeBanner()">✕</button>
             </div>
@@ -483,7 +510,34 @@
 
             <span class="counter-badge" id="card-counter">📌 ARCHIVOS DISPONIBLES (Máx. 15)</span>
 
+            <!-- SECCIÓN DE FIJADOS -->
+            <div class="section-title">📌 Archivos Fijados</div>
+
             <div id="cardsContainer">
+
+                <!-- TARJETA FIJADA -->
+                <div class="card pinned" id="card-carlos-mods-v20">
+                    <div class="card-header">
+                        <span class="card-date">📅 FIJADO: OFICIAL</span>
+                        <div class="tag-group">
+                            <span class="tag-pinned">📌 FIJADO</span>
+                            <span class="tag-tested">✅ FULL SOLO NORTE AMÉRICA</span>
+                        </div>
+                    </div>
+                    <h3>⚡ CARLOS MODS V20 👑</h3>
+                    <p>• 📶 <b>Optimización de lag y estabilidad avanzada.</b><br>
+                    • ⚠️ <b>NOTA IMPORTANTE:</b> FULL SOLO NORTE AMÉRICA.</p>
+                    
+                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/2hswv7nzcd71una/ꜰᴀᴋᴇ+ʟᴀɢ+ᴠ20👑.apk/file')">📥 Descargar Carlos Mods V20 (.apk)</button>
+                    
+                    <div class="card-att">
+                        <span class="att-text">@andresk1ng</span>
+                        <button class="share-card-btn" onclick="shareCard('card-carlos-mods-v20', '⚡ CARLOS MODS V20 (NORTE AMÉRICA)')">🔗 Compartir</button>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN GENERAL -->
+                <div class="section-title" style="margin-top: 25px;">📂 Todos los Archivos</div>
 
                 <div class="card" id="card-sx2team-proxy-v4">
                     <div class="card-header">
@@ -603,26 +657,6 @@
                     <div class="card-att">
                         <span class="att-text">@andresk1ng</span>
                         <button class="share-card-btn" onclick="shareCard('card-drip-wire', '🔥 DRIP WIRE')">🔗 Compartir</button>
-                    </div>
-                </div>
-
-                <div class="card" id="card-carlosping-v20">
-                    <div class="card-header">
-                        <span class="card-date">📅 SUBIDO: RECIENTE</span>
-                        <div class="tag-group">
-                            <span class="tag-new">🔥 CARLOS PING V20</span>
-                            <span class="tag-tested">✅ SAFE</span>
-                        </div>
-                    </div>
-                    <h3>⚡ CARLOS PING V20 👑</h3>
-                    <p>• 📶 <b>Optimización de lag y conexión estable en partidas.</b><br>
-                    • 🛡️ Herramienta esencial para mejorar el rendimiento en Free Fire.</p>
-                    
-                    <button class="btn btn-mediafire" onclick="startDownloadWithTimer('https://www.mediafire.com/file/2hswv7nzcd71una/ꜰᴀᴋᴇ+ʟᴀɢ+ᴠ20👑.apk/file')">📥 Descargar Carlos Ping V20 (.apk)</button>
-                    
-                    <div class="card-att">
-                        <span class="att-text">@andresk1ng</span>
-                        <button class="share-card-btn" onclick="shareCard('card-carlosping-v20', '⚡ CARLOS PING V20')">🔗 Compartir</button>
                     </div>
                 </div>
 
